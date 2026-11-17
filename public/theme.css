@@ -17,6 +17,176 @@ body * {
   font-family: "DM Sans", sans-serif !important;
 }
 
+body.arch-layout {
+  padding-left: 220px !important;
+}
+
+body.arch-layout .nav,
+body.arch-layout .side-nav {
+  display: none !important;
+}
+
+body.arch-layout .library-page {
+  max-width: none;
+  margin-left: 0 !important;
+}
+
+.arch-sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  padding: 2rem 1rem;
+  border-right: 1px solid var(--arch-border);
+  background: rgba(15, 15, 18, 0.76);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  backdrop-filter: blur(24px) saturate(150%);
+}
+
+.arch-sidebar-brand {
+  padding: 0.2rem 0.8rem 2.4rem;
+  color: #fff;
+  font-family: "Dancing Script", cursive !important;
+  font-size: 2.2rem;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.arch-sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.arch-sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-height: 46px;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.18s, border-color 0.18s, color 0.18s;
+}
+
+.arch-sidebar-link svg {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 auto;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.arch-sidebar-link:hover,
+.arch-sidebar-link.active {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.arch-disclaimer {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: rgba(0, 0, 0, 0.78);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+
+.arch-disclaimer-card {
+  width: min(100%, 520px);
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 28px;
+  background: rgba(24, 24, 27, 0.86);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.65), inset 0 1px rgba(255, 255, 255, 0.13);
+}
+
+.arch-disclaimer-brand {
+  margin-bottom: 0.7rem;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.arch-disclaimer-title {
+  margin-bottom: 1rem;
+  color: #fff;
+  font-family: "Dancing Script", cursive !important;
+  font-size: clamp(2.2rem, 8vw, 3rem);
+  line-height: 1.1;
+}
+
+.arch-disclaimer-copy {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.arch-disclaimer-note,
+.arch-disclaimer-error {
+  margin-top: 0.85rem;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.arch-disclaimer-error {
+  color: #ff9a9a;
+}
+
+.arch-disclaimer-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.arch-disclaimer-actions button {
+  min-height: 46px;
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.18s;
+}
+
+.arch-disclaimer-actions button:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.arch-disclaimer-actions .arch-accept {
+  border-color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.92);
+  color: #080808 !important;
+}
+
+.arch-disclaimer-actions .arch-accept:hover {
+  background: #fff;
+}
+
+body.arch-gated {
+  overflow: hidden !important;
+}
+
 h1,
 .wordmark,
 .page-title,
@@ -133,4 +303,74 @@ h1,
 
 #vanta-bg {
   background: #000 !important;
+}
+
+@media (max-width: 780px) {
+  body.arch-layout {
+    padding-left: 76px !important;
+  }
+
+  .arch-sidebar {
+    width: 76px;
+    align-items: center;
+    padding: 1.5rem 0.45rem;
+  }
+
+  .arch-sidebar-brand {
+    padding: 0.2rem 0 2rem;
+    font-size: 1.75rem;
+  }
+
+  .arch-sidebar-links {
+    width: 100%;
+  }
+
+  .arch-sidebar-link {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.3rem;
+    min-height: 56px;
+    padding: 0.35rem 0.1rem;
+    font-size: 0.63rem;
+  }
+
+  .arch-sidebar-link svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 520px) {
+  body.arch-layout {
+    padding-left: 0 !important;
+  }
+
+  .arch-sidebar {
+    inset: auto 0 0;
+    flex-direction: row;
+    width: auto;
+    height: 68px;
+    padding: 0.35rem 0.55rem;
+    border-top: 1px solid var(--arch-border);
+    border-right: 0;
+  }
+
+  .arch-sidebar-brand {
+    display: none;
+  }
+
+  .arch-sidebar-links {
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 0.2rem;
+  }
+
+  .arch-sidebar-link {
+    min-width: 52px;
+    flex: 1;
+  }
+
+  .arch-disclaimer-actions {
+    flex-direction: column-reverse;
+  }
 }

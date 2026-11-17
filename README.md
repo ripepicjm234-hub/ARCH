@@ -9,6 +9,8 @@ A self-hosted game library and media site with a dark liquid-glass interface.
 
 The server uses port `3000` by default. Set the `PORT` environment variable to use a different port.
 
+On first visit, accept the use notice to continue. Your choice is remembered in that browser; declining clears the site view.
+
 ## Add a game
 For a game you have permission to host, copy its files into `public/games/files/`. Keep the game's folder structure intact; for example, put the game's entry page at `public/games/files/my-game/index.html`. Add a thumbnail image under `public/games/thumbs/`, such as `my-game.jpg`.
 
