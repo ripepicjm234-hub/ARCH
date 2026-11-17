@@ -6,6 +6,30 @@
     try { const v = localStorage.getItem(k); return v === null ? def : JSON.parse(v); }
     catch { return def; }
   }
+  function loadSession(k, def) {
+    try { const v = sessionStorage.getItem(k); return v === null ? def : JSON.parse(v); }
+    catch { return def; }
+  }
+
+  function renderGuestProfile(profile) {
+    const panel = document.querySelector(".arch-guest-profile");
+    if (!panel) return;
+    panel.replaceChildren();
+    panel.hidden = !profile?.username;
+    if (panel.hidden) return;
+
+    const username = document.createElement("span");
+    username.className = "arch-profile-name";
+    username.textContent = profile.username;
+    const status = document.createElement("span");
+    status.className = "arch-profile-status";
+    status.textContent = `${profile.status || "Guest"} profile · temporary`;
+    const stats = document.createElement("span");
+    stats.className = "arch-profile-stats";
+    stats.textContent = `${profile.gamesPlayed ?? 0} games · ${profile.favorites ?? 0} favorites`;
+    panel.append(username, status, stats);
+  }
+
   function mountSidebar() {
     const currentPath = location.pathname;
     const links = [
@@ -17,7 +41,7 @@
     const sidebar = document.createElement("aside");
     sidebar.className = "arch-sidebar";
     sidebar.setAttribute("aria-label", "Main navigation");
-    sidebar.innerHTML = '<a class="arch-sidebar-brand" href="/">Arch</a><nav class="arch-sidebar-links"></nav>';
+    sidebar.innerHTML = '<a class="arch-sidebar-brand" href="/">Arch</a><nav class="arch-sidebar-links"></nav><div class="arch-guest-profile" hidden></div>';
     const nav = sidebar.querySelector(".arch-sidebar-links");
 
     links.forEach(({ href, label, icon }) => {
@@ -34,10 +58,11 @@
 
     document.body.classList.add("arch-layout");
     document.body.appendChild(sidebar);
+    renderGuestProfile(loadSession("arch_guest_profile", null));
   }
 
   function mountDisclaimer() {
-    if (load("arch_disclaimer_accepted", false)) return;
+    if (loadSession("arch_guest_profile", null)?.username) return;
 
     const overlay = document.createElement("div");
     overlay.className = "arch-disclaimer";
@@ -46,21 +71,54 @@
         <p class="arch-disclaimer-brand">Arch</p>
         <h1 class="arch-disclaimer-title" id="arch-disclaimer-title">Before you play</h1>
         <p class="arch-disclaimer-copy">Arch is intended for after-school browser gaming and educational use. Please follow your school's rules. If you choose to use Arch at school and get in trouble, Arch's maintainers are not responsible for disciplinary consequences.</p>
-        <p class="arch-disclaimer-note">Choose I Accept to continue. Your choice is saved in this browser.</p>
+        <p class="arch-disclaimer-note">Accept the notice, then choose a guest username to continue. Your guest profile is temporary and is not saved to an account.</p>
+        <div class="arch-guest-signup" hidden>
+          <h2 class="arch-guest-signup-title">Sign up as Guest</h2>
+          <label class="arch-username-label" for="arch-guest-username">Guest username</label>
+          <input class="arch-username-input" id="arch-guest-username" type="text" maxlength="24" autocomplete="off" placeholder="Choose a username" />
+          <p class="arch-stats-label">Starter profile stats</p>
+          <div class="arch-profile-stats-grid">
+            <div><strong>0</strong><span>Games played</span></div>
+            <div><strong>0</strong><span>Favorites</span></div>
+          </div>
+          <p class="arch-disclaimer-note">This profile exists only in this browser tab and resets when the tab session ends. No data is sent to a server.</p>
+        </div>
         <p class="arch-disclaimer-error" id="arch-disclaimer-error" role="alert"></p>
         <div class="arch-disclaimer-actions">
           <button type="button" class="arch-disagree">I Disagree</button>
           <button type="button" class="arch-accept">I Accept</button>
+          <button type="button" class="arch-start-guest" hidden>Sign Up as Guest</button>
         </div>
       </section>`;
 
     overlay.querySelector(".arch-accept").addEventListener("click", () => {
-      try {
-        localStorage.setItem("arch_disclaimer_accepted", "true");
-      } catch {
-        overlay.querySelector("#arch-disclaimer-error").textContent = "Your browser could not save this choice. Enable site storage and try again.";
+      overlay.querySelector(".arch-disclaimer-copy").hidden = true;
+      overlay.querySelector(".arch-disclaimer-note").hidden = true;
+      overlay.querySelector(".arch-guest-signup").hidden = false;
+      overlay.querySelector(".arch-accept").hidden = true;
+      overlay.querySelector(".arch-start-guest").hidden = false;
+      overlay.querySelector("#arch-guest-username").focus();
+    });
+
+    overlay.querySelector(".arch-start-guest").addEventListener("click", () => {
+      const usernameInput = overlay.querySelector("#arch-guest-username");
+      const username = usernameInput.value.trim();
+      const error = overlay.querySelector("#arch-disclaimer-error");
+      if (!username) {
+        error.textContent = "Enter a username to continue as a guest.";
+        usernameInput.focus();
         return;
       }
+
+      const profile = { username, status: "Guest", gamesPlayed: 0, favorites: 0 };
+      try {
+        sessionStorage.setItem("arch_guest_profile", JSON.stringify(profile));
+      } catch {
+        error.textContent = "Your browser could not keep a temporary guest profile. Enable session storage and try again.";
+        return;
+      }
+      window.ARCH_GUEST_PROFILE = profile;
+      renderGuestProfile(profile);
       document.body.classList.remove("arch-gated");
       overlay.remove();
     });

@@ -93,6 +93,36 @@ body.arch-layout .library-page {
   color: #fff;
 }
 
+.arch-guest-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: auto;
+  padding: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.arch-guest-profile[hidden],
+.arch-guest-signup[hidden],
+.arch-disclaimer-actions [hidden] {
+  display: none !important;
+}
+
+.arch-profile-name {
+  overflow-wrap: anywhere;
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.arch-profile-status,
+.arch-profile-stats {
+  color: rgba(255, 255, 255, 0.53);
+  font-size: 0.7rem;
+}
+
 .arch-disclaimer {
   position: fixed;
   inset: 0;
@@ -142,6 +172,72 @@ body.arch-layout .library-page {
   color: rgba(255, 255, 255, 0.48);
   font-size: 0.8rem;
   line-height: 1.6;
+}
+
+.arch-guest-signup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 1.15rem;
+}
+
+.arch-guest-signup-title {
+  margin-bottom: 0.1rem;
+  color: #fff;
+  font-size: 1.15rem;
+}
+
+.arch-username-label,
+.arch-stats-label {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.arch-username-input {
+  width: 100%;
+  min-height: 46px;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  outline: none;
+  background: rgba(0, 0, 0, 0.32);
+  color: #fff !important;
+  font-size: 0.9rem;
+}
+
+.arch-username-input:focus {
+  border-color: rgba(255, 255, 255, 0.62);
+}
+
+.arch-username-input::placeholder {
+  color: rgba(255, 255, 255, 0.38) !important;
+}
+
+.arch-profile-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.arch-profile-stats-grid div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.arch-profile-stats-grid strong {
+  color: #fff;
+  font-size: 1.15rem;
+}
+
+.arch-profile-stats-grid span {
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.72rem;
 }
 
 .arch-disclaimer-error {
@@ -357,6 +453,14 @@ h1,
 
   .arch-sidebar-brand {
     display: none;
+  }
+
+  .arch-guest-profile {
+    position: absolute;
+    right: 0.55rem;
+    bottom: calc(100% + 0.55rem);
+    width: min(240px, calc(100vw - 1.1rem));
+    margin: 0;
   }
 
   .arch-sidebar-links {
