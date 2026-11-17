@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Dancing+Script:wght@600;700&display=swap");
+
+:root {
+  color-scheme: dark;
+  --arch-glass: rgba(255, 255, 255, 0.075);
+  --arch-glass-strong: rgba(255, 255, 255, 0.12);
+  --arch-border: rgba(255, 255, 255, 0.16);
+}
+
+html,
+body {
+  background: #000 !important;
+}
+
+body,
+body * {
+  font-family: "DM Sans", sans-serif !important;
+}
+
+h1,
+.wordmark,
+.page-title,
+.modal-title,
+.add-box-title,
+.login-title,
+.dash-title,
+.playtest-title,
+.side-brand,
+.best-title {
+  font-family: "Dancing Script", cursive !important;
+  font-style: normal !important;
+}
+
+.nav {
+  border: 1px solid var(--arch-border) !important;
+  border-radius: 999px !important;
+  background: rgba(18, 18, 20, 0.68) !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55), inset 0 1px rgba(255, 255, 255, 0.16) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  backdrop-filter: blur(24px) saturate(150%);
+}
+
+.nav-btn,
+.nav-btn:hover {
+  border-radius: 999px !important;
+}
+
+.search-wrap,
+.add-box,
+.about-block,
+.ctrl-select,
+.ctrl-input,
+.add-input,
+.add-tabs,
+.add-btn,
+.upload-btn,
+.modal-close,
+.modal-full,
+.cat-btn,
+.page-btn,
+.key-record-btn,
+.login-box .field input,
+.btn,
+.card,
+.toast {
+  border-color: var(--arch-border) !important;
+  border-radius: 16px !important;
+  background: var(--arch-glass) !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.11) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(145%);
+  backdrop-filter: blur(20px) saturate(145%);
+}
+
+.search-wrap {
+  overflow: hidden;
+}
+
+.search-wrap:focus-within,
+.ctrl-select:focus,
+.ctrl-input:focus,
+.add-input:focus {
+  border-color: rgba(255, 255, 255, 0.48) !important;
+  background: var(--arch-glass-strong) !important;
+}
+
+.game-card,
+.game-thumb,
+.game-no-thumb,
+.game-overlay,
+.suggest-card,
+.add-game-card,
+.movie-card,
+.movie-poster,
+.movie-no-poster,
+.movie-overlay,
+.movie-play,
+.game-play,
+.game-delete,
+.add-thumb-preview {
+  border-radius: 18px !important;
+}
+
+.game-card,
+.movie-card {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+}
+
+.game-card:hover,
+.movie-card:hover {
+  transform: translateY(-3px);
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.section,
+.row {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.add-modal,
+.modal,
+.playtest-modal {
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+
+.ctrl-btn.primary,
+.add-btn.primary,
+.btn.primary {
+  border: 1px solid rgba(255, 255, 255, 0.48) !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+}
+
+#vanta-bg {
+  background: #000 !important;
+}

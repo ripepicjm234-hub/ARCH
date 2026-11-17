@@ -63,7 +63,7 @@
 
   // ── ALWAYS ABOUT:BLANK ──
   if (load("astriex_always_blank", false) && window.self === window.top) {
-    const cloakTitle   = load("astriex_cloak_title", "") || "Astriex";
+    const cloakTitle   = load("astriex_cloak_title", "") || "Arch";
     const cloakFavRaw  = load("astriex_cloak_favicon", "");
     const cloakFav     = cloakFavRaw === "custom" ? load("astriex_cloak_favicon_custom", "") : cloakFavRaw;
     const favicon      = cloakFav || (location.origin + "/img/favicon.ico");
@@ -80,7 +80,7 @@
         '<title>' + cloakTitle + '</title>' +
         '<link rel="icon" href="' + favicon + '">' +
         '</head>' +
-        '<body style="margin:0;padding:0;background:#2d2d2d;overflow:hidden">' +
+        '<body style="margin:0;padding:0;background:#000;overflow:hidden">' +
         '<iframe src="' + location.href + '" ' +
         'style="position:fixed;inset:0;width:100%;height:100%;border:none" allowfullscreen>' +
         '</iframe>' +

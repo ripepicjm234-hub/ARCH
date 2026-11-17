@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Media — Astriex</title>
+  <title>Media — Arch</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Instrument+Serif:ital@0;1&display=swap');
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -173,12 +173,13 @@
   /* CSS ANIMATED BACKGROUND */ 33%{transform:translate(3%,-2%) scale(1.04)} 66%{transform:translate(-2%,3%) scale(0.97)} 100%{transform:translate(2%,1%) scale(1.02)} } 33%{transform:translate(-3%,2%) scale(0.98)} 66%{transform:translate(2%,-3%) scale(1.03)} 100%{transform:translate(-1%,-1%) scale(1)} }
 
 </style>
+    <link rel="stylesheet" href="/theme.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js"></script>
 </head>
 <body>
 
-<span class="corner tl">Astriex</span>
+<span class="corner tl">Arch</span>
 
 <div class="page">
   <div class="page-header">
@@ -501,13 +502,13 @@
 <script>
 (function() {
   var pref; try { pref = JSON.parse(localStorage.getItem('astriex_background') || '"clouds"'); } catch(e) { pref = 'clouds'; }
-  if (pref === 'minimal') { document.getElementById('vanta-bg').style.background = '#2d2d2d'; return; }
+  if (pref === 'minimal') { document.getElementById('vanta-bg').style.background = '#000'; return; }
   var speed = pref === 'clouds_slow' ? 0.60 : 1.60;
   VANTA.CLOUDS({
     el: "#vanta-bg", mouseControls: false, touchControls: false, gyroControls: false,
-    minHeight: 200, minWidth: 200, backgroundColor: 0x333333, skyColor: 0x292929,
-    cloudColor: 0x444444, cloudShadowColor: 0x818181, sunColor: 0x747474,
-    sunGlareColor: 0x7c7c7c, sunlightColor: 0x474747, speed: speed
+    minHeight: 200, minWidth: 200, backgroundColor: 0x000000, skyColor: 0x000000,
+    cloudColor: 0x000000, cloudShadowColor: 0x000000, sunColor: 0x000000,
+    sunGlareColor: 0x000000, sunlightColor: 0x000000, speed: speed
   });
 })();
 </script>

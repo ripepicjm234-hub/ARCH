@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Games — Astriex</title>
+  <title>Games — Arch</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Instrument+Serif:ital@0;1&display=swap');
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -45,6 +45,53 @@
     .game-play svg { width: 9px; height: 9px; fill: white; stroke: none; }
     .game-name { font-size: 0.55rem; letter-spacing: 0.05em; line-height: 1.3; color: var(--white); }
 
+    .library-page { display: grid; grid-template-columns: minmax(0, 1fr) 250px; align-items: start; gap: 2rem; max-width: 1600px; min-height: 100vh; margin-left: 220px; padding: 2.5rem; }
+    .library-content { min-width: 0; }
+    .library-page .page { max-width: none; min-height: 0; margin: 0; padding: 0; }
+    .nav { display: none; }
+    .side-nav { position: fixed; inset: 0 auto 0 0; z-index: 300; display: flex; flex-direction: column; width: 220px; padding: 2rem 1rem; border-right: 1px solid rgba(255,255,255,0.12); background: rgba(15,15,18,0.72); -webkit-backdrop-filter: blur(24px) saturate(150%); backdrop-filter: blur(24px) saturate(150%); }
+    .side-brand { padding: 0.25rem 0.8rem 2.5rem; color: #fff; font-family: 'Dancing Script', cursive; font-size: 2.2rem; line-height: 1; text-decoration: none; }
+    .side-links { display: flex; flex-direction: column; gap: 0.45rem; }
+    .side-link { display: flex; align-items: center; min-height: 44px; padding: 0.7rem 0.9rem; border: 1px solid transparent; border-radius: 14px; color: rgba(255,255,255,0.62); font-size: 0.9rem; text-decoration: none; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+    .side-link:hover, .side-link.active { border-color: rgba(255,255,255,0.13); background: rgba(255,255,255,0.1); color: #fff; }
+    .side-caption { margin: auto 0.8rem 0.5rem; color: rgba(255,255,255,0.35); font-size: 0.7rem; }
+    .best-games { position: sticky; top: 2rem; padding: 1.1rem; border: 1px solid rgba(255,255,255,0.14); border-radius: 22px; background: rgba(255,255,255,0.055); -webkit-backdrop-filter: blur(20px) saturate(145%); backdrop-filter: blur(20px) saturate(145%); }
+    .best-header { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 1rem; }
+    .best-title { font-family: 'Dancing Script', cursive; font-size: 1.7rem; }
+    .best-subtitle { margin-top: 0.1rem; color: rgba(255,255,255,0.5); font-size: 0.7rem; }
+    .best-shuffle { padding: 0.45rem 0.65rem; border: 1px solid rgba(255,255,255,0.18); border-radius: 999px; background: rgba(255,255,255,0.08); color: #fff; font-size: 0.7rem; cursor: pointer; }
+    .best-shuffle:hover { background: rgba(255,255,255,0.16); }
+    .best-list { display: flex; flex-direction: column; gap: 0.65rem; }
+    .best-game { display: grid; grid-template-columns: 56px minmax(0,1fr); align-items: center; gap: 0.7rem; width: 100%; padding: 0.4rem; border: 1px solid rgba(255,255,255,0.08); border-radius: 15px; background: rgba(255,255,255,0.045); color: #fff; text-align: left; cursor: pointer; transition: transform 0.18s, background 0.18s; }
+    .best-game:hover { transform: translateX(2px); background: rgba(255,255,255,0.12); }
+    .best-thumb { width: 56px; height: 56px; border-radius: 11px; object-fit: cover; }
+    .best-game-name { overflow: hidden; font-size: 0.8rem; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+    .best-empty { padding: 1rem 0.25rem; color: rgba(255,255,255,0.55); font-size: 0.8rem; }
+    @media (max-width: 1050px) {
+      .library-page { grid-template-columns: minmax(0,1fr) 220px; gap: 1.25rem; padding: 1.5rem; }
+      .games-grid { grid-template-columns: repeat(auto-fill, minmax(115px, 1fr)); gap: 12px; }
+    }
+    @media (max-width: 780px) {
+      .side-nav { width: 76px; padding: 1.5rem 0.55rem; align-items: center; }
+      .side-brand { padding: 0.2rem 0 2rem; font-size: 1.75rem; }
+      .side-links { width: 100%; }
+      .side-link { justify-content: center; padding: 0.6rem 0.2rem; font-size: 0.72rem; }
+      .side-caption { display: none; }
+      .library-page { grid-template-columns: minmax(0,1fr); margin-left: 76px; padding: 1.25rem; }
+      .best-games { position: static; }
+      .best-list { display: grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); }
+    }
+    @media (max-width: 520px) {
+      .side-nav { inset: auto 0 0; flex-direction: row; width: auto; height: 66px; padding: 0.4rem 0.7rem; border-top: 1px solid rgba(255,255,255,0.12); border-right: 0; }
+      .side-brand { padding: 0 0.7rem 0 0; font-size: 1.5rem; }
+      .side-links { flex-direction: row; justify-content: flex-end; gap: 0.2rem; }
+      .side-link { min-height: 40px; padding: 0.45rem 0.55rem; font-size: 0.67rem; }
+      .library-page { margin-left: 0; padding: 1rem 1rem 5.5rem; }
+      .games-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .page { padding: 1.5rem 0.25rem; }
+      .controls { flex-wrap: wrap; }
+    }
+
     .empty-state { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; padding: 5rem 2rem; text-align: center; }
     .empty-title { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 1.8rem; color: #222; }
     .empty-sub { font-size: 0.55rem; color: #2a2a2a; letter-spacing: 0.2em; text-transform: uppercase; }
@@ -70,59 +117,6 @@
     .corner { position: fixed; font-size: 0.5rem; letter-spacing: 0.15em; text-transform: uppercase; color: #2a2a2a; }
     .corner.tl { top: 1.5rem; left: 1.5rem; }
     @keyframes fade-up { from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)} }
-
-    .suggest-card { background: rgba(0,0,0,0.2); border: 2px dashed rgba(255,255,255,0.15); border-radius: 10px; cursor: pointer; aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; transition: border-color 0.2s, background 0.2s; text-decoration: none; }
-    .suggest-card:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.05); }
-    .suggest-card svg { width: 28px; height: 28px; stroke: rgba(255,255,255,0.3); fill: none; stroke-width: 1.5; }
-    .suggest-card:hover svg { stroke: rgba(255,255,255,0.7); }
-    .suggest-label { font-size: 0.5rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
-    .suggest-card:hover .suggest-label { color: rgba(255,255,255,0.7); }
-    /* SUGGEST CARD */
-    .suggest-card { background: rgba(0,0,0,0.2); border: 2px dashed rgba(255,255,255,0.15); border-radius: 10px; cursor: pointer; aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; transition: border-color 0.2s, background 0.2s; text-decoration: none; }
-    .suggest-card:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.05); }
-    .suggest-card svg { width: 28px; height: 28px; stroke: rgba(255,255,255,0.3); fill: none; stroke-width: 1.5; }
-    .suggest-card:hover svg { stroke: rgba(255,255,255,0.7); }
-    .suggest-label { font-size: 0.5rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
-    .suggest-card:hover .suggest-label { color: rgba(255,255,255,0.7); }
-
-    /* ADD GAME CARD */
-    .add-game-card { background: rgba(0,0,0,0.2); border: 2px dashed rgba(255,255,255,0.15); border-radius: 10px; cursor: pointer; aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; transition: border-color 0.2s, background 0.2s; }
-    .add-game-card:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.05); }
-    .add-game-card svg { width: 28px; height: 28px; stroke: rgba(255,255,255,0.3); fill: none; stroke-width: 1.5; }
-    .add-game-card:hover svg { stroke: rgba(255,255,255,0.7); }
-    .add-game-label { font-size: 0.5rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
-    .add-game-card:hover .add-game-label { color: rgba(255,255,255,0.7); }
-
-    /* ADD GAME MODAL */
-    .add-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 600; align-items: center; justify-content: center; }
-    .add-modal.open { display: flex; }
-    .add-box { background: #0d0d0d; border: 1px solid rgba(255,255,255,0.1); width: 100%; max-width: 480px; padding: 2rem; display: flex; flex-direction: column; gap: 1.25rem; animation: fade-up 0.3s ease both; }
-    .add-box-title { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 1.5rem; color: #fff !important; }
-    .add-tabs { display: flex; gap: 0; border: 1px solid rgba(255,255,255,0.1); }
-    .add-tab { flex: 1; background: transparent; border: none; color: rgba(255,255,255,0.4); font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.6rem 0.5rem; cursor: pointer; transition: all 0.15s; border-right: 1px solid rgba(255,255,255,0.1); }
-    .add-tab:last-child { border-right: none; }
-    .add-tab.active { background: rgba(255,255,255,0.08); color: #fff; }
-    .add-tab:hover:not(.active) { color: rgba(255,255,255,0.7); }
-    .add-field { display: flex; flex-direction: column; gap: 0.4rem; }
-    .add-label { font-size: 0.5rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
-    .add-input { background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.15); color: #fff; font-family: 'Space Mono', monospace; font-size: 0.65rem; padding: 0.6rem 0.8rem; outline: none; width: 100%; transition: border-color 0.15s; }
-    .add-input:focus { border-color: rgba(255,255,255,0.6); }
-    .add-input::placeholder { color: rgba(255,255,255,0.2); }
-    .add-textarea { resize: vertical; min-height: 100px; font-size: 0.6rem; line-height: 1.5; }
-    .add-pane { display: none; flex-direction: column; gap: 1rem; }
-    .add-pane.active { display: flex; }
-    .add-thumb-row { display: flex; gap: 0.75rem; align-items: flex-start; }
-    .add-thumb-preview { width: 64px; height: 64px; border-radius: 8px; object-fit: cover; border: 1px solid rgba(255,255,255,0.1); flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); overflow: hidden; }
-    .add-thumb-preview img { width: 100%; height: 100%; object-fit: cover; }
-    .add-thumb-preview svg { width: 20px; height: 20px; stroke: rgba(255,255,255,0.2); fill: none; }
-    .add-row-btns { display: flex; gap: 0.5rem; justify-content: flex-end; }
-    .add-btn { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.55rem 1.1rem; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: rgba(255,255,255,0.6); cursor: pointer; transition: all 0.15s; }
-    .add-btn:hover { border-color: #fff; color: #fff; }
-    .add-btn.primary { background: rgba(255,255,255,0.9); color: #000 !important; border-color: transparent; }
-    .add-btn.primary:hover { background: #fff; }
-    .upload-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.55rem 1rem; border: 1px dashed rgba(255,255,255,0.25); background: transparent; color: rgba(255,255,255,0.5); cursor: pointer; transition: all 0.15s; width: 100%; justify-content: center; }
-    .upload-btn:hover { border-color: rgba(255,255,255,0.6); color: #fff; }
-    .upload-chosen { font-size: 0.55rem; color: rgba(255,255,255,0.5); text-align: center; margin-top: -0.5rem; }
 
     /* USER GAME DELETE BTN */
     .game-delete { position: absolute; top: 6px; right: 6px; width: 22px; height: 22px; background: rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 0.6rem; display: none; align-items: center; justify-content: center; cursor: pointer; border-radius: 4px; z-index: 10; line-height: 1; }
@@ -196,27 +190,51 @@
   /* CSS ANIMATED BACKGROUND */ 33%{transform:translate(3%,-2%) scale(1.04)} 66%{transform:translate(-2%,3%) scale(0.97)} 100%{transform:translate(2%,1%) scale(1.02)} } 33%{transform:translate(-3%,2%) scale(0.98)} 66%{transform:translate(2%,-3%) scale(1.03)} 100%{transform:translate(-1%,-1%) scale(1)} }
 
 </style>
+    <link rel="stylesheet" href="/theme.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js"></script>
 </head>
 <body>
 
-<span class="corner tl">Astriex</span>
+<aside class="side-nav" aria-label="Main navigation">
+  <a class="side-brand" href="/">Arch</a>
+  <nav class="side-links">
+    <a class="side-link" href="/">Home</a>
+    <a class="side-link active" href="/g" aria-current="page">Games</a>
+    <a class="side-link" href="/m">Media</a>
+    <a class="side-link" href="/s">Settings</a>
+  </nav>
+  <span class="side-caption">Your game library</span>
+</aside>
 
-<div class="page">
-  <div class="page-header">
-    <h1 class="page-title">Games</h1>
-  </div>
+<main class="library-page">
+  <section class="library-content">
+    <div class="page">
+      <div class="page-header">
+        <h1 class="page-title">Games</h1>
+      </div>
 
-  <div class="controls" id="controls" style="display:none">
-    <div class="search-wrap">
-      <input id="search-input" type="text" placeholder="search games..." autocomplete="off" spellcheck="false" />
+      <div class="controls" id="controls" style="display:none">
+        <div class="search-wrap">
+          <input id="search-input" type="text" placeholder="search games..." autocomplete="off" spellcheck="false" />
+        </div>
+      </div>
+
+      <div class="loader" id="loader"><div class="loader-dot"></div><div class="loader-dot"></div><div class="loader-dot"></div></div>
+      <div class="games-grid" id="games-grid"></div>
     </div>
-  </div>
-
-  <div class="loader" id="loader"><div class="loader-dot"></div><div class="loader-dot"></div><div class="loader-dot"></div></div>
-  <div class="games-grid" id="games-grid"></div>
-</div>
+  </section>
+  <aside class="best-games" aria-label="Random game recommendations">
+    <div class="best-header">
+      <div>
+        <h2 class="best-title">Best Games</h2>
+        <p class="best-subtitle">A fresh mix every visit</p>
+      </div>
+      <button class="best-shuffle" id="best-shuffle" type="button" aria-label="Shuffle recommended games">Shuffle</button>
+    </div>
+    <div class="best-list" id="best-list" aria-live="polite"></div>
+  </aside>
+</main>
 
 <div class="modal" id="game-modal">
   <div class="modal-header">
@@ -283,7 +301,49 @@
     const merged = [...allGames, ...userGames];
     document.getElementById("controls").style.display = "flex";
     renderGames(merged);
+    renderBestGames(merged);
     document.getElementById("loader").style.display = "none";
+  }
+
+  function renderBestGames(games) {
+    const list = document.getElementById("best-list");
+    const shuffled = [...games];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    list.replaceChildren();
+
+    shuffled.slice(0, 5).forEach(game => {
+      const button = document.createElement("button");
+      button.className = "best-game";
+      button.type = "button";
+      button.addEventListener("click", () => openGame(game));
+
+      if (game.thumbnail) {
+        const thumbnail = document.createElement("img");
+        thumbnail.className = "best-thumb";
+        thumbnail.src = game.thumbnail;
+        thumbnail.alt = "";
+        thumbnail.loading = "lazy";
+        button.appendChild(thumbnail);
+      } else {
+        const thumbnail = document.createElement("span");
+        thumbnail.className = "best-thumb";
+        thumbnail.setAttribute("aria-hidden", "true");
+        button.appendChild(thumbnail);
+      }
+
+      const title = document.createElement("span");
+      title.className = "best-game-name";
+      title.textContent = game.title;
+      button.appendChild(title);
+      list.appendChild(button);
+    });
+
+    if (!shuffled.length) {
+      list.innerHTML = '<p class="best-empty">No games to recommend yet.</p>';
+    }
   }
 
   function renderGames(games) {
@@ -294,22 +354,6 @@
     if (!games.length) { renderEmpty(); return; }
 
     games = [...games].sort((a, b) => a.title.localeCompare(b.title));
-
-    // Suggest card
-    const suggestCard = document.createElement("a");
-    suggestCard.className = "suggest-card";
-    suggestCard.href = "https://docs.google.com/forms/d/e/1FAIpQLScF9N42An_0b6aJ_GBgF1ksfDqkGkw7ni_tzxN25Y611UjJ6A/viewform";
-    suggestCard.target = "_blank";
-    suggestCard.rel = "noopener";
-    suggestCard.innerHTML = `<svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span class="suggest-label">Suggest Game</span>`;
-    grid.appendChild(suggestCard);
-
-    // Add Game card
-    const addCard = document.createElement("div");
-    addCard.className = "add-game-card";
-    addCard.innerHTML = `<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span class="add-game-label">Add Game</span>`;
-    addCard.addEventListener("click", openAddModal);
-    grid.appendChild(addCard);
 
     games.forEach((game, i) => {
       const card = document.createElement("div");
@@ -338,7 +382,7 @@
     document.getElementById("games-grid").innerHTML = `
       <div class="empty-state">
         <div class="empty-title">No games yet</div>
-        <p class="empty-sub">Add a game to get started</p>
+        <p class="empty-sub">No games found</p>
       </div>`;
   }
 
@@ -368,101 +412,6 @@
   }
 
 
-  // ── ADD GAME SYSTEM ──
-  let addTab = "url";
-  let submitType = "url";
-  let uploadedFileContent = null;
-  let submitFileContent = null;
-  let thumbDataUrl = null;
-
-  function switchSubmitType(type) {
-    submitType = type;
-    ["url","upload","paste"].forEach(t => {
-      document.getElementById("submit-type-" + t).style.display = t === type ? "block" : "none";
-      const btn = document.getElementById("stype-" + t);
-      btn.style.borderColor = t === type ? "rgba(255,255,255,0.8)" : "rgba(255,255,255,0.2)";
-      btn.style.color = t === type ? "#fff" : "rgba(255,255,255,0.6)";
-    });
-  }
-
-  function onSubmitFileChosen(e) {
-    const file = e.target.files[0];
-    if (!file) return;
-    document.getElementById("submit-upload-chosen").textContent = file.name;
-    const reader = new FileReader();
-    reader.onload = ev => { submitFileContent = ev.target.result; };
-    reader.readAsText(file);
-    if (!document.getElementById("add-title").value) {
-      document.getElementById("add-title").value = file.name.replace(/\.html?$/i, "").replace(/[-_]/g, " ");
-    }
-  }
-
-  function openAddModal() {
-    document.getElementById("add-modal").classList.add("open");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeAddModal() {
-    document.getElementById("add-modal").classList.remove("open");
-    document.body.style.overflow = "";
-    // Reset
-    document.getElementById("add-url").value = "";
-    document.getElementById("add-title").value = "";
-    document.getElementById("add-thumb-url").value = "";
-    document.getElementById("add-paste").value = "";
-    if(document.getElementById("submit-url")) document.getElementById("submit-url").value = "";
-    if(document.getElementById("submit-paste")) document.getElementById("submit-paste").value = "";
-    if(document.getElementById("submit-upload-chosen")) document.getElementById("submit-upload-chosen").textContent = "";
-    submitFileContent = null;
-    submitType = "url";
-    switchSubmitType("url");
-    document.getElementById("upload-chosen").textContent = "";
-    document.getElementById("thumb-preview").innerHTML = '<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>';
-    uploadedFileContent = null;
-    thumbDataUrl = null;
-  }
-
-  function switchAddTab(tab) {
-    addTab = tab;
-    document.querySelectorAll(".add-tab").forEach((t, i) => {
-      t.classList.toggle("active", ["url","upload","paste","submit"][i] === tab);
-    });
-    document.querySelectorAll(".add-pane").forEach(p => p.classList.remove("active"));
-    document.getElementById("add-pane-" + tab).classList.add("active");
-  }
-
-  function onFileChosen(e) {
-    const file = e.target.files[0];
-    if (!file) return;
-    document.getElementById("upload-chosen").textContent = file.name;
-    const reader = new FileReader();
-    reader.onload = ev => { uploadedFileContent = ev.target.result; };
-    reader.readAsText(file);
-    // Auto-fill title from filename
-    if (!document.getElementById("add-title").value) {
-      document.getElementById("add-title").value = file.name.replace(/\.html?$/i, "").replace(/[-_]/g, " ");
-    }
-  }
-
-  function onThumbFile(e) {
-    const file = e.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = ev => {
-      thumbDataUrl = ev.target.result;
-      document.getElementById("thumb-preview").innerHTML = '<img src="' + thumbDataUrl + '" />';
-    };
-    reader.readAsDataURL(file);
-  }
-
-  function previewThumb() {
-    const url = document.getElementById("add-thumb-url").value.trim();
-    if (url) {
-      thumbDataUrl = null;
-      document.getElementById("thumb-preview").innerHTML = '<img src="' + url + '" onerror="this.style.display=\'none\'" />';
-    }
-  }
-
   function getUserGames() {
     try { return JSON.parse(localStorage.getItem("astriex_user_games") || "[]"); }
     catch { return []; }
@@ -478,65 +427,6 @@
     reloadGames();
   }
 
-  async function saveGame() {
-    const title = document.getElementById("add-title").value.trim();
-    if (!title) { alert("Please enter a title."); return; }
-    const thumbUrl = thumbDataUrl || document.getElementById("add-thumb-url").value.trim() || null;
-
-    // ── SUBMIT TO SITE (goes to admin review, not saved locally)
-    if (addTab === "submit") {
-      let payload = { title, thumbnail: thumbUrl };
-      if (submitType === "url") {
-        const url = document.getElementById("submit-url").value.trim();
-        if (!url) { alert("Please enter a URL."); return; }
-        payload.url = url;
-      } else if (submitType === "upload") {
-        if (!submitFileContent) { alert("Please choose an HTML file."); return; }
-        payload.blobContent = submitFileContent;
-      } else if (submitType === "paste") {
-        const html = document.getElementById("submit-paste").value.trim();
-        if (!html) { alert("Please paste some HTML."); return; }
-        payload.blobContent = html;
-      }
-      try {
-        const submitEndpoint = (window.ASTRIEX_CENTRAL_API || "/api/community-games").replace("/api/community-games", "/api/submit");
-        const r = await fetch(submitEndpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
-        });
-        const data = await r.json();
-        if (!r.ok) throw new Error(data.error || "Failed");
-        closeAddModal();
-        alert("Submitted for review! It will appear on the site if approved.");
-      } catch(e) { alert("Submission failed: " + e.message); }
-      return;
-    }
-
-    // ── ADD LOCALLY (url, upload, paste tabs)
-    const id = "user-" + Date.now();
-    const game = { id, title, thumbnail: thumbUrl, _user: true };
-
-    if (addTab === "url") {
-      const url = document.getElementById("add-url").value.trim();
-      if (!url) { alert("Please enter a URL."); return; }
-      game.url = url;
-    } else if (addTab === "upload") {
-      if (!uploadedFileContent) { alert("Please choose an HTML file."); return; }
-      game.blobContent = uploadedFileContent;
-    } else if (addTab === "paste") {
-      const html = document.getElementById("add-paste").value.trim();
-      if (!html) { alert("Please paste some HTML."); return; }
-      game.blobContent = html;
-    }
-
-    const existing = getUserGames();
-    existing.push(game);
-    saveUserGames(existing);
-    closeAddModal();
-    reloadGames();
-  }
-
   function reloadGames() {
     const userGames = getUserGames().map(g => ({ ...g, _user: true }));
     allGames = [...allGames.filter(g => !g._user), ...userGames];
@@ -549,107 +439,14 @@
     const all = [...allGames.filter(g => !g._user), ...userGames];
     renderGames(q ? all.filter(g => g.title.toLowerCase().includes(q)) : all);
   });
+  document.getElementById("best-shuffle").addEventListener("click", () => {
+    const userGames = getUserGames().map(g => ({ ...g, _user: true }));
+    renderBestGames([...allGames.filter(g => !g._user), ...userGames]);
+  });
   document.addEventListener("keydown", e => { if (e.key === "Escape") closeGame(); });
 
   loadGames();
 </script>
-
-<!-- ADD GAME MODAL -->
-<div class="add-modal" id="add-modal">
-  <div class="add-box">
-    <div class="add-box-title">Add a Game</div>
-
-    <!-- Tabs -->
-    <div class="add-tabs">
-      <button class="add-tab active" onclick="switchAddTab('url')">Link / URL</button>
-      <button class="add-tab" onclick="switchAddTab('upload')">Upload HTML</button>
-      <button class="add-tab" onclick="switchAddTab('paste')">Paste HTML</button>
-      <button class="add-tab" onclick="switchAddTab('submit')">Submit to Site</button>
-    </div>
-
-    <!-- URL pane -->
-    <div class="add-pane active" id="add-pane-url">
-      <div class="add-field">
-        <label class="add-label">Game URL</label>
-        <input class="add-input" id="add-url" type="text" placeholder="https://game-site.com" />
-      </div>
-    </div>
-
-    <!-- Upload pane -->
-    <div class="add-pane" id="add-pane-upload">
-      <label class="upload-btn" for="add-file-input">
-        <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-        Choose HTML File
-      </label>
-      <input type="file" id="add-file-input" accept=".html,.htm" style="display:none" onchange="onFileChosen(event)" />
-      <div class="upload-chosen" id="upload-chosen"></div>
-    </div>
-
-    <!-- Paste pane -->
-    <div class="add-pane" id="add-pane-paste">
-      <div class="add-field">
-        <label class="add-label">Paste HTML Code</label>
-        <textarea class="add-input add-textarea" id="add-paste" placeholder="<!DOCTYPE html>..."></textarea>
-      </div>
-    </div>
-    <!-- Submit pane -->
-    <div class="add-pane" id="add-pane-submit">
-      <div style="font-size:0.55rem;line-height:1.8;color:rgba(255,255,255,0.45);">Submit a game for review. If approved it will appear on the site for everyone.</div>
-      <div style="display:flex;gap:0.4rem;margin-top:0.25rem;">
-        <button class="add-btn" id="stype-url" onclick="switchSubmitType('url')" style="flex:1;font-size:0.5rem;padding:0.4rem 0.5rem;">Link</button>
-        <button class="add-btn" id="stype-upload" onclick="switchSubmitType('upload')" style="flex:1;font-size:0.5rem;padding:0.4rem 0.5rem;">Upload HTML</button>
-        <button class="add-btn" id="stype-paste" onclick="switchSubmitType('paste')" style="flex:1;font-size:0.5rem;padding:0.4rem 0.5rem;">Paste HTML</button>
-      </div>
-      <div id="submit-type-url">
-        <div class="add-field">
-          <label class="add-label">Game URL</label>
-          <input class="add-input" id="submit-url" type="text" placeholder="https://game-site.com" />
-        </div>
-      </div>
-      <div id="submit-type-upload" style="display:none">
-        <label class="upload-btn" for="submit-file-input">
-          <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-          Choose HTML File
-        </label>
-        <input type="file" id="submit-file-input" accept=".html,.htm" style="display:none" onchange="onSubmitFileChosen(event)" />
-        <div class="upload-chosen" id="submit-upload-chosen"></div>
-      </div>
-      <div id="submit-type-paste" style="display:none">
-        <div class="add-field">
-          <label class="add-label">Paste HTML Code</label>
-          <textarea class="add-input add-textarea" id="submit-paste" placeholder="<!DOCTYPE html>..."></textarea>
-        </div>
-      </div>
-    </div>
-
-    <!-- Shared fields -->
-    <div class="add-field">
-      <label class="add-label">Game Title</label>
-      <input class="add-input" id="add-title" type="text" placeholder="My Game" />
-    </div>
-
-    <div class="add-field">
-      <label class="add-label">Thumbnail</label>
-      <div class="add-thumb-row">
-        <div class="add-thumb-preview" id="thumb-preview">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        </div>
-        <div style="flex:1;display:flex;flex-direction:column;gap:0.5rem;">
-          <input class="add-input" id="add-thumb-url" type="text" placeholder="Image URL (optional)" oninput="previewThumb()" />
-          <label class="upload-btn" for="add-thumb-file" style="padding:0.4rem 0.75rem;font-size:0.5rem;">
-            Upload Image
-          </label>
-          <input type="file" id="add-thumb-file" accept="image/*" style="display:none" onchange="onThumbFile(event)" />
-        </div>
-      </div>
-    </div>
-
-    <div class="add-row-btns">
-      <button class="add-btn" onclick="closeAddModal()">Cancel</button>
-      <button class="add-btn primary" onclick="saveGame()">Add Game</button>
-    </div>
-  </div>
-</div>
 
 <script src="/uv/uv.bundle.js"></script>
 <script src="/uv/uv.config.js"></script>
@@ -658,13 +455,13 @@
 <script>
 (function() {
   var pref; try { pref = JSON.parse(localStorage.getItem('astriex_background') || '"clouds"'); } catch(e) { pref = 'clouds'; }
-  if (pref === 'minimal') { document.getElementById('vanta-bg').style.background = '#2d2d2d'; return; }
+  if (pref === 'minimal') { document.getElementById('vanta-bg').style.background = '#000'; return; }
   var speed = pref === 'clouds_slow' ? 0.60 : 1.60;
   VANTA.CLOUDS({
     el: "#vanta-bg", mouseControls: false, touchControls: false, gyroControls: false,
-    minHeight: 200, minWidth: 200, backgroundColor: 0x333333, skyColor: 0x292929,
-    cloudColor: 0x444444, cloudShadowColor: 0x818181, sunColor: 0x747474,
-    sunGlareColor: 0x7c7c7c, sunlightColor: 0x474747, speed: speed
+    minHeight: 200, minWidth: 200, backgroundColor: 0x000000, skyColor: 0x000000,
+    cloudColor: 0x000000, cloudShadowColor: 0x000000, sunColor: 0x000000,
+    sunGlareColor: 0x000000, sunlightColor: 0x000000, speed: speed
   });
 })();
 </script>
