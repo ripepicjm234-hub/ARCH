@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Games — Arch</title>
+  <link rel="icon" type="image/svg+xml" href="/img/arch-logo.svg" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Instrument+Serif:ital@0;1&display=swap');
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -119,7 +120,7 @@
     @keyframes fade-up { from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)} }
 
     /* USER GAME DELETE BTN */
-    .game-delete { position: absolute; top: 6px; right: 6px; width: 22px; height: 22px; background: rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 0.6rem; display: none; align-items: center; justify-content: center; cursor: pointer; border-radius: 4px; z-index: 10; line-height: 1; }
+    .game-delete { position: absolute; top: 6px; left: 6px; width: 22px; height: 22px; background: rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 0.6rem; display: none; align-items: center; justify-content: center; cursor: pointer; border-radius: 4px; z-index: 10; line-height: 1; }
     .game-card:hover .game-delete { display: flex; }
 
   
@@ -218,8 +219,10 @@
         <div class="search-wrap">
           <input id="search-input" type="text" placeholder="search games..." autocomplete="off" spellcheck="false" />
         </div>
+        <button class="favorites-filter" id="favorites-filter" type="button" aria-pressed="false">Favorites</button>
       </div>
 
+      <p class="profile-message" id="profile-message" role="status" hidden></p>
       <div class="loader" id="loader"><div class="loader-dot"></div><div class="loader-dot"></div><div class="loader-dot"></div></div>
       <div class="games-grid" id="games-grid"></div>
     </div>
@@ -256,6 +259,87 @@
 
 <script>
   let allGames = [];
+  let favoritesOnly = false;
+  let profileMessageTimer;
+
+  function getGuestProfile() {
+    return typeof window.ARCH_GET_GUEST_PROFILE === "function" ? window.ARCH_GET_GUEST_PROFILE() : null;
+  }
+
+  function saveGuestProfile(profile) {
+    if (typeof window.ARCH_SAVE_GUEST_PROFILE !== "function" || !window.ARCH_SAVE_GUEST_PROFILE(profile)) {
+      showProfileMessage("Could not save your guest profile in this tab. Try closing other tabs or using a smaller profile picture.");
+      return false;
+    }
+    return true;
+  }
+
+  function showProfileMessage(message) {
+    const notice = document.getElementById("profile-message");
+    notice.textContent = message;
+    notice.hidden = false;
+    clearTimeout(profileMessageTimer);
+    profileMessageTimer = setTimeout(() => { notice.hidden = true; }, 3500);
+  }
+
+  function gameIdentity(game) {
+    return String(game.id || game.file || game.url || game.title);
+  }
+
+  function getCatalogGames() {
+    return [...allGames.filter(game => !game._user), ...getUserGames().map(game => ({ ...game, _user: true }))];
+  }
+
+  function renderCurrentGames() {
+    const query = document.getElementById("search-input").value.trim().toLowerCase();
+    const profile = getGuestProfile();
+    const favoriteIds = new Set((profile?.favorites || []).map(game => game.id));
+    const visible = getCatalogGames().filter(game =>
+      (!favoritesOnly || favoriteIds.has(gameIdentity(game))) &&
+      (!query || game.title.toLowerCase().includes(query))
+    );
+    renderGames(visible);
+  }
+
+  function updateFavoriteButton(button, game) {
+    const profile = getGuestProfile();
+    const isFavorite = (profile?.favorites || []).some(item => item.id === gameIdentity(game));
+    button.textContent = isFavorite ? "★" : "☆";
+    button.classList.toggle("active", isFavorite);
+    button.setAttribute("aria-label", `${isFavorite ? "Remove" : "Add"} ${game.title} ${isFavorite ? "from" : "to"} favorites`);
+    button.title = isFavorite ? "Remove from favorites" : "Add to favorites";
+  }
+
+  function toggleFavorite(game) {
+    const profile = getGuestProfile();
+    if (!profile) {
+      showProfileMessage("Sign up as a guest to save favorites in this tab.");
+      return;
+    }
+    const id = gameIdentity(game);
+    const exists = profile.favorites.some(item => item.id === id);
+    profile.favorites = exists
+      ? profile.favorites.filter(item => item.id !== id)
+      : [...profile.favorites, { id, title: game.title }];
+    if (saveGuestProfile(profile)) {
+      renderCurrentGames();
+      showProfileMessage(exists ? `${game.title} removed from favorites.` : `${game.title} added to favorites.`);
+    }
+  }
+
+  function recordGamePlayed(game) {
+    const profile = getGuestProfile();
+    if (!profile) {
+      showProfileMessage("Sign up as a guest to track games played in this tab.");
+      return;
+    }
+    const id = gameIdentity(game);
+    profile.playedGames = [
+      ...profile.playedGames.filter(item => item.id !== id),
+      { id, title: game.title }
+    ];
+    if (saveGuestProfile(profile)) showProfileMessage(`${game.title} added to Games Played.`);
+  }
 
   function fullscreenGame() {
     const el = document.getElementById("game-iframe");
@@ -365,6 +449,15 @@
         : `<div class="game-no-thumb"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h4M8 10v4"/><circle cx="15" cy="11" r="1" fill="currentColor"/><circle cx="17" cy="13" r="1" fill="currentColor"/></svg></div>
            <div class="game-overlay"><div class="game-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><div class="game-name">${game.title}</div></div>`;
       card.addEventListener("click", () => openGame(game));
+      const favorite = document.createElement("button");
+      favorite.className = "game-favorite";
+      favorite.type = "button";
+      favorite.addEventListener("click", event => {
+        event.stopPropagation();
+        toggleFavorite(game);
+      });
+      updateFavoriteButton(favorite, game);
+      card.appendChild(favorite);
       // Delete button for user-added games
       if (game._user) {
         const del = document.createElement("button");
@@ -382,11 +475,12 @@
     document.getElementById("games-grid").innerHTML = `
       <div class="empty-state">
         <div class="empty-title">No games yet</div>
-        <p class="empty-sub">No games found</p>
+        <p class="empty-sub">${favoritesOnly ? "No favorite games yet" : "No games found"}</p>
       </div>`;
   }
 
   function openGame(game) {
+    recordGamePlayed(game);
     document.getElementById("modal-title").textContent = game.title;
     document.getElementById("game-modal").classList.add("open");
     document.body.style.overflow = "hidden";
@@ -428,16 +522,17 @@
   }
 
   function reloadGames() {
-    const userGames = getUserGames().map(g => ({ ...g, _user: true }));
-    allGames = [...allGames.filter(g => !g._user), ...userGames];
-    renderGames(allGames);
+    renderCurrentGames();
   }
 
   document.getElementById("search-input").addEventListener("input", e => {
-    const q = e.target.value.trim().toLowerCase();
-    const userGames = getUserGames().map(g => ({ ...g, _user: true }));
-    const all = [...allGames.filter(g => !g._user), ...userGames];
-    renderGames(q ? all.filter(g => g.title.toLowerCase().includes(q)) : all);
+    renderCurrentGames();
+  });
+  document.getElementById("favorites-filter").addEventListener("click", event => {
+    favoritesOnly = !favoritesOnly;
+    event.currentTarget.setAttribute("aria-pressed", String(favoritesOnly));
+    event.currentTarget.classList.toggle("active", favoritesOnly);
+    renderCurrentGames();
   });
   document.getElementById("best-shuffle").addEventListener("click", () => {
     const userGames = getUserGames().map(g => ({ ...g, _user: true }));

@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arch</title>
+  <link rel="icon" type="image/svg+xml" href="/img/arch-logo.svg" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Instrument+Serif:ital@0;1&display=swap');
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -38,7 +39,8 @@
 
     /* ── PAGE CONTENT ── */
     .page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; padding: 2rem; padding-bottom: 6rem; }
-    .wordmark { font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(3rem, 8vw, 6rem); letter-spacing: -0.02em; line-height: 1; margin-bottom: 0.15em; animation: fade-up 0.8s ease both; }
+    .wordmark { display: flex; align-items: center; gap: 0.22em; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(3rem, 8vw, 6rem); letter-spacing: -0.02em; line-height: 1; margin-bottom: 0.15em; animation: fade-up 0.8s ease both; }
+    .wordmark img { width: 0.78em; height: 0.78em; }
     .tagline { font-size: 0.65rem; color: var(--gray); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 3rem; animation: fade-up 0.8s 0.1s ease both; }
     .search-wrap { display: flex; width: 100%; max-width: 560px; border: 1px solid #2a2a2a; background: #111; animation: fade-up 0.8s 0.2s ease both; transition: border-color 0.2s; }
     .search-wrap:focus-within { border-color: var(--white); }
@@ -135,7 +137,7 @@
 <span class="corner br">v1.1.0</span>
 
 <div class="page">
-  <h1 class="wordmark">Arch</h1>
+  <h1 class="wordmark"><img src="/img/arch-logo.svg" alt="" />Arch</h1>
   <p class="tagline">BETA</p>
   <div class="search-wrap">
     <input id="url-input" type="text" placeholder="enter a url or search query..." autocomplete="off" spellcheck="false" />

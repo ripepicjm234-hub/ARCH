@@ -9,7 +9,7 @@ A self-hosted game library and media site with a dark liquid-glass interface.
 
 The server uses port `3000` by default. Set the `PORT` environment variable to use a different port.
 
-On each new tab session, accept the use notice and choose a guest username to continue. Guest profile details and starter stats are temporary for that tab only; no account or server-side data is saved. Declining clears the site view.
+On each new tab session, accept the use notice and choose a guest username to continue. Guest profiles can include a picture, track games launched and favorites, and download a profile report with those details. All profile data stays temporary in that tab only; no account or server-side data is saved. Declining clears the site view.
 
 ## Add a game
 For a game you have permission to host, copy its files into `public/games/files/`. Keep the game's folder structure intact; for example, put the game's entry page at `public/games/files/my-game/index.html`. Add a thumbnail image under `public/games/thumbs/`, such as `my-game.jpg`.

@@ -19,6 +19,11 @@ body * {
 
 body.arch-layout {
   padding-left: 220px !important;
+  transition: padding-left 0.2s ease;
+}
+
+body.arch-layout.arch-sidebar-collapsed {
+  padding-left: 72px !important;
 }
 
 body.arch-layout .nav,
@@ -44,15 +49,96 @@ body.arch-layout .library-page {
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
   -webkit-backdrop-filter: blur(24px) saturate(150%);
   backdrop-filter: blur(24px) saturate(150%);
+  transition: width 0.2s ease, padding 0.2s ease, height 0.2s ease;
+}
+
+.arch-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  padding-bottom: 2rem;
 }
 
 .arch-sidebar-brand {
-  padding: 0.2rem 0.8rem 2.4rem;
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.2rem 0.1rem;
   color: #fff;
   font-family: "Dancing Script", cursive !important;
   font-size: 2.2rem;
   line-height: 1;
   text-decoration: none;
+}
+
+.arch-sidebar-brand span {
+  font-family: "Dancing Script", cursive !important;
+}
+
+.arch-sidebar-brand img {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+}
+
+.arch-sidebar-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+  padding: 0;
+  border: 1px solid var(--arch-border);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+
+.arch-sidebar-toggle:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.arch-sidebar-toggle svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+body.arch-sidebar-collapsed .arch-sidebar {
+  width: 72px;
+  align-items: center;
+  padding: 1.5rem 0.45rem;
+}
+
+body.arch-sidebar-collapsed .arch-sidebar-header {
+  flex-direction: column;
+  padding-bottom: 1.5rem;
+}
+
+body.arch-sidebar-collapsed .arch-sidebar-brand span,
+body.arch-sidebar-collapsed .arch-sidebar-link span,
+body.arch-sidebar-collapsed .arch-guest-profile {
+  display: none !important;
+}
+
+body.arch-sidebar-collapsed .arch-sidebar-links {
+  width: 100%;
+}
+
+body.arch-sidebar-collapsed .arch-sidebar-link {
+  justify-content: center;
+  padding: 0.7rem 0.2rem;
 }
 
 .arch-sidebar-links {
@@ -117,10 +203,124 @@ body.arch-layout .library-page {
   font-weight: 700;
 }
 
+.arch-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+}
+
+.arch-profile-avatar {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  place-items: center;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  cursor: pointer;
+}
+
+.arch-profile-avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.arch-profile-avatar-fallback {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.arch-profile-info {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
 .arch-profile-status,
 .arch-profile-stats {
   color: rgba(255, 255, 255, 0.53);
   font-size: 0.7rem;
+}
+
+.arch-profile-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+
+.arch-profile-stat {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.045);
+  color: #fff;
+  text-align: left;
+  cursor: pointer;
+}
+
+.arch-profile-stat:hover,
+.arch-profile-stat[aria-expanded="true"] {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.arch-profile-stat strong {
+  font-size: 0.95rem;
+}
+
+.arch-profile-stat span {
+  font-size: 0.61rem;
+}
+
+.arch-profile-details {
+  max-height: 150px;
+  overflow: auto;
+  padding: 0.5rem 0.65rem;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.25);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.68rem;
+}
+
+.arch-profile-details ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.arch-profile-details li + li {
+  margin-top: 0.25rem;
+}
+
+.arch-profile-action {
+  width: 100%;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.68rem;
+  cursor: pointer;
+}
+
+.arch-profile-action:hover {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.arch-profile-error {
+  margin: 0;
+  color: #ff9a9a;
+  font-size: 0.65rem;
+  line-height: 1.4;
 }
 
 .arch-disclaimer {
@@ -145,11 +345,19 @@ body.arch-layout .library-page {
 }
 
 .arch-disclaimer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   margin-bottom: 0.7rem;
   color: rgba(255, 255, 255, 0.62);
   font-size: 0.75rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+}
+
+.arch-disclaimer-brand img {
+  width: 32px;
+  height: 32px;
 }
 
 .arch-disclaimer-title {
@@ -210,6 +418,36 @@ body.arch-layout .library-page {
   border-color: rgba(255, 255, 255, 0.62);
 }
 
+.arch-pfp-input {
+  width: 100%;
+  padding: 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.28);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.72rem;
+}
+
+.arch-signup-pfp-preview {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.75rem;
+}
+
+.arch-signup-pfp-preview[hidden] {
+  display: none !important;
+}
+
+.arch-signup-pfp-preview img {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .arch-username-input::placeholder {
   color: rgba(255, 255, 255, 0.38) !important;
 }
@@ -238,6 +476,58 @@ body.arch-layout .library-page {
 .arch-profile-stats-grid span {
   color: rgba(255, 255, 255, 0.52);
   font-size: 0.72rem;
+}
+
+.favorites-filter {
+  padding: 0.65rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.favorites-filter:hover,
+.favorites-filter.active {
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.game-favorite {
+  position: absolute;
+  z-index: 3;
+  top: 6px;
+  right: 6px;
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.72);
+  color: #fff;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.game-favorite.active {
+  color: #ffd76a !important;
+}
+
+.profile-message {
+  margin: 0 0 1rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.75rem;
+}
+
+.profile-message[hidden] {
+  display: none !important;
 }
 
 .arch-disclaimer-error {
@@ -406,6 +696,10 @@ h1,
     padding-left: 76px !important;
   }
 
+  body.arch-layout.arch-sidebar-collapsed {
+    padding-left: 64px !important;
+  }
+
   .arch-sidebar {
     width: 76px;
     align-items: center;
@@ -413,8 +707,37 @@ h1,
   }
 
   .arch-sidebar-brand {
-    padding: 0.2rem 0 2rem;
-    font-size: 1.75rem;
+    justify-content: center;
+    padding: 0 0 1.5rem;
+    font-size: 1rem;
+  }
+
+  .arch-sidebar-brand span {
+    display: none;
+  }
+
+  .arch-sidebar-header {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .arch-sidebar-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  body.arch-sidebar-collapsed .arch-sidebar {
+    width: 64px;
+  }
+
+  body.arch-sidebar-collapsed .arch-sidebar-header {
+    padding-bottom: 1rem;
+  }
+
+  body.arch-sidebar-collapsed .arch-sidebar-brand img {
+    width: 30px;
+    height: 30px;
   }
 
   .arch-sidebar-links {
@@ -453,6 +776,25 @@ h1,
 
   .arch-sidebar-brand {
     display: none;
+  }
+
+  .arch-sidebar-header {
+    display: contents;
+  }
+
+  .arch-sidebar-toggle {
+    height: 40px;
+    width: 40px;
+    margin-right: 0.25rem;
+  }
+
+  body.arch-sidebar-collapsed .arch-sidebar {
+    height: 48px;
+  }
+
+  body.arch-sidebar-collapsed .arch-sidebar-link {
+    min-height: 40px;
+    padding: 0.35rem 0.2rem;
   }
 
   .arch-guest-profile {
