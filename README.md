@@ -11,6 +11,8 @@ The server uses port `3000` by default. Set the `PORT` environment variable to u
 
 On each new tab session, accept the use notice and choose a guest username to continue. Guest profiles can include a picture, track games launched and favorites, and download a profile report with those details. All profile data stays temporary in that tab only; no account or server-side data is saved. Declining clears the site view.
 
+Select **Take a tour** in the sidebar for a guided overview of Home, Games, Media, and Settings. The tour highlights each part as it explains it.
+
 ## Add a game
 For a game you have permission to host, copy its files into `public/games/files/`. Keep the game's folder structure intact; for example, put the game's entry page at `public/games/files/my-game/index.html`. Add a thumbnail image under `public/games/thumbs/`, such as `my-game.jpg`.
 

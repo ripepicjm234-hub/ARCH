@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Games — Arch</title>
-  <link rel="icon" type="image/svg+xml" href="/img/arch-logo.svg" />
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Instrument+Serif:ital@0;1&display=swap');
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,11 +28,11 @@
     .search-wrap input { flex: 1; background: transparent; border: none; outline: none; color: var(--white); font-family: 'Space Mono', monospace; font-size: 0.75rem; padding: 0.65rem 1rem; caret-color: var(--white); }
     .search-wrap input::placeholder { color: #333; }
 
-    /* 6-COL GRID */
-    .games-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; background: transparent; padding: 0.5rem; animation: fade-up 0.6s 0.2s ease both; }
-    @media (max-width: 1100px) { .games-grid { grid-template-columns: repeat(5, 1fr); } }
-    @media (max-width: 900px)  { .games-grid { grid-template-columns: repeat(4, 1fr); } }
-    @media (max-width: 680px)  { .games-grid { grid-template-columns: repeat(3, 1fr); } }
+    /* Larger game cards with fewer columns at each screen size. */
+    .games-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; background: transparent; padding: 0.5rem; animation: fade-up 0.6s 0.2s ease both; }
+    @media (max-width: 1100px) { .games-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+    @media (max-width: 900px)  { .games-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    @media (max-width: 680px)  { .games-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     @media (max-width: 460px)  { .games-grid { grid-template-columns: repeat(2, 1fr); } }
 
     .game-card { background: transparent; cursor: pointer; position: relative; overflow: hidden; transition: filter 0.2s; border-radius: 10px; }
@@ -70,7 +70,7 @@
     .best-empty { padding: 1rem 0.25rem; color: rgba(255,255,255,0.55); font-size: 0.8rem; }
     @media (max-width: 1050px) {
       .library-page { grid-template-columns: minmax(0,1fr) 220px; gap: 1.25rem; padding: 1.5rem; }
-      .games-grid { grid-template-columns: repeat(auto-fill, minmax(115px, 1fr)); gap: 12px; }
+      .games-grid { grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); gap: 12px; }
     }
     @media (max-width: 780px) {
       .side-nav { width: 76px; padding: 1.5rem 0.55rem; align-items: center; }
@@ -215,7 +215,7 @@
         <h1 class="page-title">Games</h1>
       </div>
 
-      <div class="controls" id="controls" style="display:none">
+      <div class="controls" id="controls">
         <div class="search-wrap">
           <input id="search-input" type="text" placeholder="search games..." autocomplete="off" spellcheck="false" />
         </div>
