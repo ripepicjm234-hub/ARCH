@@ -71,7 +71,12 @@
     "thumbnail": "/games/thumbs/monkey-mart.jpg",
     "file": "/games/files/monkey-mart/index.html"
   },
-
+{
+  "id": "minecraftnew",
+  "title": "minecraft",
+  "thumbnail": "",
+  "url": "https://incariclient.org/horizon-26-3-beta/"
+},
 {
     "id": "snow-rider",
     "title": "Snow Rider 3D",
