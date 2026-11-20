@@ -7,9 +7,129 @@
   --arch-border: rgba(255, 255, 255, 0.16);
 }
 
-html,
+html {
+  background: #08090d !important;
+}
+
 body {
-  background: #000 !important;
+  isolation: isolate;
+  background: transparent !important;
+}
+
+body::after {
+  position: fixed;
+  inset: -30%;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 28%, rgba(145, 170, 220, 0.16), transparent 24%),
+    radial-gradient(circle at 78% 68%, rgba(218, 180, 218, 0.11), transparent 20%),
+    radial-gradient(circle at 56% 18%, rgba(120, 205, 190, 0.09), transparent 18%);
+  filter: blur(18px);
+  opacity: 1;
+  will-change: transform;
+  animation: ambient-orbits 18s ease-in-out infinite alternate;
+}
+
+@keyframes ambient-orbits {
+  0% { transform: translate3d(-4%, -3%, 0) rotate(-2deg) scale(1); }
+  50% { transform: translate3d(5%, 2%, 0) rotate(3deg) scale(1.08); }
+  100% { transform: translate3d(-2%, 7%, 0) rotate(-1deg) scale(1.03); }
+}
+
+.arch-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 10040;
+  display: grid;
+  place-items: center;
+  background: #08090d;
+  transition: opacity 0.45s ease, visibility 0.45s ease;
+}
+
+.arch-loader.done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.arch-loader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.arch-loader-brand {
+  font-family: "Dancing Script", cursive !important;
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  line-height: 1;
+}
+
+.arch-loader-track {
+  width: 132px;
+  height: 2px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.arch-loader-joke {
+  max-width: min(520px, calc(100vw - 3rem));
+  min-height: 2.4em;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: clamp(0.65rem, 2vw, 0.82rem);
+  line-height: 1.5;
+  text-align: center;
+}
+
+.arch-loader-track::after {
+  display: block;
+  width: 55%;
+  height: 100%;
+  content: "";
+  background: #fff;
+  animation: arch-loading-bar 1s ease-in-out infinite;
+}
+
+@keyframes arch-loading-bar {
+  0% { transform: translateX(-110%); }
+  100% { transform: translateX(290%); }
+}
+
+body::before {
+  position: fixed;
+  inset: -35%;
+  z-index: -1;
+  display: block !important;
+  content: "";
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(108deg, transparent 0 7%, rgba(198, 207, 238, 0.045) 9%, transparent 12%),
+    linear-gradient(108deg, #090a0d 5%, #1b1e29 31%, #0a0b10 53%, #20232d 77%, #090a0d 95%);
+  background-size: 300% 200%, 300% 200%;
+  background-position: 50% 50%;
+  filter: blur(28px);
+  opacity: 0.72;
+  mask-image: radial-gradient(ellipse at 100% 0%, #000 12%, transparent 72%);
+  animation: ambient-drift 70s linear infinite;
+}
+
+body[data-bg-style="clouds_slow"]::before {
+  animation-duration: 140s;
+}
+
+body[data-bg-style="minimal"]::before,
+body[data-bg-style="minimal"]::after {
+  display: none !important;
+}
+
+@keyframes ambient-drift {
+  to { background-position: 350% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before, body::after { animation: none; }
 }
 
 body,
@@ -368,7 +488,7 @@ body.arch-sidebar-collapsed .arch-sidebar-tour span {
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.12);
   color: #fff;
-  cursor: pointer;
+  cursor: default;
 }
 
 .arch-profile-avatar-image {
@@ -823,10 +943,6 @@ h1,
   border: 1px solid rgba(255, 255, 255, 0.48) !important;
   border-radius: 999px !important;
   background: rgba(255, 255, 255, 0.92) !important;
-}
-
-#vanta-bg {
-  background: #000 !important;
 }
 
 @media (max-width: 780px) {

@@ -77,6 +77,23 @@
     .about-row { display: flex; justify-content: space-between; }
     .about-key { font-size: 0.55rem; color: rgba(255,255,255,0.35); }
     .about-val { font-size: 0.55rem; color: rgba(255,255,255,0.6); }
+    .profile-settings-card { padding: 1rem; border: 1px solid rgba(255,255,255,0.09); background: rgba(0,0,0,0.22); }
+    .profile-settings-avatar-row, .profile-settings-actions { display: flex; align-items: center; gap: 0.8rem; }
+    .profile-settings-avatar { width: 72px; height: 72px; display: grid; place-items: center; overflow: hidden; border: 1px solid rgba(255,255,255,0.22); border-radius: 50%; background: rgba(255,255,255,0.09); font-size: 1.6rem; }
+    .profile-settings-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .profile-settings-avatar-controls { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .profile-settings-stats { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0.6rem; margin-top: 0.8rem; }
+    .profile-settings-stats div { display: flex; flex-direction: column; gap: 0.2rem; padding: 0.7rem; border: 1px solid rgba(255,255,255,0.09); background: rgba(255,255,255,0.04); }
+    .profile-settings-stats strong { font-size: 1.2rem; }
+    .profile-settings-stats span { color: rgba(255,255,255,0.55); font-size: 0.55rem; }
+    .profile-settings-lists { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0.6rem; margin-top: 0.6rem; }
+    .profile-settings-lists div { max-height: 180px; overflow: auto; padding: 0.7rem; border: 1px solid rgba(255,255,255,0.08); }
+    .profile-settings-lists strong { font-size: 0.62rem; }
+    .profile-settings-lists ul { margin-top: 0.45rem; padding-left: 1rem; color: rgba(255,255,255,0.68); font-size: 0.58rem; }
+    .profile-settings-lists li + li { margin-top: 0.25rem; }
+    .profile-settings-error { min-height: 1em; margin: 0.6rem 0; color: #ff9a9a; font-size: 0.58rem; }
+    .ctrl-btn.danger { border-color: rgba(255,120,120,0.35); }
+    @media (max-width: 560px) { .profile-settings-lists { grid-template-columns: 1fr; } }
 
     /* VANTA */
   
@@ -85,12 +102,8 @@
     .corner.tl { top: 1.5rem; left: 1.5rem; }
     @keyframes fade-up { from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)} }
   
-  /* CSS ANIMATED BACKGROUND */ 33%{transform:translate(3%,-2%) scale(1.04)} 66%{transform:translate(-2%,3%) scale(0.97)} 100%{transform:translate(2%,1%) scale(1.02)} } 33%{transform:translate(-3%,2%) scale(0.98)} 66%{transform:translate(2%,-3%) scale(1.03)} 100%{transform:translate(-1%,-1%) scale(1)} }
-
 </style>
     <link rel="stylesheet" href="/theme.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js"></script>
 </head>
 <body>
 
@@ -99,6 +112,41 @@
 <div class="page">
   <div class="page-header">
     <h1 class="page-title">Settings</h1>
+  </div>
+
+  <!-- PROFILE -->
+  <div class="section" id="profile-settings">
+    <p class="section-label">Profile</p>
+    <div class="profile-settings-card">
+      <div class="profile-settings-avatar-row">
+        <div class="profile-settings-avatar" id="profile-avatar-preview"><span id="profile-avatar-fallback">A</span></div>
+        <div class="profile-settings-avatar-controls">
+          <label class="ctrl-btn" for="profile-pfp-input">Change Profile Picture</label>
+          <input id="profile-pfp-input" type="file" accept="image/png,image/jpeg,image/webp" hidden />
+          <button class="ctrl-btn" id="remove-profile-pfp" type="button">Remove Picture</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-info">
+          <span class="row-name">Username</span>
+          <span class="row-desc">Shown in your saved profile</span>
+        </div>
+        <div class="row-control"><input class="ctrl-input" id="profile-username" type="text" maxlength="24" autocomplete="off" /></div>
+      </div>
+      <div class="profile-settings-stats">
+        <div><strong id="profile-played-count">0</strong><span>Games Played</span></div>
+        <div><strong id="profile-favorite-count">0</strong><span>Favorites</span></div>
+      </div>
+      <div class="profile-settings-lists">
+        <div><strong>Played Games</strong><ul id="profile-played-list"></ul></div>
+        <div><strong>Favorites</strong><ul id="profile-favorite-list"></ul></div>
+      </div>
+      <p class="profile-settings-error" id="profile-settings-error" role="status"></p>
+      <div class="profile-settings-actions">
+        <button class="ctrl-btn" id="save-profile" type="button">Save Profile</button>
+        <button class="ctrl-btn danger" id="clear-profile-games" type="button">Clear Game History</button>
+      </div>
+    </div>
   </div>
 
   <!-- SEARCH ENGINE -->
@@ -175,8 +223,8 @@
       </div>
       <div class="row-control">
         <select class="ctrl-select" id="bg-style">
-          <option value="clouds">Clouds (full)</option>
-          <option value="clouds_slow">Clouds (lightweight)</option>
+          <option value="clouds">Ambient (animated)</option>
+          <option value="clouds_slow">Ambient (slow)</option>
           <option value="minimal">Minimal (solid)</option>
         </select>
       </div>
@@ -319,6 +367,111 @@
     }
   }
 
+  function getProfile() {
+    try {
+      const profile = load("arch_guest_profile", null);
+      if (profile?.username) return profile;
+      const sessionProfile = sessionStorage.getItem("arch_guest_profile");
+      if (sessionProfile) {
+        const migrated = JSON.parse(sessionProfile);
+        save("arch_guest_profile", migrated);
+        sessionStorage.removeItem("arch_guest_profile");
+        return migrated;
+      }
+    } catch {}
+    return null;
+  }
+
+  let pendingProfileAvatar = null;
+
+  function renderProfileSettings(preservePendingAvatar = false) {
+    const profile = getProfile();
+    const username = document.getElementById("profile-username");
+    const preview = document.getElementById("profile-avatar-preview");
+    const fallback = document.getElementById("profile-avatar-fallback");
+    const played = profile?.playedGames || [];
+    const favorites = profile?.favorites || [];
+    username.value = profile?.username || "";
+    if (!preservePendingAvatar) pendingProfileAvatar = profile?.avatar || "";
+    preview.querySelector("img")?.remove();
+    if (pendingProfileAvatar) {
+      const image = document.createElement("img");
+      image.src = pendingProfileAvatar;
+      image.alt = "";
+      preview.appendChild(image);
+      fallback.hidden = true;
+    } else {
+      fallback.hidden = false;
+      fallback.textContent = (profile?.username || "A").trim().charAt(0).toUpperCase();
+    }
+    document.getElementById("profile-played-count").textContent = String(played.length);
+    document.getElementById("profile-favorite-count").textContent = String(favorites.length);
+    const fillList = (id, items, emptyText) => {
+      const list = document.getElementById(id);
+      list.replaceChildren();
+      (items.length ? items : [{ title: emptyText }]).forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item.title;
+        list.appendChild(li);
+      });
+    };
+    fillList("profile-played-list", played, "No games played yet.");
+    fillList("profile-favorite-list", favorites, "No favorites yet.");
+  }
+
+  document.getElementById("profile-pfp-input").addEventListener("change", event => {
+    const file = event.target.files[0];
+    const error = document.getElementById("profile-settings-error");
+    if (!file) return;
+    if (!["image/png", "image/jpeg", "image/webp"].includes(file.type)) {
+      error.textContent = "Choose a PNG, JPEG, or WebP image.";
+      return;
+    }
+    if (file.size > 1024 * 1024) {
+      error.textContent = "Choose an image smaller than 1 MB.";
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = () => {
+      pendingProfileAvatar = String(reader.result);
+      const preview = document.getElementById("profile-avatar-preview");
+      preview.querySelector("img")?.remove();
+      const image = document.createElement("img");
+      image.src = pendingProfileAvatar;
+      preview.appendChild(image);
+      document.getElementById("profile-avatar-fallback").hidden = true;
+      error.textContent = "";
+    };
+    reader.readAsDataURL(file);
+  });
+
+  document.getElementById("remove-profile-pfp").addEventListener("click", () => {
+    pendingProfileAvatar = "";
+    renderProfileSettings(true);
+  });
+
+  document.getElementById("save-profile").addEventListener("click", () => {
+    const profile = getProfile() || { status: "Guest", playedGames: [], favorites: [] };
+    const username = document.getElementById("profile-username").value.trim();
+    const error = document.getElementById("profile-settings-error");
+    if (!username) {
+      error.textContent = "Enter a username before saving.";
+      return;
+    }
+    save("arch_guest_profile", { ...profile, username, status: "Guest", avatar: pendingProfileAvatar });
+    renderProfileSettings();
+    error.textContent = "Profile saved on this device.";
+  });
+
+  document.getElementById("clear-profile-games").addEventListener("click", () => {
+    const profile = getProfile();
+    if (!profile) return;
+    if (!window.confirm("Clear played games and favorites?")) return;
+    save("arch_guest_profile", { ...profile, playedGames: [], favorites: [] });
+    renderProfileSettings();
+    document.getElementById("profile-settings-error").textContent = "Game history cleared.";
+  });
+
   // ── POPULATE ALL FIELDS FROM LOCALSTORAGE ──
   function loadSettings() {
     document.getElementById("search-engine").value    = load("astriex_search", "https://duckduckgo.com/?q=");
@@ -338,9 +491,10 @@
     document.getElementById("panic-key-display").textContent = load("astriex_panic_key", "") || "—";
     document.getElementById("panic-custom-url").value = load("astriex_panic_custom_url", "");
     document.getElementById("anti-close").checked     = load("astriex_anti_close", false);
-    document.getElementById("bg-style").value         = load("astriex_background", "minimal");
+    document.getElementById("bg-style").value         = load("astriex_background", "clouds");
     document.getElementById("always-blank").checked   = load("astriex_always_blank", false);
     toggleCustomPanicRow();
+    renderProfileSettings();
     checkSW();
   }
 
@@ -441,19 +595,5 @@
 <script src="/uv/uv.bundle.js"></script>
 <script src="/uv/uv.config.js"></script>
 <script src="/global.js"></script>
-<div id="vanta-bg" style="position:fixed;inset:0;z-index:-1;width:100%;height:100%;"></div>
-<script>
-(function() {
-  var pref; try { pref = JSON.parse(localStorage.getItem('astriex_background') || '"clouds"'); } catch(e) { pref = 'clouds'; }
-  if (pref === 'minimal') { document.getElementById('vanta-bg').style.background = '#000'; return; }
-  var speed = pref === 'clouds_slow' ? 0.60 : 1.60;
-  VANTA.CLOUDS({
-    el: "#vanta-bg", mouseControls: false, touchControls: false, gyroControls: false,
-    minHeight: 200, minWidth: 200, backgroundColor: 0x000000, skyColor: 0x000000,
-    cloudColor: 0x000000, cloudShadowColor: 0x000000, sunColor: 0x000000,
-    sunGlareColor: 0x000000, sunlightColor: 0x000000, speed: speed
-  });
-})();
-</script>
 </body>
 </html>

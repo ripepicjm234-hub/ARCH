@@ -18,6 +18,13 @@
     "file": "/games/files/vicecity/index.html"
   },
   {
+    "id": "gta-5",
+    "title": "gta 5",
+    "thumbnail": "/games/thumbs/images.png",
+    "direct": true,
+    "url": "https://fiveplay.lol/"
+  },
+  {
     "id": "idle-breakout",
     "title": "Idle Breakout",
     "thumbnail": "/games/thumbs/idle-breakout.jpg",
@@ -48,12 +55,6 @@
     "file": "/games/files/slope/index.html"
   },
   {
-    "id": "tanuki-sunset",
-    "title": "Tanuki Sunset",
-    "thumbnail": "/games/thumbs/tanuki-sunset.jpg",
-    "file": "/games/files/tanuki-sunset/index.html"
-  },
-  {
     "id": "space-wave",
     "title": "Space Wave",
     "thumbnail": "/games/thumbs/space-wave.jpg",
@@ -71,8 +72,7 @@
     "thumbnail": "/games/thumbs/monkey-mart.jpg",
     "file": "/games/files/monkey-mart/index.html"
   },
-
-{
+  {
     "id": "snow-rider",
     "title": "Snow Rider 3D",
     "thumbnail": "/games/thumbs/snow-rider.jpg",
@@ -84,8 +84,7 @@
     "thumbnail": "/games/thumbs/tag.jpg",
     "file": "/games/files/tag/index.html"
   },
-
-{
+  {
     "id": "polytrack",
     "title": "Polytrack",
     "thumbnail": "/games/thumbs/polytrack.jpg",
@@ -102,6 +101,12 @@
     "title": "Geometry Dash",
     "thumbnail": "/games/thumbs/geometry-dash.jpg",
     "file": "/games/files/geometrydash/index.html"
+  },
+  {
+    "id": "gdlite",
+    "title": "Geometry Dash Lite",
+    "thumbnail": "/games/thumbs/images (1).jpeg",
+    "file": "/games/files/gdlite.html"
   },
   {
     "id": "cluster-rush",
@@ -146,10 +151,11 @@
     "file": "/games/files/non-folder/gun_spin.html"
   },
   {
-    "id": "crazy-cattle-3d",
-    "title": "Crazy Cattle 3D",
-    "thumbnail": "/games/thumbs/cc3d.png",
-    "file": "/games/files/non-folder/crazy_cattle_3d.html"
+    "id": "call-of-duty-black-ops-2",
+    "title": "call of duty black ops 2",
+    "thumbnail": "/games/thumbs/COD-BO2.webp",
+    "direct": true,
+    "url": "https://vel.gg/bsz"
   },
   {
     "id": "bitlife",
@@ -175,7 +181,7 @@
     "thumbnail": "/games/thumbs/gladihoppers.jpg",
     "file": "/games/files/non-folder/gladdihoppers.html"
   },
-{
+  {
     "id": "bart blast",
     "title": "Bart Blast",
     "thumbnail": "/games/thumbs/bart-blast.jpeg",
@@ -186,5 +192,1627 @@
     "title": "ULTRAKILL",
     "thumbnail": "/games/thumbs/ultrakill.jpg",
     "file": "/games/files/ultrakill/index.html"
+  },
+  {
+    "id": "minecraft-story-mode",
+    "title": "minecraft story mode",
+    "thumbnail": "/games/thumbs/Minecraft_Story_Mode_Square_Icon.webp",
+    "direct": true,
+    "url": "https://mcsm-web.pages.dev/"
+  },
+  {
+    "id": "helox-launcher",
+    "title": "helox launcher",
+    "thumbnail": "/games/thumbs/Red Pixelated Amazing Heart Card .png",
+    "direct": true,
+    "url": "https://scvjn9z4db-ops.github.io/BNALauncher/"
+  },
+  {
+    "id": "selenite-deal",
+    "title": "Deal or No Deal",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/deal/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/deal/index.html"
+  },
+  {
+    "id": "selenite-skills",
+    "title": "Soccer Skills",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/skills/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/skills/index.html"
+  },
+  {
+    "id": "selenite-slope3",
+    "title": "Slope 3",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/slope3/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/slope3/index.html"
+  },
+  {
+    "id": "selenite-snow",
+    "title": "Snowball Fighter",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/snow/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/snow/index.html"
+  },
+  {
+    "id": "selenite-space",
+    "title": "Spacebar Clicker",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/space/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/space/index.html"
+  },
+  {
+    "id": "selenite-pi",
+    "title": "π Client",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/pi/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/pi/index.html"
+  },
+  {
+    "id": "selenite-pre",
+    "title": "Precision Client",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/pre/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/pre/index.html"
+  },
+  {
+    "id": "selenite-shadow",
+    "title": "Shadow Client",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/shadow/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/shadow/index.html"
+  },
+  {
+    "id": "selenite-xp",
+    "title": "Windows XP",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/xp/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/xp/index.html"
+  },
+  {
+    "id": "selenite-drag",
+    "title": "Dragon Client",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/drag/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/drag/index.html"
+  },
+  {
+    "id": "selenite-ayun",
+    "title": "Ayuncraft 1.5.2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ayun/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ayun/index.html"
+  },
+  {
+    "id": "selenite-inf",
+    "title": "Minecraft Infdev",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/inf/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/inf/index.html"
+  },
+  {
+    "id": "selenite-minesweeper",
+    "title": "Minesweeper",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/minesweeper/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/minesweeper/index.html"
+  },
+  {
+    "id": "selenite-poom",
+    "title": "POOM",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/poom/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/poom/index.html"
+  },
+  {
+    "id": "selenite-solitaire",
+    "title": "Solitaire",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/solitaire/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/solitaire/index.html"
+  },
+  {
+    "id": "selenite-spankthemonkey",
+    "title": "Spank the Monkey",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/spankthemonkey/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/spankthemonkey/index.html"
+  },
+  {
+    "id": "selenite-cmm-client",
+    "title": "CMM Client",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/cmm-client/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/cmm-client/index.html"
+  },
+  {
+    "id": "selenite-pool",
+    "title": "Pool",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/pool/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/pool/index.html"
+  },
+  {
+    "id": "selenite-yohoho",
+    "title": "Yohoho.io",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/yohoho/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/yohoho/index.html"
+  },
+  {
+    "id": "selenite-tube-jumpers",
+    "title": "Tube Jumpers",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/tube-jumpers/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/tube-jumpers/index.html"
+  },
+  {
+    "id": "selenite-hillclimbracing2",
+    "title": "Hill Climb Racing 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/hillclimbracing2/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/hillclimbracing2/index.html"
+  },
+  {
+    "id": "selenite-doom",
+    "title": "DOOM",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/doom/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/doom/index.html"
+  },
+  {
+    "id": "selenite-awesometanks",
+    "title": "Awesome Tanks",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/awesometanks/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/awesometanks/index.html"
+  },
+  {
+    "id": "selenite-bubbleshooter",
+    "title": "Bubble Shooter",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/bubbleshooter/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/bubbleshooter/index.html"
+  },
+  {
+    "id": "selenite-pong",
+    "title": "Pong",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/pong/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/pong/index.html"
+  },
+  {
+    "id": "selenite-flappyplane",
+    "title": "Flappy Plane",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/flappyplane/favicon.ico",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/flappyplane/index.html"
+  },
+  {
+    "id": "selenite-adofai",
+    "title": "A Dance of Fire & Ice",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/adofai/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/adofai/index.html"
+  },
+  {
+    "id": "selenite-online-mc",
+    "title": "Resent Client",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/online-mc/logo.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/online-mc/index.html"
+  },
+  {
+    "id": "selenite-offline-mc",
+    "title": "Eaglercraft 1.5.2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/offline-mc/logo.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/offline-mc/index.html"
+  },
+  {
+    "id": "selenite-fridaynightfunkin",
+    "title": "Friday Night Funkin",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fridaynightfunkin/fnf-icon.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fridaynightfunkin/index.html"
+  },
+  {
+    "id": "selenite-worldshardestgame",
+    "title": "Worlds Hardest Game",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/worldshardestgame/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/worldshardestgame/index.html"
+  },
+  {
+    "id": "selenite-gba",
+    "title": "GBA Emulator",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/gba/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/gba/index.html"
+  },
+  {
+    "id": "selenite-celeste",
+    "title": "Celeste",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/celeste/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/celeste/index.html"
+  },
+  {
+    "id": "selenite-mario",
+    "title": "Mario",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/mario/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/mario/index.html"
+  },
+  {
+    "id": "selenite-60sburgerrun",
+    "title": "60s Burger Run",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/60sburgerrun/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/60sburgerrun/index.html"
+  },
+  {
+    "id": "selenite-cluster-rush",
+    "title": "Cluster Rush",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/cluster-rush/icon.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/cluster-rush/index.html"
+  },
+  {
+    "id": "selenite-vex3",
+    "title": "Vex 3",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/vex3/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/vex3/index.html"
+  },
+  {
+    "id": "selenite-adventure-capitalist",
+    "title": "Adventure Capitalist",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/adventure-capitalist/logo.webp",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/adventure-capitalist/index.html"
+  },
+  {
+    "id": "selenite-btd3",
+    "title": "Bloons Tower Defense 3",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/btd3/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/btd3/index.html"
+  },
+  {
+    "id": "selenite-avalanche",
+    "title": "Avalanche",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/avalanche/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/avalanche/index.html"
+  },
+  {
+    "id": "selenite-slope",
+    "title": "Slope",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/slope/slope4.jpeg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/slope/index.html"
+  },
+  {
+    "id": "selenite-cell-machine",
+    "title": "Cell Machine",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/cell-machine/img/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/cell-machine/index.html"
+  },
+  {
+    "id": "selenite-run2",
+    "title": "Run 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/run2/icon.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/run2/index.html"
+  },
+  {
+    "id": "selenite-vex5",
+    "title": "Vex 5",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/vex5/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/vex5/index.html"
+  },
+  {
+    "id": "selenite-vex4",
+    "title": "Vex 4",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/vex4/vex4.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/vex4/index.html"
+  },
+  {
+    "id": "selenite-vex2",
+    "title": "Vex 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/vex2/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/vex2/index.html"
+  },
+  {
+    "id": "selenite-crossyroad",
+    "title": "Crossy Road",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/crossyroad/chicken.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/crossyroad/index.html"
+  },
+  {
+    "id": "selenite-wallsmash",
+    "title": "Wall Smash",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/wallsmash/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/wallsmash/index.html"
+  },
+  {
+    "id": "selenite-death-run-3d",
+    "title": "Death Run 3D",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/death-run-3d/img/death.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/death-run-3d/index.html"
+  },
+  {
+    "id": "selenite-gunmayhem2",
+    "title": "Gun Mayhem 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/gunmayhem2/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/gunmayhem2/index.html"
+  },
+  {
+    "id": "selenite-circloo",
+    "title": "CircloO",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/circloo/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/circloo/index.html"
+  },
+  {
+    "id": "selenite-vex",
+    "title": "Vex",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/vex/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/vex/index.html"
+  },
+  {
+    "id": "selenite-stack",
+    "title": "Stack",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/stack/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/stack/index.html"
+  },
+  {
+    "id": "selenite-xx142-b2-exe",
+    "title": "xx142-b2.exe",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/xx142-b2.exe/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/xx142-b2.exe/index.html"
+  },
+  {
+    "id": "selenite-paperio",
+    "title": "paper.io",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/paperio/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/paperio/index.html"
+  },
+  {
+    "id": "selenite-chibiknight",
+    "title": "Chibi Knight",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/chibiknight/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/chibiknight/index.html"
+  },
+  {
+    "id": "selenite-1v1lol",
+    "title": "1v1.lol",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/1v1lol/splash.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/1v1lol/index.html"
+  },
+  {
+    "id": "selenite-dino",
+    "title": "Dino",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/dino/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/dino/index.html"
+  },
+  {
+    "id": "selenite-turbowarp",
+    "title": "Turbowarp",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/turbowarp/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/turbowarp/index.html"
+  },
+  {
+    "id": "selenite-tetris",
+    "title": "Tetris",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/tetris/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/tetris/index.html"
+  },
+  {
+    "id": "selenite-geometrydash",
+    "title": "Geometry Dash",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/geometrydash/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/geometrydash/index.html"
+  },
+  {
+    "id": "selenite-sand",
+    "title": "Sand Game",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/sand/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/sand/index.html"
+  },
+  {
+    "id": "selenite-dante",
+    "title": "Dante",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/dante/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/dante/index.html"
+  },
+  {
+    "id": "selenite-wordle",
+    "title": "Wordle",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/wordle/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/wordle/index.html"
+  },
+  {
+    "id": "selenite-offlineparadise",
+    "title": "Offline Paradise",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/offlineparadise/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/offlineparadise/index.html"
+  },
+  {
+    "id": "selenite-2048",
+    "title": "2048",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/2048/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/2048/index.html"
+  },
+  {
+    "id": "selenite-doodlejump",
+    "title": "Doodle Jump",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/doodlejump/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/doodlejump/index.html"
+  },
+  {
+    "id": "selenite-weavesilk",
+    "title": "Weave Silk",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/weavesilk/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/weavesilk/index.html"
+  },
+  {
+    "id": "selenite-supermeatboy",
+    "title": "Super Meat Boy",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/supermeatboy/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/supermeatboy/index.html"
+  },
+  {
+    "id": "selenite-vex6",
+    "title": "Vex 6",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/vex6/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/vex6/index.html"
+  },
+  {
+    "id": "selenite-fluidsim",
+    "title": "WebGL Fluid Sim",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fluidsim/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fluidsim/index.html"
+  },
+  {
+    "id": "selenite-basketball-stars",
+    "title": "Basketball Stars",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/basketball-stars/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/basketball-stars/index.html"
+  },
+  {
+    "id": "selenite-osu",
+    "title": "osu!",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/osu/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/osu/index.html"
+  },
+  {
+    "id": "selenite-cookieclicker",
+    "title": "Cookie Clicker",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/cookieclicker/img/perfectCookie.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/cookieclicker/index.html"
+  },
+  {
+    "id": "selenite-superhot",
+    "title": "Superhot",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/superhot/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/superhot/index.html"
+  },
+  {
+    "id": "selenite-supermario64",
+    "title": "Super Mario 64",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/supermario64/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/supermario64/index.html"
+  },
+  {
+    "id": "selenite-gunmayhemredux",
+    "title": "Gun Mayhem Redux",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/gunmayhemredux/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/gunmayhemredux/index.html"
+  },
+  {
+    "id": "selenite-iwbtc",
+    "title": "I Wanna Be Thy Copy",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/iwbtc/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/iwbtc/index.html"
+  },
+  {
+    "id": "selenite-hexgl",
+    "title": "HexGL",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/hexgl/icon_128.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/hexgl/index.html"
+  },
+  {
+    "id": "selenite-championisland",
+    "title": "Champion Island",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/championisland/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/championisland/index.html"
+  },
+  {
+    "id": "selenite-learntofly",
+    "title": "Learn to Fly",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/learntofly/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/learntofly/index.html"
+  },
+  {
+    "id": "selenite-wordlebot",
+    "title": "Wordle Bot",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/wordlebot/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/wordlebot/index.html"
+  },
+  {
+    "id": "selenite-cuttherope",
+    "title": "Cut The Rope",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/cuttherope/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/cuttherope/index.html"
+  },
+  {
+    "id": "selenite-chess",
+    "title": "Chess",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/chess/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/chess/index.html"
+  },
+  {
+    "id": "selenite-flappybird",
+    "title": "Flappy Bird",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/flappybird/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/flappybird/index.html"
+  },
+  {
+    "id": "selenite-lowsadventures2",
+    "title": "Lows Adventures 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/lowsadventures2/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/lowsadventures2/index.html"
+  },
+  {
+    "id": "selenite-drift-boss",
+    "title": "Drift Boss",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/drift-boss/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/drift-boss/index.html"
+  },
+  {
+    "id": "selenite-fireboywatergirl",
+    "title": "Fireboy & Watergirl 1",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fireboywatergirl/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fireboywatergirl/index.html"
+  },
+  {
+    "id": "selenite-gunmayhem",
+    "title": "Gun Mayhem",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/gunmayhem/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/gunmayhem/index.html"
+  },
+  {
+    "id": "selenite-ducklife4",
+    "title": "Duck Life 4",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ducklife4/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ducklife4/index.html"
+  },
+  {
+    "id": "selenite-achieveunlocked",
+    "title": "Achievement Unlocked",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/achieveunlocked/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/achieveunlocked/index.html"
+  },
+  {
+    "id": "selenite-achieveunlocked2",
+    "title": "Achievement Unlocked 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/achieveunlocked2/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/achieveunlocked2/index.html"
+  },
+  {
+    "id": "selenite-thisistheonlylevel",
+    "title": "This Is The Only Level",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/thisistheonlylevel/logo.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/thisistheonlylevel/index.html"
+  },
+  {
+    "id": "selenite-thisistheonlylevel2",
+    "title": "This Is The Only Level 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/thisistheonlylevel2/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/thisistheonlylevel2/index.html"
+  },
+  {
+    "id": "selenite-bitlife",
+    "title": "Bitlife",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/bitlife/bitlife.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/bitlife/index.html"
+  },
+  {
+    "id": "selenite-ducklife1",
+    "title": "Duck Life 1",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ducklife1/ducklife1.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ducklife1/index.html"
+  },
+  {
+    "id": "selenite-ducklife2",
+    "title": "Duck Life 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ducklife2/ducklife2.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ducklife2/index.html"
+  },
+  {
+    "id": "selenite-ducklife3",
+    "title": "Duck Life 3",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ducklife3/ducklife3.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ducklife3/index.html"
+  },
+  {
+    "id": "selenite-ovo",
+    "title": "ovo",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ovo/ovo3.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ovo/index.html"
+  },
+  {
+    "id": "selenite-thereisnogame",
+    "title": "There Is No Game",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/thereisnogame/icon-256.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/thereisnogame/index.html"
+  },
+  {
+    "id": "selenite-universal-paperclips",
+    "title": "Universal Paperclips",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/universal-paperclips/universal-paperclips.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/universal-paperclips/index.html"
+  },
+  {
+    "id": "selenite-win11",
+    "title": "Windows 11",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/win11/favicon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/win11/index.html"
+  },
+  {
+    "id": "selenite-learntofly2",
+    "title": "Learn to Fly 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/learntofly2/logo.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/learntofly2/index.html"
+  },
+  {
+    "id": "selenite-worldhardestgame2",
+    "title": "Worlds Hardest Game 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/worldhardestgame2/the-worlds-hardest-game-2.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/worldhardestgame2/index.html"
+  },
+  {
+    "id": "selenite-vex7",
+    "title": "Vex 7",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/vex7/icon.jpeg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/vex7/index.html"
+  },
+  {
+    "id": "selenite-slope-ball",
+    "title": "Slope Ball",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/slope-ball/icon.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/slope-ball/index.html"
+  },
+  {
+    "id": "selenite-slope2",
+    "title": "Slope 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/slope2/slope-2-logo.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/slope2/index.html"
+  },
+  {
+    "id": "selenite-learntoflyidle",
+    "title": "Learn to Fly Idle",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/learntoflyidle/icon.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/learntoflyidle/index.html"
+  },
+  {
+    "id": "selenite-redball4",
+    "title": "Red Ball 4",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/redball4/redball4.webp",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/redball4/index.html"
+  },
+  {
+    "id": "selenite-redball4vol3",
+    "title": "Red Ball 4 Vol 3",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/redball4vol3/redball4vol3.webp",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/redball4vol3/index.html"
+  },
+  {
+    "id": "selenite-redball4vol2",
+    "title": "Red Ball 4 Vol 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/redball4vol2/redball4vol2.webp",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/redball4vol2/index.html"
+  },
+  {
+    "id": "selenite-redball3",
+    "title": "Red Ball 3",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/redball3/redball3.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/redball3/index.html"
+  },
+  {
+    "id": "selenite-snake",
+    "title": "Snake",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/snake/snake.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/snake/index.html"
+  },
+  {
+    "id": "selenite-pacman",
+    "title": "Pacman",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/pacman/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/pacman/index.html"
+  },
+  {
+    "id": "selenite-colorswitch",
+    "title": "Color Switch",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/colorswitch/colorswitch.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/colorswitch/index.html"
+  },
+  {
+    "id": "selenite-halloween2016",
+    "title": "Halloween 2016",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/halloween2016/logo.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/halloween2016/index.html"
+  },
+  {
+    "id": "selenite-gamemaker",
+    "title": "Game Maker Doodle",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/gamemaker/images.jpeg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/gamemaker/index.html"
+  },
+  {
+    "id": "selenite-theimpossiblegame",
+    "title": "The Impossible Game",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/theimpossiblegame/image.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/theimpossiblegame/index.html"
+  },
+  {
+    "id": "selenite-papasfreezeria",
+    "title": "Papas Freezeria",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/papasfreezeria/images.jpeg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/papasfreezeria/index.html"
+  },
+  {
+    "id": "selenite-papaspizzeria",
+    "title": "Papas Pizzeria",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/papaspizzeria/images.jpeg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/papaspizzeria/index.html"
+  },
+  {
+    "id": "selenite-idlebreakout",
+    "title": "Idle Breakout",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/idlebreakout/image.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/idlebreakout/index.html"
+  },
+  {
+    "id": "selenite-stickman-hook",
+    "title": "Stickman Hook",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/stickman-hook/icon.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/stickman-hook/index.html"
+  },
+  {
+    "id": "selenite-drifthunters",
+    "title": "Drift Hunters",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/drifthunters/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/drifthunters/index.html"
+  },
+  {
+    "id": "selenite-rocketleague",
+    "title": "Rocket League",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/rocketleague/splash.webp",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/rocketleague/index.html"
+  },
+  {
+    "id": "selenite-littlealchemy",
+    "title": "Little Alchemy",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/littlealchemy/images/192-alpha.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/littlealchemy/index.html"
+  },
+  {
+    "id": "selenite-retrobowl",
+    "title": "Retro Bowl",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/retrobowl/img/icon.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/retrobowl/index.html"
+  },
+  {
+    "id": "selenite-tunnelrush",
+    "title": "Tunnel Rush",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/tunnelrush/tunnel.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/tunnelrush/index.html"
+  },
+  {
+    "id": "selenite-motox3m",
+    "title": "Moto X3M",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/motox3m/splash.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/motox3m/index.html"
+  },
+  {
+    "id": "selenite-motox3m-winter",
+    "title": "Moto X3M Winter",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/motox3m-winter/download.jpeg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/motox3m-winter/index.html"
+  },
+  {
+    "id": "selenite-motox3m-pool",
+    "title": "Moto X3M Pool Party",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/motox3m-pool/splash.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/motox3m-pool/index.html"
+  },
+  {
+    "id": "selenite-fnaf",
+    "title": "Five Nights at Freddy's",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fnaf/splash.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fnaf/index.html"
+  },
+  {
+    "id": "selenite-burritobison",
+    "title": "Burrito Bison",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/burritobison/Build/logo.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/burritobison/index.html"
+  },
+  {
+    "id": "selenite-cuttherope-holiday",
+    "title": "Cut The Rope Holday",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/cuttherope-holiday/Holiday_Gift.webp",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/cuttherope-holiday/index.html"
+  },
+  {
+    "id": "selenite-helixjump",
+    "title": "Helix Jump",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/helixjump/gameIcon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/helixjump/index.html"
+  },
+  {
+    "id": "selenite-clickerheroes",
+    "title": "Clicker Heroes",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/clickerheroes/clicker-heroes.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/clickerheroes/index.html"
+  },
+  {
+    "id": "selenite-jetpackjoyride",
+    "title": "Jetpack Joyride",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/jetpackjoyride/logo.jpeg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/jetpackjoyride/index.html"
+  },
+  {
+    "id": "selenite-fruitninja",
+    "title": "Fruit Ninja",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fruitninja/FruitNinjaTeaser.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fruitninja/index.html"
+  },
+  {
+    "id": "selenite-tron",
+    "title": "Tron",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/tron/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/tron/index.html"
+  },
+  {
+    "id": "selenite-thirtydollarwebsite",
+    "title": "Thirty Dollar Website",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/thirtydollarwebsite/assets/%F0%9F%97%BF.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/thirtydollarwebsite/index.html"
+  },
+  {
+    "id": "selenite-ngon",
+    "title": "n-gon",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ngon/favicon.ico",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ngon/index.html"
+  },
+  {
+    "id": "selenite-subway-surfers-ny",
+    "title": "Subway Surfers",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/subway-surfers-ny/NewYorkIcon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/subway-surfers-ny/index.html"
+  },
+  {
+    "id": "selenite-madalincars",
+    "title": "Madalin Cars",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/madalincars/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/madalincars/index.html"
+  },
+  {
+    "id": "selenite-run3",
+    "title": "Run 3",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/run3/icon.jpeg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/run3/index.html"
+  },
+  {
+    "id": "selenite-dragonballdevolution",
+    "title": "Dragon Ball Devolution",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/dragonballdevolution/images.jpeg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/dragonballdevolution/index.html"
+  },
+  {
+    "id": "selenite-run",
+    "title": "Run",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/run/icon.jpeg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/run/index.html"
+  },
+  {
+    "id": "selenite-supersmashflash",
+    "title": "Super Smash Flash",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/supersmashflash/ssf.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/supersmashflash/index.html"
+  },
+  {
+    "id": "selenite-stickmanclimb",
+    "title": "Stickman Climb",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/stickmanclimb/icon.avif",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/stickmanclimb/index.html"
+  },
+  {
+    "id": "selenite-getawayshooter",
+    "title": "Getaway Shooter",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/getawayshooter/Untitled.jpeg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/getawayshooter/index.html"
+  },
+  {
+    "id": "selenite-riddleschool",
+    "title": "Riddle School",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/riddleschool/RiddleSchool2.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/riddleschool/index.html"
+  },
+  {
+    "id": "selenite-riddleschool2",
+    "title": "Riddle School 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/riddleschool2/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/riddleschool2/index.html"
+  },
+  {
+    "id": "selenite-riddleschool3",
+    "title": "Riddle School 3",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/riddleschool3/riddle-school-3.webp",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/riddleschool3/index.html"
+  },
+  {
+    "id": "selenite-riddleschool4",
+    "title": "Riddle School 4",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/riddleschool4/Untitled.jpeg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/riddleschool4/index.html"
+  },
+  {
+    "id": "selenite-riddleschool5",
+    "title": "Riddle School 5",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/riddleschool5/Untitled.jpeg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/riddleschool5/index.html"
+  },
+  {
+    "id": "selenite-riddleschooltransfer",
+    "title": "Riddle Transfer",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/riddleschooltransfer/Untitled.jpeg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/riddleschooltransfer/index.html"
+  },
+  {
+    "id": "selenite-riddleschooltransfer2",
+    "title": "Riddle Transfer 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/riddleschooltransfer2/aUntitled.jpeg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/riddleschooltransfer2/index.html"
+  },
+  {
+    "id": "selenite-zombocalypse",
+    "title": "Zombocalypse",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/zombocalypse/zombocalypse-2.webp",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/zombocalypse/index.html"
+  },
+  {
+    "id": "selenite-papasburgeria",
+    "title": "Papas Burgeria",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/papasburgeria/images.jpeg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/papasburgeria/index.html"
+  },
+  {
+    "id": "selenite-ducklife5",
+    "title": "Duck Life 5",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ducklife5/ducklife5.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ducklife5/index.html"
+  },
+  {
+    "id": "selenite-ducklife6",
+    "title": "Duck Life 6",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ducklife6/ducklife5.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ducklife6/index.html"
+  },
+  {
+    "id": "selenite-webretro",
+    "title": "webretro",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/webretro/assets/icons/icon204.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/webretro/index.html"
+  },
+  {
+    "id": "selenite-osumania",
+    "title": "osu!mania",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/osumania/mania.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/osumania/index.html"
+  },
+  {
+    "id": "selenite-fnaf2",
+    "title": "Five Nights at Freddy's 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fnaf2/project/splash.webp",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fnaf2/index.html"
+  },
+  {
+    "id": "selenite-fnaf3",
+    "title": "Five Nights at Freddy's 3",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fnaf3/project/splash.webp",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fnaf3/index.html"
+  },
+  {
+    "id": "selenite-fnaf4",
+    "title": "Five Nights at Freddy's 4",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fnaf4/project/splash.webp",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fnaf4/index.html"
+  },
+  {
+    "id": "selenite-templerun2",
+    "title": "Temple Run 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/templerun2/img/icons/icon-128x128.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/templerun2/index.html"
+  },
+  {
+    "id": "selenite-happywheels",
+    "title": "Happy Wheels",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/happywheels/Untitled.jpeg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/happywheels/index.html"
+  },
+  {
+    "id": "selenite-fireboywatergirl2",
+    "title": "Fireboy & Watergirl 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fireboywatergirl2/Untitled.jpeg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fireboywatergirl2/index.html"
+  },
+  {
+    "id": "selenite-fireboywatergirl3",
+    "title": "Fireboy & Watergirl 3",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fireboywatergirl3/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fireboywatergirl3/index.html"
+  },
+  {
+    "id": "selenite-fireboywatergirl4",
+    "title": "Fireboy & Watergirl 4",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fireboywatergirl4/300.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fireboywatergirl4/index.html"
+  },
+  {
+    "id": "selenite-risehigher",
+    "title": "Rise Higher",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/risehigher/media/graphics/promo/Icons/128x128.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/risehigher/index.html"
+  },
+  {
+    "id": "selenite-hextris",
+    "title": "Hextris",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/hextris/images/icons/apple-touch-152.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/hextris/index.html"
+  },
+  {
+    "id": "selenite-sprinter",
+    "title": "Sprinter",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/sprinter/icon.jpeg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/sprinter/index.html"
+  },
+  {
+    "id": "selenite-amazing-rope-police",
+    "title": "Amazing Rope Police",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/amazing-rope-police/splash.jpeg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/amazing-rope-police/index.html"
+  },
+  {
+    "id": "selenite-ruffle",
+    "title": "Ruffle",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ruffle/favicon-180.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ruffle/index.html"
+  },
+  {
+    "id": "selenite-emulatorjs",
+    "title": "emulatorJS",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/emulatorjs/logo.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/emulatorjs/index.html"
+  },
+  {
+    "id": "selenite-geometryrash",
+    "title": "Geometry Rash",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/geometryrash/icon-114.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/geometryrash/index.html"
+  },
+  {
+    "id": "selenite-btd",
+    "title": "Bloons Tower Defense",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/btd/logo.webp",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/btd/index.html"
+  },
+  {
+    "id": "selenite-btd2",
+    "title": "Bloons Tower Defense 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/btd2/logo.webp",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/btd2/index.html"
+  },
+  {
+    "id": "selenite-btd4",
+    "title": "Bloons Tower Defense 4",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/btd4/logo.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/btd4/index.html"
+  },
+  {
+    "id": "selenite-btd6",
+    "title": "Bloons Tower Defense 6",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/btd6/uwu.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/btd6/index.html"
+  },
+  {
+    "id": "selenite-btd5",
+    "title": "Bloons Tower Defense 5",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/btd5/wogo.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/btd5/index.html"
+  },
+  {
+    "id": "selenite-lasthorizon",
+    "title": "Last Horizon",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/lasthorizon/wogo%20owo.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/lasthorizon/index.html"
+  },
+  {
+    "id": "selenite-1on1soccer",
+    "title": "1 on 1 Soccer",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/1on1soccer/logo.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/1on1soccer/index.html"
+  },
+  {
+    "id": "selenite-amongus",
+    "title": "Among Us",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/amongus/amgojs%5D_.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/amongus/index.html"
+  },
+  {
+    "id": "selenite-badpiggies",
+    "title": "Bad Piggies",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/badpiggies/badpiggies.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/badpiggies/index.html"
+  },
+  {
+    "id": "selenite-sandtrix",
+    "title": "Sandtrix",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/sandtrix/assets/sprites/appicon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/sandtrix/index.html"
+  },
+  {
+    "id": "selenite-bloodtournament",
+    "title": "Blood Tournament",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/bloodtournament/blood-tournament.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/bloodtournament/index.html"
+  },
+  {
+    "id": "selenite-golddiggerfrvr",
+    "title": "Gold Digger FRVR",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/golddiggerfrvr/images.jpeg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/golddiggerfrvr/index.html"
+  },
+  {
+    "id": "selenite-retrobowlcollege",
+    "title": "Retro Bowl College",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/retrobowlcollege/unnamed.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/retrobowlcollege/index.html"
+  },
+  {
+    "id": "selenite-wbwwb",
+    "title": "We Become What We Behold",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/wbwwb/wbwwb.webp",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/wbwwb/index.html"
+  },
+  {
+    "id": "selenite-nutsim",
+    "title": "Nut Simulator",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/nutsim/images/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/nutsim/index.html"
+  },
+  {
+    "id": "selenite-pokemon",
+    "title": "Pokemon",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/pokemon/logo.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/pokemon/index.html"
+  },
+  {
+    "id": "selenite-supersmashbros",
+    "title": "Super Smash Bros",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/supersmashbros/logo.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/supersmashbros/index.html"
+  },
+  {
+    "id": "selenite-skibiditoilet",
+    "title": "Skibidi 1 v 100",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/skibiditoilet/logo.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/skibiditoilet/index.html"
+  },
+  {
+    "id": "selenite-drivemad",
+    "title": "Drive Mad",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/drivemad/icons/icon-128.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/drivemad/index.html"
+  },
+  {
+    "id": "selenite-rooftopsnipers",
+    "title": "Rooftop Snipers",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/rooftopsnipers/logo.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/rooftopsnipers/index.html"
+  },
+  {
+    "id": "selenite-funnyshooter",
+    "title": "Funny Shooter",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/funnyshooter/icon.jpeg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/funnyshooter/index.html"
+  },
+  {
+    "id": "selenite-monkeymart",
+    "title": "Monkey Mart",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/monkeymart/unnamed.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/monkeymart/index.html"
+  },
+  {
+    "id": "selenite-factoryballs",
+    "title": "Factory Balls",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/factoryballs/fac.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/factoryballs/index.html"
+  },
+  {
+    "id": "selenite-factoryballsforever",
+    "title": "Factory Balls Forever",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/factoryballsforever/fac.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/factoryballsforever/index.html"
+  },
+  {
+    "id": "selenite-funnyshooter2",
+    "title": "Funny Shooter 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/funnyshooter2/894abba63a6b23fed823f404831f444f.jpeg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/funnyshooter2/index.html"
+  },
+  {
+    "id": "selenite-badtimesimulator",
+    "title": "Bad Time Simulator",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/badtimesimulator/icon-114.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/badtimesimulator/index.html"
+  },
+  {
+    "id": "selenite-commodoreclicker",
+    "title": "Commodore 64 Clicker",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/commodoreclicker/test.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/commodoreclicker/index.html"
+  },
+  {
+    "id": "selenite-stickmanboost",
+    "title": "Stickman Boost",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/stickmanboost/base/img1.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/stickmanboost/index.html"
+  },
+  {
+    "id": "selenite-stickmangolf",
+    "title": "Stickman Golf",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/stickmangolf/gold.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/stickmangolf/index.html"
+  },
+  {
+    "id": "selenite-basketbros",
+    "title": "Basket Bros",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/basketbros/thumb.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/basketbros/index.html"
+  },
+  {
+    "id": "selenite-justfalllol",
+    "title": "justfall.lol",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/justfalllol/unnamed.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/justfalllol/index.html"
+  },
+  {
+    "id": "selenite-dogeminer",
+    "title": "Doge Miner",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/dogeminer/img/dogeminer_300x300.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/dogeminer/index.html"
+  },
+  {
+    "id": "selenite-soccerrandom",
+    "title": "Soccer Random",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/soccerrandom/test.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/soccerrandom/index.html"
+  },
+  {
+    "id": "selenite-basketrandom",
+    "title": "Basket Random",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/basketrandom/test.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/basketrandom/index.html"
+  },
+  {
+    "id": "selenite-boxingrandom",
+    "title": "Boxing Random",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/boxingrandom/512x512.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/boxingrandom/index.html"
+  },
+  {
+    "id": "selenite-funnymadracing",
+    "title": "Funny Mad Racing",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/funnymadracing/logo.webp",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/funnymadracing/index.html"
+  },
+  {
+    "id": "selenite-holeio",
+    "title": "hole.io",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/holeio/feature800x470.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/holeio/index.html"
+  },
+  {
+    "id": "selenite-timeshooter1",
+    "title": "Time Shooter",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/timeshooter1/logo.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/timeshooter1/index.html"
+  },
+  {
+    "id": "selenite-timeshooter2",
+    "title": "Time Shooter 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/timeshooter2/ts2.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/timeshooter2/index.html"
+  },
+  {
+    "id": "selenite-timeshooter3",
+    "title": "Time Shooter 3",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/timeshooter3/logo.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/timeshooter3/index.html"
+  },
+  {
+    "id": "selenite-townscaper",
+    "title": "Townscaper",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/townscaper/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/townscaper/index.html"
+  },
+  {
+    "id": "selenite-badicecream",
+    "title": "Bad Ice Cream",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/badicecream/bad-ice-cream.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/badicecream/index.html"
+  },
+  {
+    "id": "selenite-badicecream2",
+    "title": "Bad Ice Cream 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/badicecream2/bad-ice-cream-2.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/badicecream2/index.html"
+  },
+  {
+    "id": "selenite-badicecream3",
+    "title": "Bad Ice Cream 3",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/badicecream3/bad-ice-cream-3.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/badicecream3/index.html"
+  },
+  {
+    "id": "selenite-bobtherobber2",
+    "title": "Bob the Robber 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/bobtherobber2/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/bobtherobber2/index.html"
+  },
+  {
+    "id": "selenite-boxingphysics2",
+    "title": "Boxing Physics 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/boxingphysics2/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/boxingphysics2/index.html"
+  },
+  {
+    "id": "selenite-burgerandfrights",
+    "title": "Burger and Frights",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/burgerandfrights/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/burgerandfrights/index.html"
+  },
+  {
+    "id": "selenite-flippyfish",
+    "title": "Flippy Fish",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/flippyfish/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/flippyfish/index.html"
+  },
+  {
+    "id": "selenite-knifehit",
+    "title": "Knife Hit",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/knifehit/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/knifehit/index.html"
+  },
+  {
+    "id": "selenite-lazyjump3d",
+    "title": "Lazy Jump 3D",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/lazyjump3d/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/lazyjump3d/index.html"
+  },
+  {
+    "id": "selenite-motox3m-spooky",
+    "title": "Moto X3M Spooky",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/motox3m-spooky/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/motox3m-spooky/index.html"
+  },
+  {
+    "id": "selenite-rooftopsnipers2",
+    "title": "Rooftop Snipers 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/rooftopsnipers2/icon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/rooftopsnipers2/index.html"
+  },
+  {
+    "id": "selenite-skibiditoiletattack",
+    "title": "Skibidi Toilet Attack",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/skibiditoiletattack/logo.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/skibiditoiletattack/index.html"
+  },
+  {
+    "id": "selenite-tinyfishing",
+    "title": "Tiny Fishing",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/tinyfishing/thumb.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/tinyfishing/index.html"
+  },
+  {
+    "id": "selenite-tu95",
+    "title": "TU-95",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/tu95/tu-95.webp",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/tu95/index.html"
+  },
+  {
+    "id": "selenite-tu46",
+    "title": "TU-46",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/tu46/tu-46.webp",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/tu46/index.html"
+  },
+  {
+    "id": "selenite-russiancardriver",
+    "title": "Russian Car Driver",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/russiancardriver/russian-car-driver.webp",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/russiancardriver/index.html"
+  },
+  {
+    "id": "selenite-ocarinaoftime",
+    "title": "Legend of Zelda - Ocarina of Time",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ocarinaoftime/oc.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ocarinaoftime/index.html"
+  },
+  {
+    "id": "selenite-metroidzeromission",
+    "title": "Metroid: Zero Mission",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/metroidzeromission/zero.jpeg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/metroidzeromission/index.html"
+  },
+  {
+    "id": "selenite-guiltygear",
+    "title": "Guilty Gear",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/guiltygear/ggx.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/guiltygear/index.html"
+  },
+  {
+    "id": "selenite-adarkroom",
+    "title": "A Dark Room",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/adarkroom/favicon.ico",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/adarkroom/index.html"
+  },
+  {
+    "id": "selenite-fancypantsadventures",
+    "title": "Fancy Pants Adventures",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fancypantsadventures/fpa.webp",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fancypantsadventures/index.html"
+  },
+  {
+    "id": "selenite-fancypantsadventures2",
+    "title": "Fancy Pants Adventures 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fancypantsadventures2/fpa2.avif",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fancypantsadventures2/index.html"
+  },
+  {
+    "id": "selenite-linerider",
+    "title": "Line Rider",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/linerider/boosh.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/linerider/index.html"
+  },
+  {
+    "id": "selenite-funnyballgame",
+    "title": "Funny Ball Game",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/funnyballgame/ball.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/funnyballgame/index.html"
+  },
+  {
+    "id": "selenite-stealingthediamond",
+    "title": "Henry Stickmin - Stealing the Diamond",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/stealingthediamond/diamante.avif",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/stealingthediamond/index.html"
+  },
+  {
+    "id": "selenite-breakingthebank",
+    "title": "Henry Stickmin - Breaking the Bank",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/breakingthebank/balling.avif",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/breakingthebank/index.html"
+  },
+  {
+    "id": "selenite-escapingtheprison",
+    "title": "Henry Stickmin - Escaping the Prison",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/escapingtheprison/pwison.avif",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/escapingtheprison/index.html"
+  },
+  {
+    "id": "selenite-fleeingthecomplex",
+    "title": "Henry Stickmin - Fleeing the Complex",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fleeingthecomplex/flee.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/fleeingthecomplex/index.html"
+  },
+  {
+    "id": "selenite-infiltratingtheairship",
+    "title": "Henry Stickmin - Infiltrating the Airship",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/infiltratingtheairship/air.avif",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/infiltratingtheairship/index.html"
+  },
+  {
+    "id": "selenite-pandemic",
+    "title": "Pandemic",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/pandemic/sddefault.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/pandemic/index.html"
+  },
+  {
+    "id": "selenite-pandemic2",
+    "title": "Pandemic 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/pandemic2/pan2.webp",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/pandemic2/index.html"
+  },
+  {
+    "id": "selenite-ageofwar",
+    "title": "Age of War",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ageofwar/warofage.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ageofwar/index.html"
+  },
+  {
+    "id": "selenite-soundboard",
+    "title": "Soundboard",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/soundboard/bleep.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/soundboard/index.html"
+  },
+  {
+    "id": "selenite-theimpossiblequiz",
+    "title": "The Impossible Quiz",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/theimpossiblequiz/tiq.avif",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/theimpossiblequiz/index.html"
+  },
+  {
+    "id": "selenite-2drocketleague",
+    "title": "2D Rocket League",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/2drocketleague/unnamed.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/2drocketleague/index.html"
+  },
+  {
+    "id": "selenite-pizzatower",
+    "title": "Pizza Tower",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/pizzatower/images/menubg.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/pizzatower/index.html"
+  },
+  {
+    "id": "selenite-monstertracks",
+    "title": "Monster Tracks",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/monstertracks/webapp/cover.jpg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/monstertracks/index.html"
+  },
+  {
+    "id": "selenite-tabs",
+    "title": "Totally Accurate Battle Simulator",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/tabs/unnamed.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/tabs/index.html"
+  },
+  {
+    "id": "selenite-csgoclicker",
+    "title": "CSGO Case Clicker",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/csgoclicker/images/case1.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/csgoclicker/index.html"
+  },
+  {
+    "id": "selenite-thefinalearth2",
+    "title": "The Final Earth 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/thefinalearth2/icons/favicon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/thefinalearth2/index.html"
+  },
+  {
+    "id": "selenite-baldis-basics",
+    "title": "Baldi's Basics",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/baldis-basics/splash.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/baldis-basics/index.html"
+  },
+  {
+    "id": "selenite-cubefield",
+    "title": "Cubefield",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/cubefield/assets/unnamed.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/cubefield/index.html"
+  },
+  {
+    "id": "selenite-mcclassic",
+    "title": "Minecraft Classic",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/mcclassic/assets/textures/previews/2.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/mcclassic/index.html"
+  },
+  {
+    "id": "selenite-bit-planes",
+    "title": "Bit Planes",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/bit-planes/bitplanes.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/bit-planes/index.html"
+  },
+  {
+    "id": "selenite-snowrider3d",
+    "title": "Snow Rider 3D",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/snowrider3d/snow.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/snowrider3d/index.html"
+  },
+  {
+    "id": "selenite-dadish",
+    "title": "Dadish",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/dadish/favicon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/dadish/index.html"
+  },
+  {
+    "id": "selenite-dadish2",
+    "title": "Dadish 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/dadish2/favicon.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/dadish2/index.html"
+  },
+  {
+    "id": "selenite-dadish3",
+    "title": "Dadish 3",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/dadish3/splash.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/dadish3/index.html"
+  },
+  {
+    "id": "selenite-watermelongame",
+    "title": "Watermelon Game",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/watermelongame/assets/sprites/tittle.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/watermelongame/index.html"
+  },
+  {
+    "id": "selenite-ballisticchickens",
+    "title": "Ballistic Chickens",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ballisticchickens/logo.png",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/ballisticchickens/index.html"
+  },
+  {
+    "id": "selenite-minecraft-tower-defence-2",
+    "title": "Minecraft Tower Defence 2",
+    "thumbnail": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/minecraft-tower-defence-2/cover.svg",
+    "url": "https://raw.githack.com/scvjn9z4db-ops/selenite-old/9c743188888af0986c8c7b293dbac8f9e421a4ee/minecraft-tower-defence-2/index.html"
   }
 ]

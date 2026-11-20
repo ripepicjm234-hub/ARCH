@@ -8,7 +8,7 @@
   const SITE_TOUR_STEPS = [
     { path: "/", section: "Navigation", selector: ".arch-sidebar-links", title: "Move around Arch", text: "Use these links to switch between Home, Games, Media, and Settings." },
     { path: "/", section: "Navigation", selector: ".arch-sidebar-toggle", title: "Make room", text: "Collapse the sidebar to icons when you want more room. Select the arrow again to expand it." },
-    { path: "/", section: "Your profile", selector: ".arch-guest-profile", title: "Your guest profile", text: "Your profile shows games played and favorites. It is temporary and stays in this browser tab." },
+    { path: "/", section: "Your profile", selector: ".arch-guest-profile", title: "Your guest profile", text: "Your profile shows games played and favorites saved on this device." },
     { path: "/", section: "Home", selector: ".wordmark", title: "Welcome to Arch", text: "This is the home page. Use the navigation to get to the game and media libraries or adjust settings." },
     { path: "/", section: "Home", selector: ".search-wrap", title: "Search or open a site", text: "Enter a web address or a search query here, then press Go or Enter." },
     { path: "/g", section: "Games", selector: ".controls", title: "Find a game", text: "Search by game title or use Favorites to filter the library to games you have saved." },
@@ -32,13 +32,23 @@
     try { const v = localStorage.getItem(k); return v === null ? def : JSON.parse(v); }
     catch { return def; }
   }
-  function loadSession(k, def) {
-    try { const v = sessionStorage.getItem(k); return v === null ? def : JSON.parse(v); }
-    catch { return def; }
-  }
+  const backgroundStyle = load("astriex_background", "clouds");
+  document.body.dataset.bgStyle = ["clouds", "clouds_slow", "minimal"].includes(backgroundStyle)
+    ? backgroundStyle
+    : "clouds";
 
   function getGuestProfile() {
-    const profile = loadSession(GUEST_PROFILE_KEY, null);
+    let profile = load(GUEST_PROFILE_KEY, null);
+    if (!profile) {
+      try {
+        const sessionProfile = sessionStorage.getItem(GUEST_PROFILE_KEY);
+        if (sessionProfile) {
+          profile = JSON.parse(sessionProfile);
+          localStorage.setItem(GUEST_PROFILE_KEY, JSON.stringify(profile));
+          sessionStorage.removeItem(GUEST_PROFILE_KEY);
+        }
+      } catch {}
+    }
     if (!profile?.username) return null;
     return {
       username: String(profile.username),
@@ -53,7 +63,8 @@
 
   function saveGuestProfile(profile) {
     try {
-      sessionStorage.setItem(GUEST_PROFILE_KEY, JSON.stringify(profile));
+      localStorage.setItem(GUEST_PROFILE_KEY, JSON.stringify(profile));
+      sessionStorage.removeItem(GUEST_PROFILE_KEY);
     } catch {
       return false;
     }
@@ -84,48 +95,6 @@
     reader.readAsDataURL(file);
   }
 
-  function escapeHtml(value) {
-    return String(value).replace(/[&<>"']/g, character => ({
-      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
-    })[character]);
-  }
-
-  function downloadGuestProfile(profile) {
-    const playedGames = Array.isArray(profile.playedGames) ? profile.playedGames : [];
-    const favorites = Array.isArray(profile.favorites) ? profile.favorites : [];
-    const initials = escapeHtml(profile.username.trim().charAt(0).toUpperCase() || "?");
-    const avatar = /^data:image\/(?:png|jpeg|webp);base64,/i.test(profile.avatar || "")
-      ? `<img src="${escapeHtml(profile.avatar)}" alt="Profile picture">`
-      : `<span class="avatar-fallback">${initials}</span>`;
-    const gameList = games => games.length
-      ? `<ul>${games.map(game => `<li>${escapeHtml(game.title)}</li>`).join("")}</ul>`
-      : "<p>None yet.</p>";
-    const html = `<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${escapeHtml(profile.username)} - Arch Profile</title>
-<style>
-  *{box-sizing:border-box}body{margin:0;padding:2rem;background:#09090b;color:#f5f5f5;font:16px/1.5 system-ui,sans-serif}
-  main{max-width:760px;margin:2rem auto;padding:2rem;border:1px solid #ffffff25;border-radius:24px;background:#ffffff0b}
-  header{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}.avatar-fallback,header img{display:grid;width:80px;height:80px;place-items:center;border-radius:50%;background:#27272a;color:#fff;font-size:2rem;object-fit:cover}
-  h1{margin:0}header p{margin:.25rem 0;color:#a1a1aa}section{margin-top:1.5rem;padding:1.25rem;border-radius:16px;background:#ffffff08}
-  li{margin:.4rem 0}footer{margin-top:1.5rem;color:#a1a1aa;font-size:.8rem}
-</style></head><body><main>
-<header>${avatar}<div><h1>${escapeHtml(profile.username)}</h1><p>Arch guest profile</p></div></header>
-<section><h2>Games played (${playedGames.length})</h2>${gameList(playedGames)}</section>
-<section><h2>Favorites (${favorites.length})</h2>${gameList(favorites)}</section>
-<footer>This profile report was downloaded from Arch. Your profile remains temporary in the browser tab.</footer>
-</main></body></html>`;
-    const objectUrl = URL.createObjectURL(new Blob([html], { type: "text/html" }));
-    const link = document.createElement("a");
-    const filename = profile.username.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "guest";
-    link.href = objectUrl;
-    link.download = `${filename}-arch-profile.html`;
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-    window.setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
-  }
-
   function renderGuestProfile(profile) {
     const panel = document.querySelector(".arch-guest-profile");
     if (!panel) return;
@@ -135,10 +104,9 @@
 
     const header = document.createElement("div");
     header.className = "arch-profile-header";
-    const avatarButton = document.createElement("button");
+    const avatarButton = document.createElement("div");
     avatarButton.className = "arch-profile-avatar";
-    avatarButton.type = "button";
-    avatarButton.setAttribute("aria-label", "Change profile picture");
+    avatarButton.setAttribute("aria-hidden", "true");
     const avatarFallback = document.createElement("span");
     avatarFallback.className = "arch-profile-avatar-fallback";
     avatarFallback.textContent = profile.username.trim().charAt(0).toUpperCase() || "?";
@@ -150,21 +118,6 @@
       avatar.alt = "";
       avatarButton.replaceChildren(avatar);
     }
-    const photoInput = document.createElement("input");
-    photoInput.className = "arch-profile-photo-input";
-    photoInput.type = "file";
-    photoInput.accept = "image/png,image/jpeg,image/webp";
-    photoInput.hidden = true;
-    avatarButton.addEventListener("click", () => photoInput.click());
-    photoInput.addEventListener("change", () => {
-      const error = panel.querySelector(".arch-profile-error");
-      readProfileImage(photoInput.files[0], image => {
-        if (!saveGuestProfile({ ...profile, avatar: image })) {
-          error.textContent = "Could not save this picture in the current tab. Try a smaller image.";
-        }
-      }, message => { error.textContent = message; });
-    });
-
     const profileInfo = document.createElement("div");
     profileInfo.className = "arch-profile-info";
     const username = document.createElement("span");
@@ -172,7 +125,7 @@
     username.textContent = profile.username;
     const status = document.createElement("span");
     status.className = "arch-profile-status";
-    status.textContent = `${profile.status || "Guest"} profile · temporary`;
+    status.textContent = `${profile.status || "Guest"} profile · saved on this device`;
     profileInfo.append(username, status);
     header.append(avatarButton, profileInfo);
 
@@ -223,26 +176,10 @@
     makeStat("Games played", profile.playedGames, "playedGames");
     makeStat("Favorites", profile.favorites, "favorites");
 
-    const changePhoto = document.createElement("button");
-    changePhoto.className = "arch-profile-action";
-    changePhoto.type = "button";
-    changePhoto.textContent = "Change PFP";
-    changePhoto.addEventListener("click", () => photoInput.click());
-    const download = document.createElement("button");
-    download.className = "arch-profile-action";
-    download.type = "button";
-    download.textContent = "Download Profile";
     const error = document.createElement("p");
     error.className = "arch-profile-error";
     error.setAttribute("role", "status");
-    download.addEventListener("click", () => {
-      try {
-        downloadGuestProfile(profile);
-      } catch {
-        error.textContent = "Could not download the profile. Check your browser's download settings and try again.";
-      }
-    });
-    panel.append(header, photoInput, stats, details, changePhoto, download, error);
+    panel.append(header, stats, details, error);
   }
 
   function clearSiteTour() {
@@ -467,7 +404,7 @@
         <p class="arch-disclaimer-brand">Arch</p>
         <h1 class="arch-disclaimer-title" id="arch-disclaimer-title">Before you play</h1>
         <p class="arch-disclaimer-copy">Arch is intended for after-school browser gaming and educational use. Please follow your school's rules. If you choose to use Arch at school and get in trouble, Arch's maintainers are not responsible for disciplinary consequences.</p>
-        <p class="arch-disclaimer-note">Accept the notice, then choose a guest username to continue. Your guest profile is temporary and is not saved to an account.</p>
+        <p class="arch-disclaimer-note">Accept the notice, then choose a guest username to continue. Your guest profile is saved on this device.</p>
         <div class="arch-guest-signup" hidden>
           <h2 class="arch-guest-signup-title">Sign up as Guest</h2>
           <label class="arch-username-label" for="arch-guest-username">Guest username</label>
@@ -480,7 +417,7 @@
             <div><strong>0</strong><span>Games played</span></div>
             <div><strong>0</strong><span>Favorites</span></div>
           </div>
-          <p class="arch-disclaimer-note">This profile exists only in this browser tab and resets when the tab session ends. No data is sent to a server.</p>
+          <p class="arch-disclaimer-note">This profile, favorites, played games, and profile picture are saved locally in this browser.</p>
         </div>
         <p class="arch-disclaimer-error" id="arch-disclaimer-error" role="alert"></p>
         <div class="arch-disclaimer-actions">
@@ -514,7 +451,7 @@
         playedGames: [], favorites: []
       };
       if (!saveGuestProfile(profile)) {
-        error.textContent = "Your browser could not keep a temporary guest profile. Enable session storage and try again.";
+        error.textContent = "Your browser could not save this guest profile. Enable local storage and try again.";
         return;
       }
       document.body.classList.remove("arch-gated");
@@ -543,6 +480,28 @@
     document.body.appendChild(overlay);
     overlay.querySelector(".arch-accept").focus();
   }
+
+  const loader = document.createElement("div");
+  loader.className = "arch-loader";
+  loader.setAttribute("role", "status");
+  loader.setAttribute("aria-label", "Loading Arch");
+  loader.innerHTML = '<div class="arch-loader-inner"><span class="arch-loader-brand">Arch</span><div class="arch-loader-track"></div></div>';
+  document.body.appendChild(loader);
+  const jokeElement = document.createElement("p");
+  jokeElement.className = "arch-loader-joke";
+  loader.querySelector(".arch-loader-inner").appendChild(jokeElement);
+  const jokeSubjects = ["My Wi-Fi", "A tab", "My keyboard", "A bookmark", "The loading bar", "My charger", "A cookie", "The server", "My mouse", "A pixel", "The cache", "A gamepad", "My headset", "The router", "A search bar", "The home button", "A notification", "The settings page", "My password", "A URL", "The cursor", "A popup", "The service worker", "My laptop", "The fullscreen button"];
+  const jokeActions = ["went outside", "joined a support group", "opened a separate timeline", "asked for a software update", "became a feature request", "started a second career", "found a lower ping", "got stuck in 4K", "called it a day", "refused to buffer", "broke the fourth wall", "logged out emotionally", "took the scenic route", "went to airplane mode", "disconnected on purpose", "updated its own resume", "forgot the password", "pressed F11", "spawned with lag", "became a lore character"];
+  const jokePunchlines = ["It needed some space.", "Now it has fewer crashes.", "The reception was mixed.", "It was a fatal lack of context.", "That is peak hardware humor.", "Nobody asked for that DLC.", "It took a turn for the buffering.", "The bug report filed itself.", "It found more cache than closure.", "That should fix the plot hole."];
+  const LOADING_JOKES = jokeSubjects.flatMap(subject => jokeActions.flatMap(action => jokePunchlines.map(punchline => `${subject} ${action}. ${punchline}`)));
+  const showRandomJoke = () => {
+    jokeElement.textContent = LOADING_JOKES[Math.floor(Math.random() * LOADING_JOKES.length)];
+  };
+  showRandomJoke();
+  const dismissLoader = () => {
+    loader.classList.add("done");
+  };
+  window.setTimeout(dismissLoader, 5000);
 
   mountSidebar();
   mountDisclaimer();
