@@ -7,7 +7,8 @@ A self-hosted game library and media site with a dark liquid-glass interface.
 3. Run `npm start`.
 4. Open [http://localhost:3000](http://localhost:3000).
 
-The server uses port `3000` by default. Set the `PORT` environment variable to use a different port.
+The server uses `127.0.0.1:3000` by default, so it is reachable only from the same computer. Set `PORT` to use another port. To allow other devices on your local network, set `HOST=0.0.0.0`; only do this on a trusted network.
+The Ultraviolet proxy uses the app's local Bare server at `/bare/`; deploy on a Node.js host that supports WebSocket upgrades. Static hosting and serverless platforms without WebSocket support cannot run the Bare server themselves. For a serverless frontend such as Vercel, set `BARE_URL` to an HTTPS Bare server URL ending in `/` (for example, `https://your-node-host.example/bare/`).
 
 On each new tab session, accept the use notice and choose a guest username to continue. Guest profiles can include a picture, track games launched and favorites, and download a profile report with those details. All profile data stays temporary in that tab only; no account or server-side data is saved. Declining clears the site view.
 
@@ -39,6 +40,12 @@ Add the entry inside the JSON array, separating it from neighboring entries with
 ```
 
 Save the JSON and reload the Games page to see the new entry.
+
+## Minecraft (Horizon)
+The Games library launches Horizon from `/horizon/` when a packaged browser build is installed. Horizon does not include Minecraft resources; prepare them from your own Java Edition copy, then follow the [Horizon browser build guide](https://github.com/ripepicjm234-hub/horizon-web/blob/web/web/README.md) to build and package the web client. Copy the contents of `web/out/horizon-web/` into `public/horizon/`. The package requires a WebGPU-capable browser. Its Minecraft assets are for private use: do not expose them publicly or commit them to a public repository. Until the package is installed, the tile shows the setup page.
+
+## Background
+The animated background uses a lightweight CSS gradient effect inspired by [Ambient](https://github.com/ripepicjm234-hub/Ambient). Choose **Ambient**, **Ambient (slow)**, or **Minimal** in Settings to control the effect.
 
 ## Credits
 - [Ultraviolet](https://github.com/titaniumnetwork-dev/Ultraviolet) - proxy code + uv setup

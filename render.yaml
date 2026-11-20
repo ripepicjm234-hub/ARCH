@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: astriex
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/games
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: ADMIN_PASSWORD
+        generateValue: true

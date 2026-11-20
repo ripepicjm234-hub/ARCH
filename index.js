@@ -1,13 +1,40 @@
 import express from "express";
+import { createServer } from "node:http";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { createBareServer } from "@tomphttp/bare-server-node";
 import fs from "fs";
 const { readFileSync, writeFileSync, existsSync } = fs;
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
+const bareUrl = process.env.BARE_URL || "/bare/";
+if (process.env.BARE_URL) {
+  const parsedBareUrl = new URL(bareUrl);
+  if (parsedBareUrl.protocol !== "https:" || parsedBareUrl.username || parsedBareUrl.password || !parsedBareUrl.pathname.endsWith("/") || parsedBareUrl.search || parsedBareUrl.hash) {
+    throw new Error("BARE_URL must be an HTTPS Bare server URL ending in /.");
+  }
+}
+const bareServer = process.env.VERCEL ? null : createBareServer("/bare/");
+app.use((req, res, next) => {
+  if (bareServer?.shouldRoute(req)) return bareServer.routeRequest(req, res);
+  if (!bareServer && req.path.startsWith("/bare/")) {
+    return res.status(501).json({ error: "The proxy requires a Node.js host with WebSocket support." });
+  }
+  next();
+});
 app.use(express.json({ limit: "5mb" }));
+app.get("/uv/uv.config.js", (_req, res) => {
+  const configPath = join(__dirname, "public/uv/uv.config.js");
+  const config = readFileSync(configPath, "utf8")
+    .replace('"__ASTRIEX_BARE_URL__"', JSON.stringify(bareUrl));
+  res.type("application/javascript").send(config);
+});
 app.use(express.static(join(__dirname, "public")));
+app.get("/horizon", (_req, res) => res.redirect("/horizon/"));
+app.get(["/horizon/", "/horizon/index.html"], (_req, res) => {
+  res.sendFile(join(__dirname, "public/minecraft.html"));
+});
 
 const REDIS_URL   = process.env.UPSTASH_REDIS_REST_URL;
 const REDIS_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN;
@@ -164,8 +191,14 @@ app.post("/api/admin/deny/:id",      auth, async (req, res)  => { try { await de
 app.use("*", (_req, res) => res.sendFile(join(__dirname, "public/index.html")));
 
 const port = process.env.PORT || 3000;
-if (process.env.NODE_ENV !== "production") {
-  app.listen(port, () => console.log(`Running on ${port}`));
+const host = process.env.HOST || "127.0.0.1";
+if (!process.env.VERCEL) {
+  const server = createServer(app);
+  server.on("upgrade", (req, socket, head) => {
+    if (bareServer?.shouldRoute(req)) bareServer.routeUpgrade(req, socket, head);
+    else socket.end();
+  });
+  server.listen(port, host, () => console.log(`Running on http://${host}:${port}`));
 }
 
 export default app;
