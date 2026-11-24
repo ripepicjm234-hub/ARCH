@@ -1,5 +1,17 @@
 [
   {
+    "id": "eaglercraft-launcher",
+    "title": "Eaglercraft Launcher",
+    "pinned": true,
+    "url": "https://ripepicjm234-hub.github.io/EaglerLauncher.github.io/"
+  },
+  {
+    "id": "magma-mantle",
+    "title": "Magma Mantle",
+    "pinned": true,
+    "url": "https://magma-mantle.truegrid.cloud/"
+  },
+  {
     "id": "drive-mad",
     "title": "Drive Mad",
     "thumbnail": "/games/thumbs/drive-mad.jpg",
