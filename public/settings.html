@@ -180,6 +180,25 @@
     </div>
   </div>
 
+  <!-- PROXY -->
+  <div class="section" id="proxy-settings">
+    <p class="section-label">Proxy</p>
+    <div class="row">
+      <div class="row-info">
+        <span class="row-name">Enable web proxy</span>
+        <span class="row-desc">Off by default. GitHub Pages also needs a separate Bare server for proxying to work.</span>
+        <span class="row-desc" id="proxy-status" role="status">Proxy is off.</span>
+      </div>
+      <div class="row-control">
+        <label class="toggle">
+          <input type="checkbox" id="proxy-enabled" />
+          <div class="toggle-track"></div>
+          <div class="toggle-thumb"></div>
+        </label>
+      </div>
+    </div>
+  </div>
+
   <!-- SEARCH ENGINE -->
   <div class="section">
     <p class="section-label">Search Engine</p>
@@ -361,6 +380,19 @@
 
   <!-- ABOUT -->
   <div class="section">
+    <p class="section-label">Site Admin</p>
+    <div class="row">
+      <div class="row-info">
+        <span class="row-name">Admin panel</span>
+        <span class="row-desc">Manage submitted games. Requires the site's Node.js server; GitHub Pages cannot run the admin API.</span>
+      </div>
+      <div class="row-control">
+        <a class="ctrl-btn" href="admin.html" style="display:inline-block;text-decoration:none;">Open Admin</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
     <p class="section-label">About</p>
     <div class="about-block">
       <div class="about-row"><span class="about-key">Version</span><span class="about-val">1.0.0</span></div>
@@ -506,6 +538,7 @@
   // ── POPULATE ALL FIELDS FROM LOCALSTORAGE ──
   function loadSettings() {
     document.getElementById("search-engine").value    = load("astriex_search", "https://duckduckgo.com/?q=");
+    document.getElementById("proxy-enabled").checked = load("astriex_proxy_enabled", false);
     document.getElementById("game-fullscreen-window").checked = load("astriex_game_fullscreen_window", false);
     document.getElementById("disable-game-loading").checked = load("astriex_disable_game_loading", false);
     document.getElementById("cloak-enabled").checked  = load("astriex_cloak_enabled", false);
@@ -528,11 +561,15 @@
     document.getElementById("always-blank").checked   = load("astriex_always_blank", false);
     toggleCustomPanicRow();
     renderProfileSettings();
-    checkSW();
+    syncProxyWorker(document.getElementById("proxy-enabled").checked);
   }
 
   // ── AUTO-SAVE EVERY INPUT ──
   document.getElementById("search-engine").addEventListener("change",  e => save("astriex_search", e.target.value));
+  document.getElementById("proxy-enabled").addEventListener("change", e => {
+    save("astriex_proxy_enabled", e.target.checked);
+    syncProxyWorker(e.target.checked);
+  });
   document.getElementById("game-fullscreen-window").addEventListener("change", e => save("astriex_game_fullscreen_window", e.target.checked));
   document.getElementById("disable-game-loading").addEventListener("change", e => save("astriex_disable_game_loading", e.target.checked));
   document.getElementById("cloak-enabled").addEventListener("change",  e => save("astriex_cloak_enabled", e.target.checked));
@@ -612,14 +649,29 @@
   }
 
   // ── SERVICE WORKER STATUS ──
-  function checkSW() {
+  async function syncProxyWorker(enabled) {
+    const status = document.getElementById("proxy-status");
     if (!("serviceWorker" in navigator)) {
+      status.textContent = "Service workers are not supported in this browser.";
       document.getElementById("sw-status").textContent = "not supported";
       return;
     }
-    navigator.serviceWorker.getRegistration("uv/service/").then(reg => {
-      document.getElementById("sw-status").textContent = reg ? "active ✓" : "not registered";
-    });
+    try {
+      if (enabled) {
+        await navigator.serviceWorker.register("uv/sw.js", { scope: "uv/service/" });
+        status.textContent = "Proxy is on.";
+        document.getElementById("sw-status").textContent = "active ✓";
+      } else {
+        const registration = await navigator.serviceWorker.getRegistration("uv/service/");
+        if (registration) await registration.unregister();
+        status.textContent = "Proxy is off.";
+        document.getElementById("sw-status").textContent = "disabled";
+      }
+    } catch (error) {
+      status.textContent = `Could not update proxy: ${error.message}`;
+      document.getElementById("sw-status").textContent = "setup failed";
+      console.error("Could not update proxy service worker:", error);
+    }
   }
 
   // ── INIT ──

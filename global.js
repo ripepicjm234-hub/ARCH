@@ -2,6 +2,10 @@
 // Loaded on every page. Applies persistent settings from localStorage.
 
 (function () {
+  window.astriexProxyEnabled = function () {
+    try { return localStorage.getItem("astriex_proxy_enabled") === "true"; }
+    catch { return false; }
+  };
   const GUEST_PROFILE_KEY = "arch_guest_profile";
   const MAX_PROFILE_IMAGE_SIZE = 1024 * 1024;
   const SITE_TOUR_KEY = "arch_site_tour_step";

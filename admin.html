@@ -76,6 +76,7 @@
   <div class="login-box">
     <div>
       <div class="login-title">Admin</div>
+      <div class="login-sub">Admin API requires a Node.js host; GitHub Pages is static.</div>
     </div>
     <div class="field">
       <label>Password</label>
@@ -123,8 +124,18 @@
 
   async function doLogin() {
     const pass = document.getElementById("pass-input").value;
-    const res = await fetch("/api/admin/pending", { headers: { "x-admin-password": pass } });
+    let res;
+    try {
+      res = await fetch("/api/admin/pending", { headers: { "x-admin-password": pass } });
+    } catch (error) {
+      document.getElementById("login-err").textContent = `Could not reach the admin API: ${error.message}`;
+      return;
+    }
     if (res.status === 401) { document.getElementById("login-err").textContent = "Wrong password."; return; }
+    if (!res.ok) {
+      document.getElementById("login-err").textContent = "Admin API unavailable. Use the site on a Node.js host.";
+      return;
+    }
     adminPass = pass;
     document.getElementById("login-screen").style.display = "none";
     document.getElementById("dashboard").style.display = "block";
