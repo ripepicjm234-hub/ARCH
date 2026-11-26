@@ -6,23 +6,23 @@
   const MAX_PROFILE_IMAGE_SIZE = 1024 * 1024;
   const SITE_TOUR_KEY = "arch_site_tour_step";
   const SITE_TOUR_STEPS = [
-    { path: "/", section: "Navigation", selector: ".arch-sidebar-links", title: "Move around Arch", text: "Use these links to switch between Home, Games, Media, and Settings." },
-    { path: "/", section: "Navigation", selector: ".arch-sidebar-toggle", title: "Make room", text: "Collapse the sidebar to icons when you want more room. Select the arrow again to expand it." },
-    { path: "/", section: "Your profile", selector: ".arch-guest-profile", title: "Your guest profile", text: "Your profile shows games played and favorites saved on this device." },
-    { path: "/", section: "Home", selector: ".wordmark", title: "Welcome to Arch", text: "This is the home page. Use the navigation to get to the game and media libraries or adjust settings." },
-    { path: "/", section: "Home", selector: ".search-wrap", title: "Search or open a site", text: "Enter a web address or a search query here, then press Go or Enter." },
-    { path: "/g", section: "Games", selector: ".controls", title: "Find a game", text: "Search by game title or use Favorites to filter the library to games you have saved." },
-    { path: "/g", section: "Games", selector: ".games-grid", title: "Game library", text: "Choose a game card to play it. Use the star on a card to add or remove it from favorites." },
-    { path: "/g", section: "Games", selector: ".best-games", title: "Recommendations", text: "Browse a rotating selection of recommended games. Shuffle to get a different mix." },
-    { path: "/m", section: "Media", selector: ".controls", title: "Browse media", text: "Search for a title and switch between Movies, TV Shows, and Trending." },
-    { path: "/m", section: "Media", selector: ".movies-grid", title: "Media library", text: "Select a movie or show to view available playback options." },
-    { path: "/s", section: "Settings", selector: "#search-engine", title: "Search engine", text: "Choose which search provider Arch uses when you enter a search query instead of a web address." },
-    { path: "/s", section: "Settings", selector: "#cloak-enabled", title: "Tab appearance", text: "Tab Cloaking lets you change the browser tab title and icon." },
-    { path: "/s", section: "Settings", selector: "#bg-style", title: "Background", text: "Choose the animated background style, or use the minimal option to turn it off." },
-    { path: "/s", section: "Settings", selector: "#panic-enabled", title: "Panic key", text: "If enabled, a chosen key quickly redirects the page to the address you set below." },
-    { path: "/s", section: "Settings", selector: "#anti-close", title: "Close protection", text: "This option asks for confirmation before leaving the site or closing its tab." },
-    { path: "/s", section: "Settings", selector: "#always-blank", title: "Stealth launch", text: "These options open the site in an about:blank tab. Use them only if you understand how they affect navigation." },
-    { path: "/s", section: "Settings", selector: "#sw-status", title: "About Arch", text: "The About section shows technical information about the site, including its service worker status." }
+    { path: "index.html", section: "Navigation", selector: ".arch-sidebar-links", title: "Move around Arch", text: "Use these links to switch between Home, Games, Media, and Settings." },
+    { path: "index.html", section: "Navigation", selector: ".arch-sidebar-toggle", title: "Make room", text: "Collapse the sidebar to icons when you want more room. Select the arrow again to expand it." },
+    { path: "index.html", section: "Your profile", selector: ".arch-guest-profile", title: "Your guest profile", text: "Your profile shows games played and favorites saved on this device." },
+    { path: "index.html", section: "Home", selector: ".wordmark", title: "Welcome to Arch", text: "This is the home page. Use the navigation to get to the game and media libraries or adjust settings." },
+    { path: "index.html", section: "Home", selector: ".search-wrap", title: "Search or open a site", text: "Enter a web address or a search query here, then press Go or Enter." },
+    { path: "games.html", section: "Games", selector: ".controls", title: "Find a game", text: "Search by game title or use Favorites to filter the library to games you have saved." },
+    { path: "games.html", section: "Games", selector: ".games-grid", title: "Game library", text: "Choose a game card to play it. Use the star on a card to add or remove it from favorites." },
+    { path: "games.html", section: "Games", selector: ".best-games", title: "Recommendations", text: "Browse a rotating selection of recommended games. Shuffle to get a different mix." },
+    { path: "media.html", section: "Media", selector: ".controls", title: "Browse media", text: "Search for a title and switch between Movies, TV Shows, and Trending." },
+    { path: "media.html", section: "Media", selector: ".movies-grid", title: "Media library", text: "Select a movie or show to view available playback options." },
+    { path: "settings.html", section: "Settings", selector: "#search-engine", title: "Search engine", text: "Choose which search provider Arch uses when you enter a search query instead of a web address." },
+    { path: "settings.html", section: "Settings", selector: "#cloak-enabled", title: "Tab appearance", text: "Tab Cloaking lets you change the browser tab title and icon." },
+    { path: "settings.html", section: "Settings", selector: "#bg-style", title: "Background", text: "Choose the animated background style, or use the minimal option to turn it off." },
+    { path: "settings.html", section: "Settings", selector: "#panic-enabled", title: "Panic key", text: "If enabled, a chosen key quickly redirects the page to the address you set below." },
+    { path: "settings.html", section: "Settings", selector: "#anti-close", title: "Close protection", text: "This option asks for confirmation before leaving the site or closing its tab." },
+    { path: "settings.html", section: "Settings", selector: "#always-blank", title: "Stealth launch", text: "These options open the site in an about:blank tab. Use them only if you understand how they affect navigation." },
+    { path: "settings.html", section: "Settings", selector: "#sw-status", title: "About Arch", text: "The About section shows technical information about the site, including its service worker status." }
   ];
   let activeTourTarget = null;
   let tourResizeHandler = null;
@@ -228,7 +228,10 @@
       sessionStorage.removeItem(SITE_TOUR_KEY);
       return;
     }
-    if (window.location.pathname !== step.path) {
+    const currentPage = window.location.pathname.endsWith("/")
+      ? "index.html"
+      : window.location.pathname.split("/").pop();
+    if (currentPage !== step.path) {
       sessionStorage.setItem(SITE_TOUR_KEY, String(stepIndex));
       window.location.assign(step.path);
       return;
@@ -354,10 +357,10 @@
   function mountSidebar() {
     const currentPath = location.pathname;
     const links = [
-      { href: "/", label: "Home", icon: '<path d="m3 10 9-7 9 7"/><path d="M5 9v11h14V9M9 20v-6h6v6"/>' },
-      { href: "/g", label: "Games", icon: '<rect x="3" y="7" width="18" height="12" rx="3"/><path d="M7 13h4M9 11v4"/><circle cx="16" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="18" cy="14" r="1" fill="currentColor" stroke="none"/>' },
-      { href: "/m", label: "Media", icon: '<rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/>' },
-      { href: "/s", label: "Settings", icon: '<circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5v.1a2 2 0 1 1-4 0V19a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1A2 2 0 1 1 7 4.5l.1.1a1.7 1.7 0 0 0 1.8.3 1.7 1.7 0 0 0 1-1.5v-.1a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8 1.7 1.7 0 0 0 1.5 1h.1a2 2 0 1 1 0 4H21a1.7 1.7 0 0 0-1.5 1 1.7 1.7 0 0 0-.1.9z"/>' }
+      { href: "index.html", label: "Home", icon: '<path d="m3 10 9-7 9 7"/><path d="M5 9v11h14V9M9 20v-6h6v6"/>' },
+      { href: "games.html", label: "Games", icon: '<rect x="3" y="7" width="18" height="12" rx="3"/><path d="M7 13h4M9 11v4"/><circle cx="16" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="18" cy="14" r="1" fill="currentColor" stroke="none"/>' },
+      { href: "media.html", label: "Media", icon: '<rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/>' },
+      { href: "settings.html", label: "Settings", icon: '<circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5v.1a2 2 0 1 1-4 0V19a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1A2 2 0 1 1 7 4.5l.1.1a1.7 1.7 0 0 0 1.8.3 1.7 1.7 0 0 0 1-1.5v-.1a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8 1.7 1.7 0 0 0 1.5 1h.1a2 2 0 1 1 0 4H21a1.7 1.7 0 0 0-1.5 1 1.7 1.7 0 0 0-.1.9z"/>' }
     ];
     const sidebar = document.createElement("aside");
     sidebar.className = "arch-sidebar";

@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Games — Arch</title>
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Instrument+Serif:ital@0;1&display=swap');
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --black: #0a0a0a; --white: #f5f5f0; --gray: #888; }
+    html, body { min-height: 100%; background: transparent; color: var(--white); font-family: 'Space Mono', monospace; overflow-x: hidden; }
+    body::before { display: none; }
+    .nav { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; z-index: 300; background: #111; border: 1px solid #2a2a2a; padding: 0.5rem 0.6rem; gap: 0.25rem; }
+    .nav-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.3rem; width: 56px; height: 52px; background: transparent; border: none; cursor: pointer; color: #555; transition: color 0.15s, background 0.15s; text-decoration: none; position: relative; }
+    .nav-btn:hover { color: var(--white); background: #1a1a1a; }
+    .nav-btn.active { color: var(--white); }
+    .nav-btn.active::after { content: ''; position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%); width: 4px; height: 4px; background: var(--white); border-radius: 50%; }
+    .nav-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .nav-label { font-size: 0.45rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .page { min-height: 100vh; padding: 3rem 2rem 8rem; max-width: 1200px; margin: 0 auto; }
+    .page-header { margin-bottom: 2rem; animation: fade-up 0.6s ease both; }
+    .page-title { font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: -0.02em; margin-bottom: 0.4rem; }
+    .page-sub { font-size: 0.6rem; color: var(--gray); letter-spacing: 0.2em; text-transform: uppercase; }
+    .controls { display: flex; gap: 0.75rem; margin-bottom: 1.5rem; animation: fade-up 0.6s 0.1s ease both; }
+    .search-wrap { display: flex; flex: 1; max-width: 360px; border: 1px solid #2a2a2a; background: #111; transition: border-color 0.2s; }
+    .search-wrap:focus-within { border-color: var(--white); }
+    .search-wrap input { flex: 1; background: transparent; border: none; outline: none; color: var(--white); font-family: 'Space Mono', monospace; font-size: 0.75rem; padding: 0.65rem 1rem; caret-color: var(--white); }
+    .search-wrap input::placeholder { color: #333; }
+
+    /* Larger game cards with fewer columns at each screen size. */
+    .games-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; background: transparent; padding: 0.5rem; animation: fade-up 0.6s 0.2s ease both; }
+    @media (max-width: 1100px) { .games-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+    @media (max-width: 900px)  { .games-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    @media (max-width: 680px)  { .games-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 460px)  { .games-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .game-card { background: rgba(255,255,255,0.055); border: 1px solid rgba(255,255,255,0.11); cursor: pointer; position: relative; overflow: hidden; transition: background 0.2s, border-color 0.2s, filter 0.2s; border-radius: 18px; padding: 6px; }
+    .game-card:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.24); }
+    .game-card:hover .game-overlay { opacity: 1; }
+    .game-card:hover .game-thumb { filter: grayscale(0%) brightness(0.72); transform: scale(1.025); }
+    .game-thumb { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; filter: grayscale(18%); transition: filter 0.25s, transform 0.3s; border-radius: 13px; }
+    .game-no-thumb { width: 100%; aspect-ratio: 1; background: rgba(255,255,255,0.045); display: flex; align-items: center; justify-content: center; border-radius: 13px; }
+    .game-no-thumb svg { width: 28px; height: 28px; stroke: #2a2a2a; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .game-overlay { position: absolute; inset: 6px; background: linear-gradient(to top, rgba(0,0,0,0.88) 25%, rgba(0,0,0,0.08) 100%); opacity: 0; transition: opacity 0.2s; display: flex; flex-direction: column; justify-content: flex-end; padding: 0.8rem; border-radius: 13px; }
+    .game-play { width: 32px; height: 32px; border: 1px solid rgba(255,255,255,0.6); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem; background: rgba(255,255,255,0.12); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+    .game-play svg { width: 9px; height: 9px; fill: white; stroke: none; }
+    .game-name { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.02em; line-height: 1.3; color: var(--white); }
+
+    .library-page { display: grid; grid-template-columns: minmax(0, 1fr) 250px; align-items: start; gap: 2rem; max-width: 1600px; min-height: 100vh; margin-left: 220px; padding: 2.5rem; }
+    .library-content { min-width: 0; }
+    .library-page .page { max-width: none; min-height: 0; margin: 0; padding: 0; }
+    .nav { display: none; }
+    .side-nav { position: fixed; inset: 0 auto 0 0; z-index: 300; display: flex; flex-direction: column; width: 220px; padding: 2rem 1rem; border-right: 1px solid rgba(255,255,255,0.12); background: rgba(15,15,18,0.72); -webkit-backdrop-filter: blur(24px) saturate(150%); backdrop-filter: blur(24px) saturate(150%); }
+    .side-brand { padding: 0.25rem 0.8rem 2.5rem; color: #fff; font-family: 'Dancing Script', cursive; font-size: 2.2rem; line-height: 1; text-decoration: none; }
+    .side-links { display: flex; flex-direction: column; gap: 0.45rem; }
+    .side-link { display: flex; align-items: center; min-height: 44px; padding: 0.7rem 0.9rem; border: 1px solid transparent; border-radius: 14px; color: rgba(255,255,255,0.62); font-size: 0.9rem; text-decoration: none; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+    .side-link:hover, .side-link.active { border-color: rgba(255,255,255,0.13); background: rgba(255,255,255,0.1); color: #fff; }
+    .side-caption { margin: auto 0.8rem 0.5rem; color: rgba(255,255,255,0.35); font-size: 0.7rem; }
+    .best-games { position: sticky; top: 2rem; padding: 1.1rem; border: 1px solid rgba(255,255,255,0.14); border-radius: 22px; background: rgba(255,255,255,0.055); -webkit-backdrop-filter: blur(20px) saturate(145%); backdrop-filter: blur(20px) saturate(145%); }
+    .best-header { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 1rem; }
+    .best-title { font-family: 'Dancing Script', cursive; font-size: 1.7rem; }
+    .best-subtitle { margin-top: 0.1rem; color: rgba(255,255,255,0.5); font-size: 0.7rem; }
+    .best-shuffle { padding: 0.45rem 0.65rem; border: 1px solid rgba(255,255,255,0.18); border-radius: 999px; background: rgba(255,255,255,0.08); color: #fff; font-size: 0.7rem; cursor: pointer; }
+    .best-shuffle:hover { background: rgba(255,255,255,0.16); }
+    .best-list { display: flex; flex-direction: column; gap: 0.65rem; }
+    .best-game { display: grid; grid-template-columns: 56px minmax(0,1fr); align-items: center; gap: 0.7rem; width: 100%; padding: 0.4rem; border: 1px solid rgba(255,255,255,0.08); border-radius: 15px; background: rgba(255,255,255,0.045); color: #fff; text-align: left; cursor: pointer; transition: transform 0.18s, background 0.18s; }
+    .best-game:hover { transform: translateX(2px); background: rgba(255,255,255,0.12); }
+    .best-thumb { width: 56px; height: 56px; border-radius: 11px; object-fit: cover; }
+    .best-game-name { overflow: hidden; font-size: 0.8rem; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+    .best-empty { padding: 1rem 0.25rem; color: rgba(255,255,255,0.55); font-size: 0.8rem; }
+    @media (max-width: 1050px) {
+      .library-page { grid-template-columns: minmax(0,1fr) 220px; gap: 1.25rem; padding: 1.5rem; }
+      .games-grid { grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); gap: 12px; }
+    }
+    @media (max-width: 780px) {
+      .side-nav { width: 76px; padding: 1.5rem 0.55rem; align-items: center; }
+      .side-brand { padding: 0.2rem 0 2rem; font-size: 1.75rem; }
+      .side-links { width: 100%; }
+      .side-link { justify-content: center; padding: 0.6rem 0.2rem; font-size: 0.72rem; }
+      .side-caption { display: none; }
+      .library-page { grid-template-columns: minmax(0,1fr); margin-left: 76px; padding: 1.25rem; }
+      .best-games { position: static; }
+      .best-list { display: grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); }
+    }
+    @media (max-width: 520px) {
+      .side-nav { inset: auto 0 0; flex-direction: row; width: auto; height: 66px; padding: 0.4rem 0.7rem; border-top: 1px solid rgba(255,255,255,0.12); border-right: 0; }
+      .side-brand { padding: 0 0.7rem 0 0; font-size: 1.5rem; }
+      .side-links { flex-direction: row; justify-content: flex-end; gap: 0.2rem; }
+      .side-link { min-height: 40px; padding: 0.45rem 0.55rem; font-size: 0.67rem; }
+      .library-page { margin-left: 0; padding: 1rem 1rem 5.5rem; }
+      .games-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .page { padding: 1.5rem 0.25rem; }
+      .controls { flex-wrap: wrap; }
+    }
+
+    .empty-state { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; padding: 5rem 2rem; text-align: center; }
+    .empty-title { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 1.8rem; color: #222; }
+    .empty-sub { font-size: 0.55rem; color: #2a2a2a; letter-spacing: 0.2em; text-transform: uppercase; }
+    .empty-hint { font-size: 0.55rem; color: #333; margin-top: 0.5rem; line-height: 1.9; border: 1px dashed #1a1a1a; padding: 1rem 1.5rem; text-align: left; }
+    .empty-hint code { color: #555; }
+
+    .modal { display: none; position: fixed; inset: 0; background: #000; z-index: 500; flex-direction: column; }
+    .modal.open { display: flex; }
+    .modal-header { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1.25rem; border-bottom: 1px solid #1a1a1a; flex-shrink: 0; background: #0a0a0a; }
+    .modal-title { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 1.1rem; }
+    .modal-close { background: transparent; border: 1px solid #2a2a2a; color: var(--white); font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.45rem 0.8rem; cursor: pointer; transition: all 0.15s; }
+    .modal-close:hover { border-color: var(--white); }
+    .modal-full { background: transparent; border: 1px solid #2a2a2a; color: var(--white); font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.45rem 0.8rem; cursor: pointer; transition: all 0.15s; margin-right: 0.5rem; }
+    .modal-full:hover { border-color: var(--white); }
+    .modal-body { flex: 1; position: relative; background: #000; }
+    .game-iframe { width: 100%; height: 100%; border: none; display: block; }
+    .game-load-state { position: absolute; inset: 0; z-index: 2; display: grid; place-items: center; background: #08090d; color: #fff; font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; transition: opacity 0.25s; }
+    .game-load-state.hidden { opacity: 0; pointer-events: none; }
+
+    .loader { display: flex; align-items: center; justify-content: center; padding: 4rem; gap: 0.5rem; }
+    .loader-dot { width: 6px; height: 6px; background: #333; border-radius: 50%; animation: pulse 1s ease infinite; }
+    .loader-dot:nth-child(2) { animation-delay: 0.2s; }
+    .loader-dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes pulse { 0%,100%{opacity:0.2;transform:scale(0.8)}50%{opacity:1;transform:scale(1)} }
+    .corner { position: fixed; font-size: 0.5rem; letter-spacing: 0.15em; text-transform: uppercase; color: #2a2a2a; }
+    .corner.tl { top: 1.5rem; left: 1.5rem; }
+    @keyframes fade-up { from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)} }
+
+    /* USER GAME DELETE BTN */
+    .game-delete { position: absolute; top: 6px; left: 6px; width: 22px; height: 22px; background: rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 0.6rem; display: none; align-items: center; justify-content: center; cursor: pointer; border-radius: 4px; z-index: 10; line-height: 1; }
+    .game-card:hover .game-delete { display: flex; }
+
+  
+  /* ── VANTA READABILITY OVERRIDES ── */
+  * { color: #ffffff !important; }
+  input, select, textarea,
+  .ctrl-select, .ctrl-input, .search-wrap, .search-wrap input,
+  .season-select, #season-select,
+  .cat-btn, .ctrl-btn, .modal-btn, .page-btn, .key-record-btn,
+  .nav-btn, .nav, .modal-header, .modal-player,
+  .sidebar-header, .episode-sidebar,
+  .about-block, .api-prompt,
+  .movie-card, .game-card,
+  .movies-grid, .games-grid,
+  .section, .row, .page, .page-header,
+  .pagination, .controls,
+  .toggle-track { background: transparent !important; }
+  input, select, textarea,
+  .ctrl-select, .ctrl-input, .season-select, #season-select {
+    background: rgba(0,0,0,0.35) !important;
+    border-color: rgba(255,255,255,0.25) !important;
+  }
+  input:focus, select:focus, textarea:focus,
+  .ctrl-select:focus, .ctrl-input:focus, .season-select:focus {
+    border-color: rgba(255,255,255,0.8) !important;
+    background: rgba(0,0,0,0.5) !important;
+  }
+  .nav { background: rgba(0,0,0,0.45) !important; border-color: rgba(255,255,255,0.1) !important; }
+  .nav-btn:hover { background: rgba(255,255,255,0.08) !important; }
+  .cat-btn, .ctrl-btn, .modal-btn, .page-btn, .key-record-btn {
+    background: rgba(0,0,0,0.35) !important;
+    border-color: rgba(255,255,255,0.2) !important;
+  }
+  .cat-btn:hover, .ctrl-btn:hover, .modal-btn:hover, .page-btn:hover,
+  .cat-btn.active, .ctrl-btn.primary {
+    background: rgba(255,255,255,0.15) !important;
+    border-color: rgba(255,255,255,0.7) !important;
+  }
+  .ctrl-btn.primary { background: rgba(255,255,255,0.9) !important; color: #000 !important; }
+  .ctrl-btn.danger { border-color: rgba(200,80,80,0.5) !important; }
+  .ctrl-btn.danger:hover { border-color: rgba(200,80,80,0.9) !important; }
+  .toggle-track { background: rgba(0,0,0,0.4) !important; border-color: rgba(255,255,255,0.2) !important; }
+  input:checked ~ .toggle-track { background: rgba(255,255,255,0.85) !important; }
+  .toggle-thumb { background: rgba(255,255,255,0.4) !important; }
+  input:checked ~ .toggle-thumb { background: #000 !important; }
+  .modal, .modal-player, .modal-header, .modal-body,
+  .episode-sidebar, .sidebar-header, .episode-list { background: rgba(0,0,0,0.75) !important; }
+  .about-block { background: rgba(0,0,0,0.3) !important; border-color: rgba(255,255,255,0.1) !important; }
+  .movie-card { background: rgba(0,0,0,0.25) !important; }
+  .movie-card:hover { background: rgba(0,0,0,0.4) !important; }
+  .ep-item { background: transparent !important; border-color: rgba(255,255,255,0.05) !important; }
+  .ep-item:hover { background: rgba(255,255,255,0.07) !important; }
+  .ep-item.active { background: rgba(255,255,255,0.1) !important; border-left-color: #fff !important; }
+  .movies-grid, .games-grid { background: transparent !important; }
+  .section-label, .page-sub, .row-desc, .movie-year-overlay,
+  .movie-rating, .ep-air, .about-key, .about-val,
+  .nav-label, .modal-meta, .page-info { color: rgba(255,255,255,0.6) !important; }
+  .loader-dot { background: rgba(255,255,255,0.3) !important; }
+  .theme-swatch.active::after { color: #fff !important; }
+  ::placeholder { color: rgba(255,255,255,0.3) !important; }
+
+  html, body { min-height: 100% !important; }
+
+  select option { background: #1a1a1a !important; color: #fff !important; }
+
+
+</style>
+    <link rel="stylesheet" href="theme.css" />
+</head>
+<body>
+
+<aside class="side-nav" aria-label="Main navigation">
+  <a class="side-brand" href="index.html">Arch</a>
+  <nav class="side-links">
+    <a class="side-link" href="index.html">Home</a>
+    <a class="side-link active" href="games.html" aria-current="page">Games</a>
+    <a class="side-link" href="media.html">Media</a>
+    <a class="side-link" href="settings.html">Settings</a>
+  </nav>
+  <span class="side-caption">Your game library</span>
+</aside>
+
+<main class="library-page">
+  <section class="library-content">
+    <div class="page">
+      <div class="page-header">
+        <h1 class="page-title">Games</h1>
+      </div>
+
+      <div class="controls" id="controls">
+        <div class="search-wrap">
+          <input id="search-input" type="text" placeholder="search games..." autocomplete="off" spellcheck="false" />
+        </div>
+        <button class="favorites-filter" id="favorites-filter" type="button" aria-pressed="false">Favorites</button>
+      </div>
+
+      <p class="profile-message" id="profile-message" role="status" hidden></p>
+      <div class="loader" id="loader"><div class="loader-dot"></div><div class="loader-dot"></div><div class="loader-dot"></div></div>
+      <div class="games-grid" id="games-grid"></div>
+    </div>
+  </section>
+  <aside class="best-games" aria-label="Random game recommendations">
+    <div class="best-header">
+      <div>
+        <h2 class="best-title">Best Games</h2>
+        <p class="best-subtitle">A fresh mix every visit</p>
+      </div>
+      <button class="best-shuffle" id="best-shuffle" type="button" aria-label="Shuffle recommended games">Shuffle</button>
+    </div>
+    <div class="best-list" id="best-list" aria-live="polite"></div>
+  </aside>
+</main>
+
+<div class="modal" id="game-modal">
+  <div class="modal-header">
+    <div class="modal-title" id="modal-title"></div>
+    <button class="modal-full" onclick="fullscreenGame()" id="full-btn">⛶ Fullscreen</button>
+    <button class="modal-close" onclick="closeGame()">✕ Close</button>
+  </div>
+  <div class="modal-body">
+    <div class="game-load-state" id="game-load-state">Loading game...</div>
+    <iframe class="game-iframe" id="game-iframe" allow="autoplay; fullscreen"></iframe>
+  </div>
+</div>
+
+<nav class="nav">
+  <a class="nav-btn" href="index.html"><svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg><span class="nav-label">Home</span></a>
+  <a class="nav-btn active" href="games.html"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h4M8 10v4"/><circle cx="15" cy="11" r="1" fill="currentColor"/><circle cx="17" cy="13" r="1" fill="currentColor"/></svg><span class="nav-label">Games</span></a>
+  <a class="nav-btn" href="media.html"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg><span class="nav-label">Media</span></a>
+  <a class="nav-btn" href="settings.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg><span class="nav-label">Settings</span></a>
+</nav>
+
+<script>
+  let allGames = [];
+  let favoritesOnly = false;
+  let profileMessageTimer;
+  let gameLoadTimer;
+
+  function getGuestProfile() {
+    return typeof window.ARCH_GET_GUEST_PROFILE === "function" ? window.ARCH_GET_GUEST_PROFILE() : null;
+  }
+
+  function saveGuestProfile(profile) {
+    if (typeof window.ARCH_SAVE_GUEST_PROFILE !== "function" || !window.ARCH_SAVE_GUEST_PROFILE(profile)) {
+      showProfileMessage("Could not save your guest profile in this tab. Try closing other tabs or using a smaller profile picture.");
+      return false;
+    }
+    return true;
+  }
+
+  function showProfileMessage(message) {
+    const notice = document.getElementById("profile-message");
+    notice.textContent = message;
+    notice.hidden = false;
+    clearTimeout(profileMessageTimer);
+    profileMessageTimer = setTimeout(() => { notice.hidden = true; }, 3500);
+  }
+
+  function gameIdentity(game) {
+    return String(game.id || game.file || game.url || game.title);
+  }
+
+  function getCatalogGames() {
+    return [...allGames.filter(game => !game._user), ...getUserGames().map(game => ({ ...game, _user: true }))];
+  }
+
+  function renderCurrentGames() {
+    const query = document.getElementById("search-input").value.trim().toLowerCase();
+    const profile = getGuestProfile();
+    const favoriteIds = new Set((profile?.favorites || []).map(game => game.id));
+    const visible = getCatalogGames().filter(game =>
+      (!favoritesOnly || favoriteIds.has(gameIdentity(game))) &&
+      (!query || game.title.toLowerCase().includes(query))
+    );
+    renderGames(visible);
+  }
+
+  function updateFavoriteButton(button, game) {
+    const profile = getGuestProfile();
+    const isFavorite = (profile?.favorites || []).some(item => item.id === gameIdentity(game));
+    button.textContent = isFavorite ? "★" : "☆";
+    button.classList.toggle("active", isFavorite);
+    button.setAttribute("aria-label", `${isFavorite ? "Remove" : "Add"} ${game.title} ${isFavorite ? "from" : "to"} favorites`);
+    button.title = isFavorite ? "Remove from favorites" : "Add to favorites";
+  }
+
+  function toggleFavorite(game) {
+    const profile = getGuestProfile();
+    if (!profile) {
+      showProfileMessage("Sign up as a guest to save favorites in this tab.");
+      return;
+    }
+    const id = gameIdentity(game);
+    const exists = profile.favorites.some(item => item.id === id);
+    profile.favorites = exists
+      ? profile.favorites.filter(item => item.id !== id)
+      : [...profile.favorites, { id, title: game.title }];
+    if (saveGuestProfile(profile)) {
+      renderCurrentGames();
+      showProfileMessage(exists ? `${game.title} removed from favorites.` : `${game.title} added to favorites.`);
+    }
+  }
+
+  function recordGamePlayed(game) {
+    const profile = getGuestProfile();
+    if (!profile) {
+      showProfileMessage("Sign up as a guest to track games played in this tab.");
+      return;
+    }
+    const id = gameIdentity(game);
+    profile.playedGames = [
+      ...profile.playedGames.filter(item => item.id !== id),
+      { id, title: game.title }
+    ];
+    if (saveGuestProfile(profile)) showProfileMessage(`${game.title} added to Games Played.`);
+  }
+
+  function fullscreenGame() {
+    const el = document.getElementById("game-iframe");
+    if (el.requestFullscreen) el.requestFullscreen();
+    else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+    else if (el.mozRequestFullScreen) el.mozRequestFullScreen();
+  }
+
+  function proxyUrl(url) {
+    if (typeof __uv$config !== "undefined") return __uv$config.prefix + __uv$config.encodeUrl(url);
+    return "uv/service/" + encodeURIComponent(url);
+  }
+
+  function cinemaProxy(url) {
+    return "uv/service/" + encodeURIComponent(url);
+  }
+
+  async function loadGames() {
+    const override = window.ASTRIEX_GAMES_OVERRIDE;
+    if (override) {
+      allGames = override;
+    } else {
+      // Always load local curated games first
+      let base = [];
+      try {
+        const res = await fetch("games/games-list.json");
+        if (res.ok) base = await res.json();
+      } catch {}
+
+      allGames = base;
+      const merged = [...allGames, ...getUserGames().map(game => ({ ...game, _user: true }))];
+      document.getElementById("controls").style.display = "flex";
+      renderGames(merged);
+      renderBestGames(merged);
+      document.getElementById("loader").style.display = "none";
+
+      // Fetch approved community games separately so the local catalog opens immediately.
+      try {
+        const centralUrl = "https://astriex.vercel.app/api/community-games";
+        const res = await fetch(centralUrl);
+        if (res.ok) {
+          const community = await res.json();
+          allGames = [...base, ...community];
+          const complete = [...allGames, ...getUserGames().map(game => ({ ...game, _user: true }))];
+          renderGames(complete);
+          renderBestGames(complete);
+        }
+      } catch {}
+      return;
+    }
+    // Always merge user-added games from localStorage
+    const userGames = getUserGames().map(g => ({ ...g, _user: true }));
+    const merged = [...allGames, ...userGames];
+    document.getElementById("controls").style.display = "flex";
+    renderGames(merged);
+    renderBestGames(merged);
+    document.getElementById("loader").style.display = "none";
+  }
+
+  function renderBestGames(games) {
+    const list = document.getElementById("best-list");
+    const shuffled = [...games];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    list.replaceChildren();
+
+    shuffled.slice(0, 5).forEach(game => {
+      const button = document.createElement("button");
+      button.className = "best-game";
+      button.type = "button";
+      button.addEventListener("click", () => openGame(game));
+
+      if (game.thumbnail) {
+        const thumbnail = document.createElement("img");
+        thumbnail.className = "best-thumb";
+        thumbnail.src = game.thumbnail;
+        thumbnail.alt = "";
+        thumbnail.loading = "lazy";
+        button.appendChild(thumbnail);
+      } else {
+        const thumbnail = document.createElement("span");
+        thumbnail.className = "best-thumb";
+        thumbnail.setAttribute("aria-hidden", "true");
+        button.appendChild(thumbnail);
+      }
+
+      const title = document.createElement("span");
+      title.className = "best-game-name";
+      title.textContent = game.title;
+      button.appendChild(title);
+      list.appendChild(button);
+    });
+
+    if (!shuffled.length) {
+      list.innerHTML = '<p class="best-empty">No games to recommend yet.</p>';
+    }
+  }
+
+  function renderGames(games) {
+    const grid = document.getElementById("games-grid");
+    document.getElementById("loader").style.display = "none";
+    grid.innerHTML = "";
+
+    if (!games.length) { renderEmpty(); return; }
+
+    games = [...games].sort((a, b) => Number(Boolean(b.pinned)) - Number(Boolean(a.pinned)) || a.title.localeCompare(b.title));
+
+    games.forEach((game, i) => {
+      const card = document.createElement("div");
+      card.className = "game-card";
+      card.style.cssText = `animation:fade-up 0.4s ${i*0.03}s ease both`;
+      card.innerHTML = game.thumbnail
+        ? `<img class="game-thumb" src="${game.thumbnail}" alt="${game.title}" loading="lazy"/>
+           <div class="game-overlay"><div class="game-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><div class="game-name">${game.title}</div></div>`
+        : `<div class="game-no-thumb"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h4M8 10v4"/><circle cx="15" cy="11" r="1" fill="currentColor"/><circle cx="17" cy="13" r="1" fill="currentColor"/></svg></div>
+           <div class="game-overlay"><div class="game-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><div class="game-name">${game.title}</div></div>`;
+      card.addEventListener("click", () => openGame(game));
+      const favorite = document.createElement("button");
+      favorite.className = "game-favorite";
+      favorite.type = "button";
+      favorite.addEventListener("click", event => {
+        event.stopPropagation();
+        toggleFavorite(game);
+      });
+      updateFavoriteButton(favorite, game);
+      card.appendChild(favorite);
+      // Delete button for user-added games
+      if (game._user) {
+        const del = document.createElement("button");
+        del.className = "game-delete";
+        del.innerHTML = "✕";
+        del.title = "Remove game";
+        del.addEventListener("click", e => { e.stopPropagation(); deleteUserGame(game.id); });
+        card.appendChild(del);
+      }
+      grid.appendChild(card);
+    });
+  }
+
+  function renderEmpty() {
+    document.getElementById("games-grid").innerHTML = `
+      <div class="empty-state">
+        <div class="empty-title">No games yet</div>
+        <p class="empty-sub">${favoritesOnly ? "No favorite games yet" : "No games found"}</p>
+      </div>`;
+  }
+
+  function openGame(game) {
+    recordGamePlayed(game);
+    if (localStorage.getItem("astriex_game_fullscreen_window") === "true") {
+      openFullscreenGameWindow(game);
+      return;
+    }
+    if (game.url && game.direct) {
+      window.open(game.url, "_blank", "noopener,noreferrer");
+      return;
+    }
+    document.getElementById("modal-title").textContent = game.title;
+    document.getElementById("game-modal").classList.add("open");
+    document.body.style.overflow = "hidden";
+    const iframe = document.getElementById("game-iframe");
+    const loadState = document.getElementById("game-load-state");
+    clearTimeout(gameLoadTimer);
+    if (localStorage.getItem("astriex_disable_game_loading") === "true") {
+      loadState.classList.add("hidden");
+    } else {
+      loadState.innerHTML = "Loading game...<br><small>Why did the game cross the loading bar? To find a faster frame.</small>";
+      loadState.style.textAlign = "center";
+      loadState.style.lineHeight = "1.8";
+      loadState.classList.remove("hidden");
+      gameLoadTimer = window.setTimeout(() => loadState.classList.add("hidden"), 2000);
+    }
+    iframe.onload = null;
+    if (game.url) {
+      iframe.src = game.url;
+    } else if (game.blobContent) {
+      // HTML content — write into blob URL
+      const blob = new Blob([game.blobContent], { type: "text/html" });
+      iframe.src = URL.createObjectURL(blob);
+    } else if (game.file) {
+      iframe.src = game.file;
+    }
+  }
+
+  function openFullscreenGameWindow(game) {
+    let url = game.url || (game.file ? new URL(game.file, location.href).href : "");
+    if (game.blobContent) {
+      url = URL.createObjectURL(new Blob([game.blobContent], { type: "text/html" }));
+    }
+    if (!url) return;
+
+    const windowFeatures = `popup=yes,width=${screen.availWidth},height=${screen.availHeight},left=0,top=0`;
+    if (game.url && game.direct) {
+      if (!window.open(game.url, "_blank", windowFeatures)) {
+        showProfileMessage("Allow pop-ups to open games in a separate window.");
+      }
+      return;
+    }
+
+    const popup = window.open("", "_blank", windowFeatures);
+    if (!popup) {
+      showProfileMessage("Allow pop-ups to open games in a separate window.");
+      return;
+    }
+
+    popup.document.title = game.title;
+    popup.document.documentElement.style.cssText = "width:100%;height:100%;margin:0;background:#000";
+    popup.document.body.style.cssText = "width:100%;height:100%;margin:0;overflow:hidden;background:#000";
+    const iframe = popup.document.createElement("iframe");
+    iframe.src = url;
+    iframe.allow = "autoplay; fullscreen";
+    iframe.allowFullscreen = true;
+    iframe.style.cssText = "position:fixed;inset:0;width:100%;height:100%;border:0";
+    popup.document.body.appendChild(iframe);
+    try {
+      popup.document.documentElement.requestFullscreen?.().catch(() => {});
+    } catch {}
+  }
+
+  function closeGame() {
+    document.getElementById("game-modal").classList.remove("open");
+    document.getElementById("game-iframe").src = "";
+    document.body.style.overflow = "";
+  }
+
+
+  function getUserGames() {
+    try { return JSON.parse(localStorage.getItem("astriex_user_games") || "[]"); }
+    catch { return []; }
+  }
+
+  function saveUserGames(games) {
+    localStorage.setItem("astriex_user_games", JSON.stringify(games));
+  }
+
+  function deleteUserGame(id) {
+    const games = getUserGames().filter(g => g.id !== id);
+    saveUserGames(games);
+    reloadGames();
+  }
+
+  function reloadGames() {
+    renderCurrentGames();
+  }
+
+  document.getElementById("search-input").addEventListener("input", e => {
+    renderCurrentGames();
+  });
+  document.getElementById("favorites-filter").addEventListener("click", event => {
+    favoritesOnly = !favoritesOnly;
+    event.currentTarget.setAttribute("aria-pressed", String(favoritesOnly));
+    event.currentTarget.classList.toggle("active", favoritesOnly);
+    renderCurrentGames();
+  });
+  document.getElementById("best-shuffle").addEventListener("click", () => {
+    const userGames = getUserGames().map(g => ({ ...g, _user: true }));
+    renderBestGames([...allGames.filter(g => !g._user), ...userGames]);
+  });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeGame(); });
+
+  loadGames();
+</script>
+
+<script src="uv/uv.bundle.js"></script>
+<script src="uv/uv.config.js"></script>
+<script src="global.js"></script>
+</body>
+</html>

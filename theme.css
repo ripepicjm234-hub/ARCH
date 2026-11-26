@@ -1,0 +1,1097 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Dancing+Script:wght@600;700&display=swap");
+
+:root {
+  color-scheme: dark;
+  --arch-glass: rgba(255, 255, 255, 0.075);
+  --arch-glass-strong: rgba(255, 255, 255, 0.12);
+  --arch-border: rgba(255, 255, 255, 0.16);
+}
+
+html {
+  background: #08090d !important;
+}
+
+body {
+  isolation: isolate;
+  background: transparent !important;
+}
+
+body::after {
+  position: fixed;
+  inset: -30%;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 28%, rgba(145, 170, 220, 0.16), transparent 24%),
+    radial-gradient(circle at 78% 68%, rgba(218, 180, 218, 0.11), transparent 20%),
+    radial-gradient(circle at 56% 18%, rgba(120, 205, 190, 0.09), transparent 18%);
+  filter: blur(18px);
+  opacity: 1;
+  will-change: transform;
+  animation: ambient-orbits 18s ease-in-out infinite alternate;
+}
+
+@keyframes ambient-orbits {
+  0% { transform: translate3d(-4%, -3%, 0) rotate(-2deg) scale(1); }
+  50% { transform: translate3d(5%, 2%, 0) rotate(3deg) scale(1.08); }
+  100% { transform: translate3d(-2%, 7%, 0) rotate(-1deg) scale(1.03); }
+}
+
+.arch-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 10040;
+  display: grid;
+  place-items: center;
+  background: #08090d;
+  transition: opacity 0.45s ease, visibility 0.45s ease;
+}
+
+.arch-loader.done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.arch-loader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.arch-loader-brand {
+  font-family: "Dancing Script", cursive !important;
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  line-height: 1;
+}
+
+.arch-loader-track {
+  width: 132px;
+  height: 2px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.arch-loader-joke {
+  max-width: min(520px, calc(100vw - 3rem));
+  min-height: 2.4em;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: clamp(0.65rem, 2vw, 0.82rem);
+  line-height: 1.5;
+  text-align: center;
+}
+
+.arch-loader-track::after {
+  display: block;
+  width: 55%;
+  height: 100%;
+  content: "";
+  background: #fff;
+  animation: arch-loading-bar 1s ease-in-out infinite;
+}
+
+@keyframes arch-loading-bar {
+  0% { transform: translateX(-110%); }
+  100% { transform: translateX(290%); }
+}
+
+body::before {
+  position: fixed;
+  inset: -35%;
+  z-index: -1;
+  display: block !important;
+  content: "";
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(108deg, transparent 0 7%, rgba(198, 207, 238, 0.045) 9%, transparent 12%),
+    linear-gradient(108deg, #090a0d 5%, #1b1e29 31%, #0a0b10 53%, #20232d 77%, #090a0d 95%);
+  background-size: 300% 200%, 300% 200%;
+  background-position: 50% 50%;
+  filter: blur(28px);
+  opacity: 0.72;
+  mask-image: radial-gradient(ellipse at 100% 0%, #000 12%, transparent 72%);
+  animation: ambient-drift 70s linear infinite;
+}
+
+body[data-bg-style="clouds_slow"]::before {
+  animation-duration: 140s;
+}
+
+body[data-bg-style="minimal"]::before,
+body[data-bg-style="minimal"]::after {
+  display: none !important;
+}
+
+@keyframes ambient-drift {
+  to { background-position: 350% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before, body::after { animation: none; }
+}
+
+body,
+body * {
+  font-family: "DM Sans", sans-serif !important;
+}
+
+body.arch-layout {
+  padding-left: 220px !important;
+  transition: padding-left 0.2s ease;
+}
+
+body.arch-layout.arch-sidebar-collapsed {
+  padding-left: 72px !important;
+}
+
+body.arch-layout .nav,
+body.arch-layout .side-nav {
+  display: none !important;
+}
+
+body.arch-layout .library-page {
+  max-width: none;
+  margin-left: 0 !important;
+}
+
+.arch-sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  padding: 2rem 1rem;
+  border-right: 1px solid var(--arch-border);
+  background: rgba(15, 15, 18, 0.76);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  backdrop-filter: blur(24px) saturate(150%);
+  transition: width 0.2s ease, padding 0.2s ease, height 0.2s ease;
+}
+
+.arch-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  padding-bottom: 2rem;
+}
+
+.arch-sidebar-brand {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.2rem 0.1rem;
+  color: #fff;
+  font-family: "Dancing Script", cursive !important;
+  font-size: 2.2rem;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.arch-sidebar-brand span {
+  font-family: "Dancing Script", cursive !important;
+}
+
+.arch-sidebar-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+  padding: 0;
+  border: 1px solid var(--arch-border);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+
+.arch-sidebar-toggle:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.arch-sidebar-toggle svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+body.arch-sidebar-collapsed .arch-sidebar {
+  width: 72px;
+  align-items: center;
+  padding: 1.5rem 0.45rem;
+}
+
+body.arch-sidebar-collapsed .arch-sidebar-header {
+  flex-direction: column;
+  padding-bottom: 1.5rem;
+}
+
+body.arch-sidebar-collapsed .arch-sidebar-brand span,
+body.arch-sidebar-collapsed .arch-sidebar-link span,
+body.arch-sidebar-collapsed .arch-guest-profile {
+  display: none !important;
+}
+
+body.arch-sidebar-collapsed .arch-sidebar-links {
+  width: 100%;
+}
+
+body.arch-sidebar-collapsed .arch-sidebar-link {
+  justify-content: center;
+  padding: 0.7rem 0.2rem;
+}
+
+.arch-sidebar-tour {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  width: 100%;
+  min-height: 44px;
+  margin: 0.75rem 0 0;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--arch-border);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.9rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+
+.arch-sidebar-tour:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+
+.arch-sidebar-tour svg {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+body.arch-sidebar-collapsed .arch-sidebar-tour {
+  justify-content: center;
+  padding: 0.7rem 0.2rem;
+}
+
+body.arch-sidebar-collapsed .arch-sidebar-tour span {
+  display: none;
+}
+
+.arch-tour-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 10020;
+  pointer-events: none;
+}
+
+.arch-tour-shade {
+  position: fixed;
+  background: rgba(5, 6, 9, 0.62);
+  -webkit-backdrop-filter: blur(7px) brightness(0.55);
+  backdrop-filter: blur(7px) brightness(0.55);
+  pointer-events: auto;
+}
+
+.arch-tour-target {
+  outline: 3px solid rgba(226, 231, 255, 0.95) !important;
+  outline-offset: 4px;
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.12), 0 0 32px rgba(195, 207, 255, 0.32) !important;
+  pointer-events: none !important;
+}
+
+.arch-tour-card {
+  position: fixed;
+  left: 50%;
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  width: min(460px, calc(100vw - 2rem));
+  max-height: min(44vh, 300px);
+  overflow: auto;
+  padding: 1.2rem 1.35rem;
+  transform: translateX(-50%);
+  border: 1px solid var(--arch-border);
+  border-radius: 20px;
+  background: rgba(18, 18, 22, 0.94);
+  box-shadow: 0 18px 56px rgba(0, 0, 0, 0.6), inset 0 1px rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: blur(22px) saturate(145%);
+  backdrop-filter: blur(22px) saturate(145%);
+  color: #fff;
+  pointer-events: auto;
+}
+
+.arch-tour-count {
+  margin-bottom: 0.35rem;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.arch-tour-card h2 {
+  margin-bottom: 0.35rem;
+  color: #fff;
+  font-family: "Dancing Script", cursive !important;
+  font-size: 1.8rem;
+}
+
+.arch-tour-text {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.arch-tour-actions,
+.arch-tour-step-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.arch-tour-actions {
+  margin-top: 1rem;
+}
+
+.arch-tour-step-actions {
+  justify-content: flex-end;
+}
+
+.arch-tour-actions button {
+  min-height: 36px;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--arch-border);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.arch-tour-actions button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.arch-tour-actions button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.arch-tour-actions .arch-tour-next {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.9);
+  color: #111;
+  font-weight: 700;
+}
+
+.arch-tour-actions .arch-tour-next:hover {
+  background: #fff;
+}
+
+.arch-sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.arch-sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-height: 46px;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.18s, border-color 0.18s, color 0.18s;
+}
+
+.arch-sidebar-link svg {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 auto;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.arch-sidebar-link:hover,
+.arch-sidebar-link.active {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.arch-guest-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: auto;
+  padding: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.arch-guest-profile[hidden],
+.arch-guest-signup[hidden],
+.arch-disclaimer-actions [hidden] {
+  display: none !important;
+}
+
+.arch-profile-name {
+  overflow-wrap: anywhere;
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.arch-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+}
+
+.arch-profile-avatar {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  place-items: center;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  cursor: default;
+}
+
+.arch-profile-avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.arch-profile-avatar-fallback {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.arch-profile-info {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.arch-profile-status,
+.arch-profile-stats {
+  color: rgba(255, 255, 255, 0.53);
+  font-size: 0.7rem;
+}
+
+.arch-profile-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+
+.arch-profile-stat {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.045);
+  color: #fff;
+  text-align: left;
+  cursor: pointer;
+}
+
+.arch-profile-stat:hover,
+.arch-profile-stat[aria-expanded="true"] {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.arch-profile-stat strong {
+  font-size: 0.95rem;
+}
+
+.arch-profile-stat span {
+  font-size: 0.61rem;
+}
+
+.arch-profile-details {
+  max-height: 150px;
+  overflow: auto;
+  padding: 0.5rem 0.65rem;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.25);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.68rem;
+}
+
+.arch-profile-details ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.arch-profile-details li + li {
+  margin-top: 0.25rem;
+}
+
+.arch-profile-action {
+  width: 100%;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.68rem;
+  cursor: pointer;
+}
+
+.arch-profile-action:hover {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.arch-profile-error {
+  margin: 0;
+  color: #ff9a9a;
+  font-size: 0.65rem;
+  line-height: 1.4;
+}
+
+.arch-disclaimer {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: rgba(0, 0, 0, 0.78);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+
+.arch-disclaimer-card {
+  width: min(100%, 520px);
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 28px;
+  background: rgba(24, 24, 27, 0.86);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.65), inset 0 1px rgba(255, 255, 255, 0.13);
+}
+
+.arch-disclaimer-brand {
+  margin-bottom: 0.7rem;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.arch-disclaimer-title {
+  margin-bottom: 1rem;
+  color: #fff;
+  font-family: "Dancing Script", cursive !important;
+  font-size: clamp(2.2rem, 8vw, 3rem);
+  line-height: 1.1;
+}
+
+.arch-disclaimer-copy {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.arch-disclaimer-note,
+.arch-disclaimer-error {
+  margin-top: 0.85rem;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.arch-guest-signup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 1.15rem;
+}
+
+.arch-guest-signup-title {
+  margin-bottom: 0.1rem;
+  color: #fff;
+  font-size: 1.15rem;
+}
+
+.arch-username-label,
+.arch-stats-label {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.arch-username-input {
+  width: 100%;
+  min-height: 46px;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  outline: none;
+  background: rgba(0, 0, 0, 0.32);
+  color: #fff !important;
+  font-size: 0.9rem;
+}
+
+.arch-username-input:focus {
+  border-color: rgba(255, 255, 255, 0.62);
+}
+
+.arch-pfp-input {
+  width: 100%;
+  padding: 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.28);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.72rem;
+}
+
+.arch-signup-pfp-preview {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.75rem;
+}
+
+.arch-signup-pfp-preview[hidden] {
+  display: none !important;
+}
+
+.arch-signup-pfp-preview img {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.arch-username-input::placeholder {
+  color: rgba(255, 255, 255, 0.38) !important;
+}
+
+.arch-profile-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.arch-profile-stats-grid div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.arch-profile-stats-grid strong {
+  color: #fff;
+  font-size: 1.15rem;
+}
+
+.arch-profile-stats-grid span {
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.72rem;
+}
+
+.favorites-filter {
+  padding: 0.65rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.favorites-filter:hover,
+.favorites-filter.active {
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.game-favorite {
+  position: absolute;
+  z-index: 3;
+  top: 6px;
+  right: 6px;
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.72);
+  color: #fff;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.game-favorite.active {
+  color: #ffd76a !important;
+}
+
+.profile-message {
+  margin: 0 0 1rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.75rem;
+}
+
+.profile-message[hidden] {
+  display: none !important;
+}
+
+.arch-disclaimer-error {
+  color: #ff9a9a;
+}
+
+.arch-disclaimer-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.arch-disclaimer-actions button {
+  min-height: 46px;
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.18s;
+}
+
+.arch-disclaimer-actions button:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.arch-disclaimer-actions .arch-accept {
+  border-color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.92);
+  color: #080808 !important;
+}
+
+.arch-disclaimer-actions .arch-accept:hover {
+  background: #fff;
+}
+
+body.arch-gated {
+  overflow: hidden !important;
+}
+
+h1,
+.wordmark,
+.page-title,
+.modal-title,
+.add-box-title,
+.login-title,
+.dash-title,
+.playtest-title,
+.side-brand,
+.best-title {
+  font-family: "Dancing Script", cursive !important;
+  font-style: normal !important;
+}
+
+.nav {
+  border: 1px solid var(--arch-border) !important;
+  border-radius: 999px !important;
+  background: rgba(18, 18, 20, 0.68) !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55), inset 0 1px rgba(255, 255, 255, 0.16) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  backdrop-filter: blur(24px) saturate(150%);
+}
+
+.nav-btn,
+.nav-btn:hover {
+  border-radius: 999px !important;
+}
+
+.search-wrap,
+.add-box,
+.about-block,
+.ctrl-select,
+.ctrl-input,
+.add-input,
+.add-tabs,
+.add-btn,
+.upload-btn,
+.modal-close,
+.modal-full,
+.cat-btn,
+.page-btn,
+.key-record-btn,
+.login-box .field input,
+.btn,
+.card,
+.toast {
+  border-color: var(--arch-border) !important;
+  border-radius: 16px !important;
+  background: var(--arch-glass) !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.11) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(145%);
+  backdrop-filter: blur(20px) saturate(145%);
+}
+
+.search-wrap {
+  overflow: hidden;
+}
+
+.search-wrap:focus-within,
+.ctrl-select:focus,
+.ctrl-input:focus,
+.add-input:focus {
+  border-color: rgba(255, 255, 255, 0.48) !important;
+  background: var(--arch-glass-strong) !important;
+}
+
+.game-card,
+.game-thumb,
+.game-no-thumb,
+.game-overlay,
+.suggest-card,
+.add-game-card,
+.movie-card,
+.movie-poster,
+.movie-no-poster,
+.movie-overlay,
+.movie-play,
+.game-play,
+.game-delete,
+.add-thumb-preview {
+  border-radius: 18px !important;
+}
+
+.game-card,
+.movie-card {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+}
+
+.game-card:hover,
+.movie-card:hover {
+  transform: translateY(-3px);
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.section,
+.row {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.add-modal,
+.modal,
+.playtest-modal {
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+
+.ctrl-btn.primary,
+.add-btn.primary,
+.btn.primary {
+  border: 1px solid rgba(255, 255, 255, 0.48) !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+}
+
+@media (max-width: 780px) {
+  body.arch-layout {
+    padding-left: 76px !important;
+  }
+
+  body.arch-layout.arch-sidebar-collapsed {
+    padding-left: 64px !important;
+  }
+
+  .arch-sidebar {
+    width: 76px;
+    align-items: center;
+    padding: 1.5rem 0.45rem;
+  }
+
+  .arch-sidebar-brand {
+    justify-content: center;
+    padding: 0 0 1.5rem;
+    font-size: 1rem;
+  }
+
+  .arch-sidebar-brand span {
+    display: none;
+  }
+
+  .arch-sidebar-header {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .arch-sidebar-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .arch-sidebar-tour {
+    justify-content: center;
+    padding: 0.65rem 0.2rem;
+  }
+
+  .arch-sidebar-tour span {
+    display: none;
+  }
+
+  body.arch-sidebar-collapsed .arch-sidebar {
+    width: 64px;
+  }
+
+  body.arch-sidebar-collapsed .arch-sidebar-header {
+    padding-bottom: 1rem;
+  }
+
+  .arch-sidebar-links {
+    width: 100%;
+  }
+
+  .arch-sidebar-link {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.3rem;
+    min-height: 56px;
+    padding: 0.35rem 0.1rem;
+    font-size: 0.63rem;
+  }
+
+  .arch-sidebar-link svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 520px) {
+  body.arch-layout {
+    padding-left: 0 !important;
+  }
+
+  .arch-sidebar {
+    inset: auto 0 0;
+    flex-direction: row;
+    width: auto;
+    height: 68px;
+    padding: 0.35rem 0.55rem;
+    border-top: 1px solid var(--arch-border);
+    border-right: 0;
+  }
+
+  .arch-sidebar-brand {
+    display: none;
+  }
+
+  .arch-sidebar-header {
+    display: contents;
+  }
+
+  .arch-sidebar-toggle {
+    height: 40px;
+    width: 40px;
+    margin-right: 0.25rem;
+  }
+
+  .arch-sidebar-tour {
+    width: 40px;
+    flex: 0 0 auto;
+    min-height: 40px;
+    margin: 0 0.25rem 0 0;
+  }
+
+  .arch-sidebar-links {
+    flex: 1;
+  }
+
+  .arch-sidebar-link {
+    min-width: 0;
+    flex: 1;
+  }
+
+  body.arch-sidebar-collapsed .arch-sidebar {
+    width: auto;
+    height: 48px;
+  }
+
+  body.arch-sidebar-collapsed .arch-sidebar-link {
+    min-height: 40px;
+    padding: 0.35rem 0.2rem;
+  }
+
+  .arch-guest-profile {
+    position: absolute;
+    right: 0.55rem;
+    bottom: calc(100% + 0.55rem);
+    width: min(240px, calc(100vw - 1.1rem));
+    margin: 0;
+  }
+
+  .arch-sidebar-links {
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 0.2rem;
+  }
+
+  .arch-sidebar-link {
+    min-width: 52px;
+    flex: 1;
+  }
+
+  .arch-disclaimer-actions {
+    flex-direction: column-reverse;
+  }
+}
