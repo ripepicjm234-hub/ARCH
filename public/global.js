@@ -362,7 +362,7 @@
     const sidebar = document.createElement("aside");
     sidebar.className = "arch-sidebar";
     sidebar.setAttribute("aria-label", "Main navigation");
-    sidebar.innerHTML = '<div class="arch-sidebar-header"><a class="arch-sidebar-brand" href="/">Arch</a><button class="arch-sidebar-toggle" type="button" aria-label="Minimize navigation" aria-controls="arch-sidebar-links" aria-expanded="true" title="Minimize navigation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button></div><nav class="arch-sidebar-links" id="arch-sidebar-links"></nav><button class="arch-sidebar-tour" type="button" aria-label="Take a tour" title="Take a tour"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2-2.4 3.6M12 17h.01"/></svg><span>Take a tour</span></button><div class="arch-guest-profile" hidden></div>';
+    sidebar.innerHTML = '<div class="arch-sidebar-header"><a class="arch-sidebar-brand" href="index.html">Arch</a><button class="arch-sidebar-toggle" type="button" aria-label="Minimize navigation" aria-controls="arch-sidebar-links" aria-expanded="true" title="Minimize navigation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button></div><nav class="arch-sidebar-links" id="arch-sidebar-links"></nav><button class="arch-sidebar-tour" type="button" aria-label="Take a tour" title="Take a tour"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2-2.4 3.6M12 17h.01"/></svg><span>Take a tour</span></button><div class="arch-guest-profile" hidden></div>';
     const toggle = sidebar.querySelector(".arch-sidebar-toggle");
     toggle.addEventListener("click", () => {
       const collapsed = document.body.classList.toggle("arch-sidebar-collapsed");
@@ -567,7 +567,7 @@
     const cloakTitle   = load("astriex_cloak_title", "") || "Arch";
     const cloakFavRaw  = load("astriex_cloak_favicon", "");
     const cloakFav     = cloakFavRaw === "custom" ? load("astriex_cloak_favicon_custom", "") : cloakFavRaw;
-    const favicon      = cloakFav || (location.origin + "/img/favicon.ico");
+    const favicon      = cloakFav || (new URL("img/favicon.ico", document.baseURI).href);
     const panicEnabled = load("astriex_panic_enabled", false);
     const panicKey     = load("astriex_panic_key", "");
     const panicUrl     = load("astriex_panic_url", "https://classroom.google.com");
